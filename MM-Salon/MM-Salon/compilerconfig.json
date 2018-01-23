@@ -1,0 +1,34 @@
+﻿[
+  {
+    "outputFile": "directives/partialsCss/_aboutCss.css",
+    "inputFile": "directives/partialsCss/_aboutCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_adminLoginCss.css",
+    "inputFile": "directives/partialsCss/_adminLoginCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_navbarCss.css",
+    "inputFile": "directives/partialsCss/_navbarCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_landingCss.css",
+    "inputFile": "directives/partialsCss/_landingCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_dealerPortalCss.css",
+    "inputFile": "directives/partialsCss/_dealerPortalCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_dealerLoginCss.css",
+    "inputFile": "directives/partialsCss/_dealerLoginCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_contactCss.css",
+    "inputFile": "directives/partialsCss/_contactCss.less"
+  },
+  {
+    "outputFile": "css/MyCss.css",
+    "inputFile": "css/MyCss.less"
+  }
+]

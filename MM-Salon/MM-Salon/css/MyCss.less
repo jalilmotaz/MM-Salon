@@ -1,0 +1,154 @@
+﻿.gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes)) when (@index > 0) {
+    .gradient(@type; @colors; @dir; @prefixes; (@index - 1));
+ 
+    @prefix  : extract(@prefixes, @index);
+    @dir-old : 90 - (@dir);
+ 
+    background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+  & when ( @index = length(@prefixes) ) {
+        background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+    }
+}
+
+@myBlue: #148BE1;
+@myOrange: #FF9307;
+@myGreen: #009D56;
+@gColor2:rgba(147,206,222,1);
+
+@borderColor: #555;
+
+body{
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+.btn-primary{
+    background-color: @myBlue;
+
+}
+.btn{
+    transition:all 0.1s ease-in;
+}
+.btn:hover{
+    background-color:transparent;
+    color:black;
+}
+ 
+.xsFont{font-size: 7pt;}
+.smFont{font-size: 12pt;}
+.mdFont{font-size: 17pt;}
+.lgFont{font-size: 22pt;}
+.xlFont{font-size: 27pt;}
+
+@media(max-width: 992px){
+    .xsFont{font-size: 5pt;}
+    .smFont{font-size: 8pt;}
+    .mdFont{font-size: 11pt;}
+    .lgFont{font-size: 14pt;}
+    .xlFont{font-size: 17pt;}
+
+    #appBody{
+      width:100% !important;
+      margin-left:0;
+    }
+    #topHeader{
+        height:40px !important;
+    }
+}
+
+       #footer {
+              bottom:0;
+             position:fixed;
+             height:30px;
+             width:100vw;
+             background-color: @myBlue;
+             color:white;
+        }
+
+ 
+#appBody{
+     max-width:1500px;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+#topHeader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    background-color: @myBlue;
+    height:80px;
+}
+
+
+ 
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+      min-width: 350px; /* Set a default minimum width */
+      max-width:400px;
+     background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 4px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+     bottom:200px;/* 30px from the bottom */
+    font-size:12pt;
+    left:0;
+    right:0;
+    margin:auto;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
+ }
+#snackbar div{
+           display: flex;
+                align-items: center;
+
+                justify-content: center;
+
+                flex-direction: column;
+                overflow:hidden;
+                height:100%;
+}
+#snackbar p {
+
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 200px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 200px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 200px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 200px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+} 
+
+.w100{
+    width:100%;
+}

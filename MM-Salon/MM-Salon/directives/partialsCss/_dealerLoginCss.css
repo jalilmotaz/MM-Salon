@@ -1,0 +1,269 @@
+﻿body {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.btn-primary {
+  background-color: #148BE1;
+}
+.btn {
+  transition: all 0.1s ease-in;
+}
+.btn:hover {
+  background-color: transparent;
+  color: black;
+}
+.xsFont {
+  font-size: 7pt;
+}
+.smFont {
+  font-size: 12pt;
+}
+.mdFont {
+  font-size: 17pt;
+}
+.lgFont {
+  font-size: 22pt;
+}
+.xlFont {
+  font-size: 27pt;
+}
+@media (max-width: 992px) {
+  .xsFont {
+    font-size: 5pt;
+  }
+  .smFont {
+    font-size: 8pt;
+  }
+  .mdFont {
+    font-size: 11pt;
+  }
+  .lgFont {
+    font-size: 14pt;
+  }
+  .xlFont {
+    font-size: 17pt;
+  }
+  #appBody {
+    width: 100% !important;
+    margin-left: 0;
+  }
+  #topHeader {
+    height: 40px !important;
+  }
+}
+#footer {
+  bottom: 0;
+  position: fixed;
+  height: 30px;
+  width: 100vw;
+  background-color: #148BE1;
+  color: white;
+}
+#appBody {
+  max-width: 1500px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#topHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #148BE1;
+  height: 80px;
+}
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden;
+  /* Hidden by default. Visible on click */
+  min-width: 350px;
+  /* Set a default minimum width */
+  max-width: 400px;
+  background-color: #333;
+  /* Black background color */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centered text */
+  border-radius: 4px;
+  /* Rounded borders */
+  padding: 16px;
+  /* Padding */
+  position: fixed;
+  /* Sit on top of the screen */
+  z-index: 1;
+  /* Add a z-index if needed */
+  bottom: 200px;
+  /* 30px from the bottom */
+  font-size: 12pt;
+  left: 0;
+  right: 0;
+  margin: auto;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+#snackbar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible;
+  /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 200px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 200px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 200px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    bottom: 200px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+.w100 {
+  width: 100%;
+}
+#login-form input:focus,
+#register-form input:focus {
+  -webkit-box-shadow: 0px 0px 5px 0px #148be1;
+  -moz-box-shadow: 0px 0px 5px 0px #148be1;
+  box-shadow: 0px 0px 5px 0px #148be1;
+}
+.panel-login {
+  border-color: #ccc;
+  -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+}
+.panel-login > .panel-heading {
+  color: #00415d;
+  background-color: #fff;
+  border-color: #fff;
+  text-align: center;
+}
+.panel-login > .panel-heading a {
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.panel-login > .panel-heading a.active {
+  color: #148BE1;
+  font-size: 18px;
+}
+.panel-login > .panel-heading hr {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  clear: both;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+}
+.panel-login input[type="text"],
+.panel-login input[type="email"],
+.panel-login input[type="password"] {
+  height: 45px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-color: #ccc;
+}
+.btn-login {
+  background-color: #59B2E0;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+  color: #fff;
+  background-color: #53A3CD;
+  border-color: #53A3CD;
+}
+.forgot-password {
+  text-decoration: underline;
+  color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+  text-decoration: underline;
+  color: #666;
+}
+.btn-register {
+  background-color: #1CB94E;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+  color: #fff;
+  background-color: #1CA347;
+  border-color: #1CA347;
+}
