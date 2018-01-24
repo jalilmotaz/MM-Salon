@@ -5,7 +5,8 @@
         },
         controller: ["$scope", function ($scope) {
 
-            $scope.showModal = function () {
+            $scope.showModal = function (src) {
+                $scope.src = src;
                 $('.ui.basic.modal').modal('show');
                 
             }
