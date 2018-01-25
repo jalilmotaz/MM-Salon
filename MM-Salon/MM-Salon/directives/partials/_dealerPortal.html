@@ -5,12 +5,11 @@
 <br />
 <div style="padding-left:30px; padding-right:30px; overflow:hidden">
     <!--https://cdn-user.dealerrater.com/uimages/5649/main-5649-95c3b8782ce0_large.jpg-->
-<img class="imgheader" src="https://pictures.dealer.com/b/barberasautolandcllc/1861/cc85e5a4b0a488955629aa8a7700fe0fx.jpg?impolicy=resize&h=514"/> 
     <br /><br /><br />
 
    <p class="mdFont" style="background-color:#F1F1F1; padding:4px;">
-        Welcome Barbera, <br />
-        Below you can view your account information and customers.
+        Welcome John Doe, <br />
+        Below you can view your account information and appointments.
     </p>
   
     <br /><br /><br />
@@ -20,66 +19,162 @@
 
          <div class="col-xs-12 mdFont" style="line-height:35pt;">
             <div class="col-xs-12 col-sm-6">
-                Username: Barbera <a href="#" class="smFont">(edit)</a>
+                Email: doeJohn88@johndoe.com <a href="#" class="smFont">(edit)</a>
             </div>
             <div class="col-xs-12 col-sm-6">
-                Store Name: Barbera Autoland <a href="#" class="smFont">(edit)</a>
+                Full Name: John Doe <a href="#" class="smFont">(edit)</a>
 
             </div>
              <div class="col-xs-12 col-sm-6">
-                 Phone No: 267-456-9879 <a href="#" class="smFont">(edit)</a>
+               
+                 Password: ********* <a href="#" class="smFont">(edit)</a>
 
              </div>
-               <div class="col-xs-12 col-sm-6">
-                Address: 1234 Cottman Ave Phila PA 19111 <a href="#" class="smFont">(edit)</a>
-
-            </div>
           
             <div class="col-xs-12 col-sm-6">
-                Password: ********* <a href="#" class="smFont">(edit)</a>
+                Phone No: 267-456-9879 <a href="#" class="smFont">(edit)</a>
 
             </div>
-             
              <div class="col-xs-12">
                  <br /><br />
              </div>
          </div>
  
+    <script>
+        var today = new Date();
+        $('#example1').calendar({
+    minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+    maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 365)
+});
+    </script>
+    <legend class="lgFont"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Create Appointment</legend>
+    <div class="ui grid">
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
+                <h3>Date & Time</h3>
+                <div class="ui calendar" id="example1">
+                    <div class="ui large input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" placeholder="Date/Time" ng-model="txtDateTime" style="width:275px;">
+                    </div>
+                </div>
+                <br />
+                </div>
+            </div>
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
 
+                <h3>Employees/Slots</h3>
+                <div class="ui vertical menu">
+                    <a class="teal item" ng-class="{'active':tab == 1}" ng-click="tab = 1">
+                        John Doe (Slot 1)
+                    </a>
+                    <a class="teal item" ng-class="{'active':tab == 2}" ng-click="tab = 2">
+                        Mary Doe (Slot 2)
+                    </a>
+                    <a class="teal item" ng-class="{'active':tab == 3}" ng-click="tab = 3">
+                        Mary John (Slot 3)
 
-    <legend class="lgFont"><i class="fa fa-lg fa-user" aria-hidden="true"></i>  My Customers</legend>
+                    </a>
+                </div>
+              </div>
+            </div>
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
+                <h3>Review and confirm</h3>
+                <div class="ui two column grid">
+                    <div class="row">
+                        <div class="column">Date</div>
+                        <div class="column">Jan 24, 2018 </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">Time</div>
+                        <div class="column">2:00 P.M</div>
+                    </div>
+                    <div class="row">
+                        <div class="column">Employee/Slot</div>
+                        <div class="column">John Doe/1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
+                <h3>Confirm</h3>
+                <button class="ui inverted blue labeled icon button">
+                    <i class="check circle icon"></i>
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br/>
+
+    <legend class="lgFont"><i class="fa fa-lg fa-calendar-check-o" aria-hidden="true"></i>  My Appointments</legend>
 
     <table class="responstable">
         <thead>
-            <tr>
+            <tr class="text-center">
+
                 <th>Date</th>
-                <th>Customer Name</th>
-                <th>Dealership</th>
-                <th>Meeting time</th>
-                <th>Car</th>
+                <th>Time</th>
+                <th>Employee/Slot #</th>
+                <th>Cancel</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>01/21/2018</td>
+                <td>2:00 PM</td>
                 <td>Eric Johnson</td>
-                <td>Barbera's</td>
-                <td>01/24/2018 2:00 PM</td>
-                <td>Chevy Impala</td>
+                <td>
+                    <button class="ui inverted red labeled icon button">
+                        <i class="ban icon"></i>
+                        Cancel
+                    </button>
+                </td>
+                <td>
+                    <button class="ui inverted green labeled icon button">
+                        <i class="edit icon"></i>
+                        Edit
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>01/21/2018</td>
+                <td>2:00 PM</td>
                 <td>Eric Johnson</td>
-                <td>Barbera's</td>
-                <td>01/24/2018 2:00 PM</td>
-                <td>Chevy Impala</td>
+                <td>
+                    <button class="ui inverted red labeled icon button">
+                        <i class="ban icon"></i>
+                        Cancel
+                    </button>
+                </td>
+                <td>
+                    <button class="ui inverted green labeled icon button">
+                        <i class="edit icon"></i>
+                        Edit
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>01/21/2018</td>
+                <td>2:00 PM</td>
                 <td>Eric Johnson</td>
-                <td>Barbera's</td>
-                <td>01/24/2018 2:00 PM</td>
-                <td>Chevy Impala</td>
+                <td>
+                    <button class="ui inverted red labeled icon button">
+                        <i class="ban icon"></i>
+                        Cancel
+                    </button>
+                </td>
+                <td>
+                    <button class="ui inverted green labeled icon button">
+                        <i class="edit icon"></i>
+                        Edit
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
