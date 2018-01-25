@@ -101,6 +101,12 @@
     <Content Include="directives\partialsCss\_landingCss.min.css" />
     <Content Include="directives\partialsCss\_navbarCss.css" />
     <Content Include="directives\partialsCss\_navbarCss.min.css" />
+    <Content Include="directives\partialsCss\_workgalleryCSS.css">
+      <DependentUpon>_workgalleryCSS.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_workgalleryCSS.min.css">
+      <DependentUpon>_workgalleryCSS.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCtrl\_aboutCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminLoginCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminPortalCtrl.js" />
@@ -159,6 +165,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="directives\partialsCtrl\_workGalleryCtrl.js" />
+    <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

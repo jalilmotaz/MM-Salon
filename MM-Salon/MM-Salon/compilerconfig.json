@@ -30,5 +30,13 @@
   {
     "outputFile": "css/MyCss.css",
     "inputFile": "css/MyCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_adminPortalCss .css",
+    "inputFile": "directives/partialsCss/_adminPortalCss .less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_workgalleryCSS.css",
+    "inputFile": "directives/partialsCss/_workgalleryCSS.less"
   }
 ]

@@ -49,14 +49,43 @@
   #topHeader {
     height: 40px !important;
   }
+  .footerBody {
+    width: 100% !important;
+    height: 400px;
+  }
+  .footerImg {
+    background-position: left;
+  }
 }
 #footer {
-  bottom: 0;
-  position: fixed;
-  height: 30px;
   width: 100vw;
   background-color: #148BE1;
+  overflow: hidden;
+}
+#footer legend {
   color: white;
+}
+#footer p {
+  transition: all ease-in 0.2s;
+}
+#footer p:hover {
+  color: #FF9307;
+}
+.footerBody {
+  width: 100%;
+  height: 200px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+.footerImg {
+  height: 200px;
+  background-image: url('../images/flower.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
 }
 #appBody {
   max-width: 1500px;
