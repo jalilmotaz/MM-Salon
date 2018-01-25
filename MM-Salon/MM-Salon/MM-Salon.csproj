@@ -143,7 +143,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Start\Appointment.cs" />
+    <Compile Include="App_Start\Employee.cs" />
+    <Compile Include="App_Start\HomePage.cs" />
+    <Compile Include="App_Start\PageModel.cs" />
+    <Compile Include="App_Start\User.cs" />
+    <Compile Include="App_Start\WebAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -166,6 +171,7 @@
     </None>
     <Content Include="directives\partialsCtrl\_workGalleryCtrl.js" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
+    <Content Include="PageModel.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
