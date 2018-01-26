@@ -138,6 +138,7 @@
     <Content Include="js\fontAwesome.js" />
     <Content Include="js\jQuery.js" />
     <Content Include="js\less.min.js" />
+    <Content Include="js\router.js" />
     <Content Include="main.html" />
     <Content Include="mainCtrl.js" />
     <Content Include="Web.config" />

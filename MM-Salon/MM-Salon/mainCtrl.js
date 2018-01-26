@@ -1,6 +1,33 @@
 ﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies']);
 
-myApp.run(function ($rootScope, $http, $cookies) {
+myApp.run(function ($rootScope, $http, $cookies, $compile, $location) {
+
+
+    $rootScope.LoadPage = function (dir, key) {
+        if (!$('#pageView').html().includes(key)) {
+            $('#pageView').empty().append($compile(dir)($rootScope));
+
+        }
+    }
+
+    var path = $location.path();
+    switch (path) {
+
+        case "/ScheduleAppointment":
+            $rootScope.LoadPage('<dealerportal></dealerportal>', '</dealerportal>');
+            break;
+
+        case "/Landing":
+        case "/About":
+        case "/Contact":
+        case "/Gallery":
+        default:
+            $rootScope.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>');
+            break;
+    }
+
+
+
 
     $rootScope.tabSelected = 1;
 
@@ -26,5 +53,8 @@ myApp.run(function ($rootScope, $http, $cookies) {
     $rootScope.GetCookie = function (key) {
         return $cookies.get(key);
     }
+
+
+
  
 });

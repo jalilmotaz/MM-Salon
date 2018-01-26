@@ -59,7 +59,13 @@
     <div id="appBody">
         <div id="topHeader"></div>
         <navbar></navbar>
-        <div ng-show="$root.tabSelected == 1">
+        <div id="pageView">
+            <landing></landing>
+            <about></about>
+            <contact></contact>
+            <gallery></gallery>
+        </div>
+        <!--<div ng-show="$root.tabSelected == 1">
             <landing></landing>
             <about></about>
             <contact></contact>
@@ -69,7 +75,7 @@
         <adminlogin ng-show="$root.tabSelected == 3"></adminlogin>
 
         <dealerportal ng-show="$root.tabSelected == 4"></dealerportal>
-        <adminportal ng-show="$root.tabSelected == 5"></adminportal>
+        <adminportal ng-show="$root.tabSelected == 5"></adminportal>-->
         <center>
             <div id="snackbar"></div>
         </center>

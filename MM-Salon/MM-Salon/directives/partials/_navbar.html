@@ -1,27 +1,27 @@
 ﻿<div id="navbar">
     <div class="row">
-        <a ng-click="$root.tabSelected = 1"  href="#Landing"> 
+        <a ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#Landing"> 
             <div class="col-xs-2 text-center navLink ">
                 <span class="mdFont"><i class="fa fa-lg fa-paint-brush" aria-hidden="true"></i> MM Salon</span> 
             </div>
         </a>
 
-        <a ng-click="$root.tabSelected = 1"  href="#About">
+        <a  ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')"  href="#About">
             <div class="col-xs-2 text-center navLink mdFont">
                 <p><i class="fa fa-info-circle" aria-hidden="true" style="border-right:none;"></i> About Us</p>
             </div>
         </a>
-        <a ng-click="$root.tabSelected = 1" href="#Contact">
+        <a  ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')"  href="#Contact">
             <div class="col-xs-2 text-center navLink mdFont">
                 <p><i class="fa fa-users" aria-hidden="true"></i> Our Team</p>
             </div>
         </a>
-        <a ng-click="$root.tabSelected = 1"  href="#Gallery">
+        <a  ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')"   href="#Gallery">
             <div class="col-xs-2 text-center navLink mdFont">
                 <p><i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</p>
             </div>
         </a>
-        <a ng-click="$root.tabSelected = 2" href="#ScheduleAppointment" >
+        <a  ng-click="$root.LoadPage('<dealerportal></dealerportal>', '</dealerportal>')"  href="#ScheduleAppointment" >
             <div class="col-xs-4 text-center navLink mdFont">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Schedule Appointment</p>
             </div>
