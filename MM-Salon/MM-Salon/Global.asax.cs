@@ -11,7 +11,11 @@ namespace MM_Salon
     {
         protected void Application_Start()
         {
-            GlobalConfiguration.Configure(WebApiConfig.Register);
+            RouteTable.Routes.MapHttpRoute(
+            name: "Action",
+            routeTemplate: "api/{controller}/{action}"
+        );
+
         }
     }
 }
