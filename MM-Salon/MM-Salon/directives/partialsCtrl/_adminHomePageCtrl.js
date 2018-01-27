@@ -40,14 +40,7 @@
                 $scope.AllItems.push(tempArr);
             }
 
-            console.log($scope.AllItems);
-            $scope.EditMember = function (member) {
-                $scope.memberImg = member.imgURL;
-                $scope.memberName = member.name;
-                $scope.memeberAbout = member.about
-                $('.ui.modal').modal({ blurring: true }).modal('show');
-            }
-
+      
 
         }]
 

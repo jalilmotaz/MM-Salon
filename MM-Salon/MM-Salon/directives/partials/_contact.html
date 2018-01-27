@@ -10,181 +10,34 @@
  
 
     <div class="ui six stackable cards">
-        <div class="card">
+        <div class="card"  ng-repeat="person in  $root.pageModel.homePage.team">
             <div class="image ">
-                <img src="https://www.corpsteam.com/images/default-source/corporate-team/allison_okelly.tmb-0.jpg?sfvrsn=ddd89b86_1">
+                <img src="{{person.imgURL}}">
             </div>
             <div class="content">
-                <p class="header">Stevie Feliciano</p>
+                <p class="header">{{person.name}}</p>
                 <div class="meta">
-                    <span class="date">Joined in 2014</span>
-                </div>
+                 </div>
                 <div class="description">
-                    Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                </div>
+                    {{person.about}} 
+               </div>
             </div>
             <div class="extra content">
                 <center>
-                    <a>
+                    <a ng-show="person.facebook.length>0" href="{{person.facebook}}">
                         <i class="facebook square icon iconSize"></i>
                     </a>
-                    <a>
+                    <a ng-show="person.twitter.length>0" href="{{person.twitter}}">
                         <i class="twitter square icon iconSize"></i>
                     </a>
 
-                    <a>
+                    <a ng-show="person.instagram.length>0" href="{{person.instagram}}">
                         <i class="instagram icon iconSize"></i>
                     </a>
                 </center>
             </div>
         </div>
-        <div class="card">
-            <div class="image">
-                <img src="https://www.corpsteam.com/images/default-source/corporate-team/lynn-danen.tmb-0.jpg?sfvrsn=af87c305_1">
-            </div>
-            <div class="content">
-                <p class="header">Stevie Feliciano</p>
-                <div class="meta">
-                    <span class="date">Joined in 2014</span>
-                </div>
-                <div class="description">
-                    Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                </div>
-            </div>
-            <div class="extra content">
-                <center>
-                    <a>
-                        <i class="facebook square icon iconSize"></i>
-                    </a>
-                    <a>
-                        <i class="twitter square icon iconSize"></i>
-                    </a>
-
-                    <a>
-                        <i class="instagram icon iconSize"></i>
-                    </a>
-                </center>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <img src="https://www.corpsteam.com/images/default-source/corporate-team/rachel_warren.tmb-0.jpg?sfvrsn=53d559d8_2">
-
-            </div>
-            <div class="content">
-                <p class="header">Stevie Feliciano</p>
-                <div class="meta">
-                    <span class="date">Joined in 2014</span>
-                </div>
-                <div class="description">
-                    Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                </div>
-            </div>
-            <div class="extra content">
-                <center>
-                    <a>
-                        <i class="facebook square icon iconSize"></i>
-                    </a>
-                    <a>
-                        <i class="twitter square icon iconSize"></i>
-                    </a>
-
-                    <a>
-                        <i class="instagram icon iconSize"></i>
-                    </a>
-                </center>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <img src="https://www.corpsteam.com/images/default-source/corporate-team/Trista_Wearing.tmb-0.jpg?sfvrsn=9ba06404_2">
-
-
-            </div>
-            <div class="content">
-                <p class="header">Stevie Feliciano</p>
-                <div class="meta">
-                    <span class="date">Joined in 2014</span>
-                </div>
-                <div class="description">
-                    Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                </div>
-            </div>
-            <div class="extra content">
-                <center>
-                    <a>
-                        <i class="facebook square icon iconSize"></i>
-                    </a>
-                    <a>
-                        <i class="twitter square icon iconSize"></i>
-                    </a>
-
-                    <a>
-                        <i class="instagram icon iconSize"></i>
-                    </a>
-                </center>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <img src="https://www.corpsteam.com/images/default-source/corporate-team/brigid-lipps.tmb-0.jpg?sfvrsn=6a9760d4_1">
-
-            </div>
-            <div class="content">
-                <p class="header">Stevie Feliciano</p>
-                <div class="meta">
-                    <span class="date">Joined in 2014</span>
-                </div>
-                <div class="description">
-                    Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                </div>
-            </div>
-            <div class="extra content">
-                <center>
-                    <a>
-                        <i class="facebook square icon iconSize"></i>
-                    </a>
-                    <a>
-                        <i class="twitter square icon iconSize"></i>
-                    </a>
-
-                    <a>
-                        <i class="instagram icon iconSize"></i>
-                    </a>
-                    </center>
-</div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <img src="https://www.corpsteam.com/images/default-source/corporate-team/karen-fox-director-business-development-corps-team-dallas.tmb-0.png?sfvrsn=9e6351fd_2">
-
-
-            </div>
-            <div class="content">
-                <p class="header">Stevie Feliciano</p>
-                <div class="meta">
-                    <span class="date">Joined in 2014</span>
-                </div>
-                <div class="description">
-                    Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                </div>
-            </div>
-            <div class="extra content">
-                <center>
-                    <a>
-                        <i class="facebook square icon iconSize"></i>
-                    </a>
-                    <a>
-                        <i class="twitter square icon iconSize"></i>
-                    </a>
-
-                    <a>
-                        <i class="instagram icon iconSize"></i>
-                    </a>
-                </center>
-            </div>
-        </div>
-    </div>
+     </div>
 
 
  </div> 

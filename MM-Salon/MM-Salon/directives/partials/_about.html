@@ -10,68 +10,31 @@
     <legend  class="lgFont"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i>  About Us</legend>
  
 
-    <p class="mdFont" style="background-color:#F1F1F1; padding:4px;">In the confusing tangle of hair styling, there is one company that stands out from the clutter.<br />
-        <b> <u>MM Salon.</u></b></p>
-    <br/>
-    <div id="categories" style="width:100%;padding:10px;">
-        <center><h2>Our Specialties</h2></center>
-        <br />
-        <div class="row">
-            <center>
-                <div class="col-sm-3 col-xs-6 showTooltip">
-                    <div class="toolTip">
-                        <h2>Hair Care</h2>
-                    </div>
-                    <img class="imgCat" src="/images/hair.png" />
-                </div>
-                <div class="col-sm-3 col-xs-6 showTooltip">
-                    <div class="toolTip">
-                        <h2>Nail Care</h2>
-                    </div>
-                    <img class="imgCat" src="/images/nails.png" />
-
-                </div>
-                <div class="col-sm-3 col-xs-6 showTooltip">
-                    <div class="toolTip">
-                        <h2>Skin Care</h2>
-                    </div>
-                    <img class="imgCat" src="/images/skin2.png" />
-
-                </div>
-                <div class="col-sm-3 col-xs-6 showTooltip">
-                    <div class="toolTip">
-                        <h2>Care Products</h2>
-                    </div>
-                    <img class="imgCat" src="https://d30y9cdsu7xlg0.cloudfront.net/png/3309-200.png" />
-
-                </div>
-            </center>
-        </div>
-    </div>
-    <hr />
-
     <div class="mdFont col-xs-12 col-sm-6">
         <p>
-            We now offer complete nail and skincare services, in addition to our full line of haircuts, colors, and treatments. Our friendly, courteous staff is professionally trained and ready to provide you with a truly exceptional salon experience.
-</p>
-        <p>
-
-            Among the product lines that we currently use are: Paul Mitchell®, American Crew®, Aquage®, Simply Smooth®, Wella®
-            Keratin Treatment®, Dermalogica®,
-            Morrocan Oil®, Featherlocks®, and
-            Schwarzkopf Professional®.
-        </p>
-        <p>
-            And for Nail Care, we use: OPI®, OPI Gel®, Essie®, Essie Gel®,
-            Gelaze®, China Glaze Gel®, Shellac CND®, Minx Nail Overlays® and Zoya® (Non-toxic Nail Products).
-            </p>
-        <p>
-            We look forward to serving you!
+            {{$root.pageModel.homePage.aboutUsTxt}}
        </p>
        
     </div>
     <p class="mdFont col-xs-12 col-sm-6">
-   <img class="ui large rounded image" src="/images/store.jpg" style="width:100%;" />
+        <img class="ui large rounded image" src="{{$root.pageModel.homePage.aboutUsStoreImg}}" style="width:100%;" />
         </p>
+
+
+    <div id="categories" style="width:100%;padding:10px;" class="col-xs-12" ng-show="$root.pageModel.homePage.specialties.length > 0">
+        <br />
+        <legend class="lgFont"><i class="fa fa-lg fa-star" aria-hidden="true"></i>  Our Specialties</legend>
+         <br />
+        <div class="row">
+            <center>
+                <div class="col-sm-3 col-xs-6 showTooltip" ng-repeat="spec in $root.pageModel.homePage.specialties">
+                    <div class="toolTip">
+                        <h2>{{spec}}</h2>
+                    </div>
+                    <img class="imgCat" src="/images/{{spec}}.png" />
+                </div>
+            </center>
+        </div>
+    </div>
 </div>
  
