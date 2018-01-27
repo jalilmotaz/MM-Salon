@@ -1,5 +1,5 @@
 ﻿<div id="navbar">
-    <div class="row">
+    <div class="row navBg">
         <a ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#Landing"> 
             <div class="col-xs-2 text-center navLink ">
                 <span class="mdFont"><i class="fa fa-lg fa-paint-brush" aria-hidden="true"></i> MM Salon</span> 
@@ -22,11 +22,27 @@
             </div>
         </a>
         <a  ng-click="$root.LoadPage('<dealerportal></dealerportal>', '</dealerportal>')"  href="#ScheduleAppointment" >
-            <div class="col-xs-4 text-center navLink mdFont">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Schedule Appointment</p>
+            <div class="col-xs-2 text-center navLink mdFont">
+                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Scheduler</p>
             </div>
         </a>
-      
+        <a ng-click="$root.LoadPage('<dealerportal></dealerportal>', '</dealerportal>')" href="#ScheduleAppointment" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
+            <div class="col-xs-2 text-center navLink mdFont">
+                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Account</p>
+            </div>
+        </a>
+    </div>
+    <div class="row" ng-show="accountHovered">
+        <div class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  >
+            <div class="navLink">
+                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</p>
+            </div> 
+        </div>
+        <div class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
+            <div class="navLink">
+                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</p>
+            </div>
+        </div>
     </div>
 </div>
 

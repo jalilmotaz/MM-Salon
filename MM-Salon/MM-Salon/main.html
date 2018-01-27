@@ -56,7 +56,7 @@
 
 </head>
 <body  ng-app="myApp">
-    <div id="appBody">
+    <div id="appBody" ng-cloak>
         <div id="topHeader"></div>
         <navbar></navbar>
         <div id="pageView">
@@ -68,6 +68,11 @@
         <center>
             <div id="snackbar"></div>
         </center>
+
+        <div class="loaderBg" ng-show="$root.isLoading">
+            <img src="images/load.gif" />
+        </div>
+
     </div>
     <br /><br />
     <div id="footer"><div class="footerBody">
@@ -96,14 +101,18 @@
             <div class="col-xs-12  col-sm-3">
                 <center>
                     <div class="row">
-                        <div class="col-xs-12"><br /></div>
-                        <div class="col-xs-6"><p class="xlFont"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i> </p> </div>
-                        <div class="col-xs-6"> <p class="xlFont"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i> </p> </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6"> <p class="xlFont"><i class="fa fa-youtube-square fa-2x" aria-hidden="true"></i> </p> </div>
-                        <div class="col-xs-6"><p class="xlFont"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i> </p>  </div>
-                    </div>
+                        <div class="col-xs-4">
+                            <br />
+                            <!--POWERER BY M&M WIRELESS TECH GOES HERE-->
+                        </div>    <div class="col-xs-8">
+                            <br />
+                            <div class="col-xs-6"><p class="xlFont"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i> </p> </div>
+                            <div class="col-xs-6"> <p class="xlFont"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i> </p> </div>
+                            <div class="col-xs-6"> <p class="xlFont"><i class="fa fa-youtube-square fa-2x" aria-hidden="true"></i> </p> </div>
+                            <div class="col-xs-6"><p class="xlFont"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i> </p>  </div>
+                        </div>
+                     
+                     </div>
                 </center>
             </div>
         </div>

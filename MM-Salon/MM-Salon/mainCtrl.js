@@ -1,6 +1,7 @@
 ﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies']);
 
 myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelFactory) {
+    $rootScope.isLoading = true;
 
     $rootScope.server = "http://localhost:56014/";   //dev
 
@@ -27,6 +28,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelF
                 $rootScope.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>');
                 break;
         }
+
 
 
     });
@@ -56,6 +58,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelF
             $('#adminBody').empty().append($compile('<adminhomepage></adminhomepage>')($rootScope));
 
         }
+        $rootScope.isLoading = false;
 
 
     }

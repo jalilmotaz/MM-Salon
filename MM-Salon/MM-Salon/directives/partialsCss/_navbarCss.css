@@ -149,6 +149,29 @@ However, delay the fade out process for 2.5 seconds */
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
+.loaderBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.loaderBg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 200px;
+  height: 200px;
+}
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {
@@ -195,7 +218,6 @@ However, delay the fade out process for 2.5 seconds */
 }
 #navbar {
   /*.gradient(linear;@gColor1, @gColor2; 90deg);*/
-  background-color: #148BE1;
   transition: all ease-in 0.2s;
   padding-right: 15px;
   padding-left: 15px;
@@ -205,6 +227,9 @@ However, delay the fade out process for 2.5 seconds */
   max-width: 1500px;
   z-index: 100;
 }
+.navBg {
+  background-color: #148BE1;
+}
 .navLink {
   font-size: 14pt;
   transition: all 0.1s ease-in;
@@ -212,12 +237,20 @@ However, delay the fade out process for 2.5 seconds */
   cursor: pointer;
   height: 80px;
   padding-top: 25px;
+  background: -webkit-linear-gradient(to bottom, white, white);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, white, white);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  background-size: 100% 0%;
+  transition: background-size 0.25s, color 0.25s;
 }
 .navtitle {
   margin-top: -10px;
 }
 .navLink:hover {
-  background: white;
+  background-size: 100% 100%;
   color: black;
 }
 .navbar-fixed {
