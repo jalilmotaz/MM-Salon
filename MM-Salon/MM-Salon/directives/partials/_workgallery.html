@@ -10,72 +10,21 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-             </ol>
+                <li data-target="#myCarousel" data-slide-to="{{$index}}"  ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}"></li>
+            </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <div class="ui four doubling cards">
-                        <a class="blue card" ng-click="showModal('https://lh3.googleusercontent.com/DuRPT-kjouUrDYFM67NI32BkrLbQWXZ6U8wZv-4R8dKe8gkAIdqwc9dDKhQnYgy0_mQ=h900')">
+                <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
+                    <div class="ui four doubling cards" >
+                        <a  ng-repeat="pics in item  track by $index" class="blue card" ng-click="showModal({{pics}})">
                             <div class="image">
-                                <img src="https://lh3.googleusercontent.com/DuRPT-kjouUrDYFM67NI32BkrLbQWXZ6U8wZv-4R8dKe8gkAIdqwc9dDKhQnYgy0_mQ=h900">
-
+                                <img src="{{pics}}">
                             </div>
                         </a>
-                        <a class="blue card" ng-click="showModal('https://vogue.tn/wp-content/uploads/2017/09/3a4dfbc5b4d0c0b2e3405ba73875a0dc--gatsby-hairstyles-quince-hairstyles.jpg')">
-                            <div class="image">
-                                <img src="https://vogue.tn/wp-content/uploads/2017/09/3a4dfbc5b4d0c0b2e3405ba73875a0dc--gatsby-hairstyles-quince-hairstyles.jpg">
-
-                            </div>
-                        </a>
-                        <a class="blue card" ng-click="showModal('http://hairstylesweekly.com/images/2012/08/Beautiful-Waterfall-Braid-Hairstyles.jpg')">
-                            <div class="image">
-                                <img src="http://hairstylesweekly.com/images/2012/08/Beautiful-Waterfall-Braid-Hairstyles.jpg">
-
-                            </div>
-                        </a>
-                        <a class="blue card" ng-click="showModal('http://www.nailarts.co/wp-content/uploads/2017/07/Rhinestones-Nails-2017.jpg')">
-                            <div class="image">
-                                <img src="http://www.nailarts.co/wp-content/uploads/2017/07/Rhinestones-Nails-2017.jpg">
-
-                            </div>
-                        </a>
-
                     </div>
                 </div>
-
-                <div class="item">
-                    <div class="ui four doubling cards">
-                        <a class="blue card" ng-click="showModal('https://i.pinimg.com/736x/cf/57/9f/cf579f2e30e29907a8342b22f0142648--unicorn-hair-hair-pictures.jpg')">
-                            <div class="image">
-                                <img src="https://i.pinimg.com/736x/cf/57/9f/cf579f2e30e29907a8342b22f0142648--unicorn-hair-hair-pictures.jpg">
-
-                            </div>
-                        </a>
-                        <a class="blue card"  ng-click="showModal('https://naildesignsjournal.com/wp-content/uploads/2017/07/beautiful-nail-designs-toes-nude-white-black-abstract.jpg')">
-                            <div class="image">
-                                <img src="https://naildesignsjournal.com/wp-content/uploads/2017/07/beautiful-nail-designs-toes-nude-white-black-abstract.jpg">
-
-                            </div>
-                        </a>
-                        <a class="blue card"  ng-click="showModal('https://i.pinimg.com/736x/a4/5d/28/a45d2801af894cd4a0ee9d2314986eb1--black-nail-art-designs-black-and-gold-nails-design.jpg')">
-                            <div class="image">
-                                <img src="https://i.pinimg.com/736x/a4/5d/28/a45d2801af894cd4a0ee9d2314986eb1--black-nail-art-designs-black-and-gold-nails-design.jpg">
-
-                            </div>
-                        </a>
-                        <a class="blue card"  ng-click="showModal('http://content2.latest-hairstyles.com/wp-content/uploads/Dark-Cherry-Burgundy-Neon-Tangerine-Orange.jpg')">
-                            <div class="image">
-                                <img src="http://content2.latest-hairstyles.com/wp-content/uploads/Dark-Cherry-Burgundy-Neon-Tangerine-Orange.jpg">
-
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
- 
+                 
             </div>
 
             <!-- Left and right controls -->

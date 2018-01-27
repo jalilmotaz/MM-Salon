@@ -216,6 +216,13 @@ However, delay the fade out process for 2.5 seconds */
 .w100 {
   width: 100%;
 }
+/*<!--OVERWRITE-->*/
+.carousel-indicators li {
+  border-color: #148BE1 !important;
+}
+.carousel-indicators .active {
+  background-color: #148BE1 !important;
+}
 .imgheader {
   width: 100%;
   height: 100vh;
