@@ -2,7 +2,7 @@
      "homePage": {
     "aboutUsTxt": "About us About us About us About us About us About us About us About us About us ",
     "aboutUsStoreImg": "/images/empty.png",
-    "imgSlides": [ "/images/empty.png","/images/empty.png","/images/empty.png","/images/empty.png"],
+    "imgSlides": [ "/images/imgSlides/slide1.jpg","/images/imgSlides/slide2.jpg","/images/imgSlides/slide3.jpg","/images/imgSlides/slide4.jpg"],
     "workGallery": ["/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg" ],
     "specialties": ["Nails","Hair" ],
       "team": [
