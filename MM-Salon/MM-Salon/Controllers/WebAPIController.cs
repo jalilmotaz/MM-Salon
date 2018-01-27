@@ -67,7 +67,9 @@ namespace MM_Salon.App_Start
                     {
                         File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/images/" + fileName));
                     }
+                   
                     httpPostedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/images/" + fileName));
+                    httpPostedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/images/temp/" + fileName));
 
                     return "good";
                 }
