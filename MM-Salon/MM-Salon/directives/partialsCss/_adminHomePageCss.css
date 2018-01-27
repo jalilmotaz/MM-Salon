@@ -193,7 +193,8 @@ However, delay the fade out process for 2.5 seconds */
 .w100 {
   width: 100%;
 }
-.carousel-inner .image {
+.carousel-inner .image,
+.homePageSlide .image {
   min-height: 350px;
   max-height: 350px;
   overflow: hidden;
