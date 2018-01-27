@@ -6,17 +6,86 @@
     "workGallery": ["/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg" ],
     "specialties": ["Nails","Hair"  ],
       "team": [
-        {
+         {
           "name": "Helen",
           "imgURL": "/images/helen.jpg",
-          "about": "jsgsjgjsn"
+          "about": "jsgsjgjsn jsgsjgjsn jsgsjgjsn jsgsjgjsn jsgsjgjsn jsgsjgjsn jsgsjgjsn jsgsjgjsn jsgsjgjsn",
+          "facebook": "test",
+          "twitter": "test",
+          "instagram": "test"
         },
         {
-           "name": "Elliot",
+          "name": "Elliot",
           "imgURL": "/images/elliot.jpg",
-          "about": "jsgsjgjsn"
-         
-        }
+          "about": "jsgsjgjsn",
+          "facebook": "",
+          "twitter": "",
+          "instagram": ""
+
+        },
+        {
+          "name": "Elliot sds",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "sd",
+          "twitter": "",
+          "instagram": "dsd"
+
+        },
+        {
+          "name": "Elliot",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "",
+          "twitter": "",
+          "instagram": ""
+
+        },
+        {
+          "name": "Elliot sds",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "sd",
+          "twitter": "",
+          "instagram": "dsd"
+
+        },
+        {
+          "name": "Elliot",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "",
+          "twitter": "",
+          "instagram": ""
+
+        },
+        {
+          "name": "Elliot sds",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "sd",
+          "twitter": "",
+          "instagram": "dsd"
+
+        },
+        {
+          "name": "Elliot",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "",
+          "twitter": "",
+          "instagram": ""
+
+        },
+        {
+          "name": "Elliot sds",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn",
+          "facebook": "sd",
+          "twitter": "",
+          "instagram": "dsd"
+
+        } }
       ]
   },
   "appointments": null
