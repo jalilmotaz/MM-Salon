@@ -3,17 +3,19 @@
         templateUrl: 'directives/partials/_adminHomePage.html',
         scope: {
         },
-        controller: ["$scope", function ($scope) {
+        controller: ["$scope","$window", function ($scope,$window) {
 
-            $('.special.cards .image').dimmer({
-                on: 'hover'
+            $(document).ready(function(){
+                $('.special.cards .image').dimmer({
+                    on: 'hover'
+                });
+
+                $('.ui.accordion').accordion();
+
+                $('.carousel').carousel('pause');
             });
-
-            $('.ui.accordion').accordion();
-
-            $('.carousel').carousel('pause');
-
-
+               
+            
 
         }]
 

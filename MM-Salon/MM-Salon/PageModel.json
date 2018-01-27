@@ -1,8 +1,8 @@
 ﻿{
      "homePage": {
-    "aboutUsTxt": "nfsjnfjsnfjsngjsngjsngsjng sgj js js js jns gjns n sjgnskjnd gnd gj ",
-    "aboutUsStoreImg": "/images/brushes.jpg",
-    "imgSlides": [ "/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg"],
+    "aboutUsTxt": "About us About us About us About us About us About us About us About us About us ",
+    "aboutUsStoreImg": "/images/store.jpg",
+    "imgSlides": [ "/images/brushes.jpg","/images/cosmetics.jpg","/images/hair.png","/images/hair.png"],
     "workGallery": ["/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg" ],
     "specialties": ["nails","hair" ],
       "team": []
