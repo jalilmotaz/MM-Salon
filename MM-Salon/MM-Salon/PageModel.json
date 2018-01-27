@@ -1,11 +1,23 @@
 ﻿{
      "homePage": {
     "aboutUsTxt": "About us About us About us About us About us About us About us About us About us ",
-    "aboutUsStoreImg": "/images/store.jpg",
-    "imgSlides": [ "/images/brushes.jpg","/images/cosmetics.jpg","/images/hair.png","/images/hair.png"],
-    "workGallery": ["/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg" ],
-    "specialties": ["nails","hair" ],
-      "team": []
+    "aboutUsStoreImg": "/images/empty.png",
+    "imgSlides": [ "/images/empty.png","/images/empty.png","/images/empty.png","/images/empty.png"],
+    "workGallery": ["/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg","/images/brushes.jpg" ],
+    "specialties": ["Nails","Hair" ],
+      "team": [
+        {
+          "name": "Helen",
+          "imgURL": "/images/helen.jpg",
+          "about": "jsgsjgjsn"
+        },
+        {
+           "name": "Elliot",
+          "imgURL": "/images/elliot.jpg",
+          "about": "jsgsjgjsn"
+         
+        }
+      ]
   },
   "appointments": null
 }
