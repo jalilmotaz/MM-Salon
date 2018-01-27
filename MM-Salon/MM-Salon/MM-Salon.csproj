@@ -81,26 +81,65 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPanel.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\gFont.css" />
     <Content Include="css\MyCss.css" />
     <Content Include="css\MyCss.min.css" />
-    <Content Include="directives\partialsCss\_aboutCss.css" />
-    <Content Include="directives\partialsCss\_aboutCss.min.css" />
-    <Content Include="directives\partialsCss\_adminLoginCss.css" />
-    <Content Include="directives\partialsCss\_adminLoginCss.min.css" />
-    <Content Include="directives\partialsCss\_adminPortalCss .css" />
-    <Content Include="directives\partialsCss\_adminPortalCss .min.css" />
-    <Content Include="directives\partialsCss\_contactCss.css" />
-    <Content Include="directives\partialsCss\_contactCss.min.css" />
-    <Content Include="directives\partialsCss\_dealerLoginCss.css" />
-    <Content Include="directives\partialsCss\_dealerLoginCss.min.css" />
-    <Content Include="directives\partialsCss\_dealerPortalCss.css" />
-    <Content Include="directives\partialsCss\_dealerPortalCss.min.css" />
-    <Content Include="directives\partialsCss\_landingCss.css" />
-    <Content Include="directives\partialsCss\_landingCss.min.css" />
-    <Content Include="directives\partialsCss\_navbarCss.css" />
-    <Content Include="directives\partialsCss\_navbarCss.min.css" />
+    <Content Include="directives\partialsCss\_aboutCss.css">
+      <DependentUpon>_aboutCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_aboutCss.min.css">
+      <DependentUpon>_aboutCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_adminHomePageCss.css">
+      <DependentUpon>_adminHomePageCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_adminHomePageCss.min.css">
+      <DependentUpon>_adminHomePageCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_adminLoginCss.css">
+      <DependentUpon>_adminLoginCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_adminLoginCss.min.css">
+      <DependentUpon>_adminLoginCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_adminPortalCss .css">
+      <DependentUpon>_adminPortalCss .less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_adminPortalCss .min.css">
+      <DependentUpon>_adminPortalCss .css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_contactCss.css">
+      <DependentUpon>_contactCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_contactCss.min.css">
+      <DependentUpon>_contactCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_dealerLoginCss.css">
+      <DependentUpon>_dealerLoginCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_dealerLoginCss.min.css">
+      <DependentUpon>_dealerLoginCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_dealerPortalCss.css">
+      <DependentUpon>_dealerPortalCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_dealerPortalCss.min.css">
+      <DependentUpon>_dealerPortalCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_landingCss.css">
+      <DependentUpon>_landingCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_landingCss.min.css">
+      <DependentUpon>_landingCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_navbarCss.css">
+      <DependentUpon>_navbarCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_navbarCss.min.css">
+      <DependentUpon>_navbarCss.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCss\_workgalleryCSS.css">
       <DependentUpon>_workgalleryCSS.less</DependentUpon>
     </Content>
@@ -108,6 +147,7 @@
       <DependentUpon>_workgalleryCSS.css</DependentUpon>
     </Content>
     <Content Include="directives\partialsCtrl\_aboutCtrl.js" />
+    <Content Include="directives\partialsCtrl\_adminHomePageCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminLoginCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminPortalCtrl.js" />
     <Content Include="directives\partialsCtrl\_contactCtrl.js" />
@@ -116,6 +156,7 @@
     <Content Include="directives\partialsCtrl\_landingCtrl.js" />
     <Content Include="directives\partialsCtrl\_navbarCtrl.js" />
     <Content Include="directives\partials\_about.html" />
+    <Content Include="directives\partials\_adminHomePage.html" />
     <Content Include="directives\partials\_adminLogin.html" />
     <Content Include="directives\partials\_adminPortal.html" />
     <Content Include="directives\partials\_contact.html" />
@@ -144,12 +185,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Appointment.cs" />
-    <Compile Include="App_Start\Employee.cs" />
-    <Compile Include="App_Start\HomePage.cs" />
-    <Compile Include="App_Start\PageModel.cs" />
-    <Compile Include="App_Start\User.cs" />
-    <Compile Include="App_Start\WebAPIController.cs" />
+    <Compile Include="Controllers\Appointment.cs" />
+    <Compile Include="Controllers\Employee.cs" />
+    <Compile Include="Controllers\HomePage.cs" />
+    <Compile Include="Controllers\PageModel.cs" />
+    <Compile Include="Controllers\User.cs" />
+    <Compile Include="Controllers\WebAPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +212,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="directives\partialsCtrl\_workGalleryCtrl.js" />
+    <Content Include="directives\partialsCss\_adminHomePageCss.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
     <None Include="Web.Debug.config">
@@ -182,7 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
+    <Folder Include="App_Start\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

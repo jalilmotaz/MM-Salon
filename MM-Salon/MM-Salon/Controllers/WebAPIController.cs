@@ -30,6 +30,8 @@ namespace MM_Salon.App_Start
                 }
                 else
                 {
+                   
+                 
                     return "bad";
                 }
             }
