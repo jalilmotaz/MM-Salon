@@ -10,12 +10,9 @@
                         <div class="center">
                             <button class="ui inverted blue labeled icon button">
                                 <i class="upload icon"></i>
-                                Upload
+                                Replace
                             </button>
-                            <button class="ui inverted red labeled icon button">
-                                <i class="ban icon"></i>
-                                Delete
-                            </button>
+                           
                         </div>
                     </div>
                 </div>
@@ -39,9 +36,10 @@
         <br />
         <br />
 
-        <h3><u>About us Image (Store Image)</u></h3>
+        <center><h3><u>About us Image (Store Image)</u></h3></center>
+        <br/>
 
-        <div class="ui one special cards">
+        <div class="ui special cards centered">
 
             <a class="red card">
                 <div class="blurring dimmable small image">
@@ -50,7 +48,7 @@
                             <div class="center">
                                 <button class="ui inverted blue labeled icon button">
                                     <i class="upload icon"></i>
-                                    Upload
+                                    Replace
                                 </button>
                             </div>
                         </div>
@@ -135,32 +133,6 @@
                             {{sepcial}}
                         </div>
                     </div>
-
-                    <div class="item">
-                        <div class="right floated content">
-                            <button class="ui inverted red labeled icon button">
-                                <i class="ban icon"></i>
-                                Remove
-                            </button>
-                        </div>
-                        <img class="ui avatar image" src="/images/nails.png">
-                        <div class="content">
-                            Nails
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="right floated content">
-                            <button class="ui inverted red labeled icon button">
-                                <i class="ban icon"></i>
-                                Remove
-                            </button>
-                        </div>
-                        <img class="ui avatar image" src="/images/hair.png">
-                        <div class="content">
-                            hair
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -274,41 +246,116 @@
                     <h3><u>Team Members</u></h3>
                 </center>
                 <div class="ui middle aligned divided list">
-                    <div class="item">
-                        <div class="right floated content">
-                            <button class="ui inverted red labeled icon button">
-                                <i class="ban icon"></i>
-                                Remove
-                            </button><button class="ui inverted blue labeled icon button">
-                                <i class="edit icon"></i>
-                                Edit
-                            </button>
-                        </div>
-                        <img class="ui avatar image" src="/images/helen.jpg">
-                        <div class="content">
-                            Helen
-                        </div>
-                    </div>
-                    <div class="item">
+                    <div class="item" ng-repeat="member in $root.pageModel.homePage.team track by $index">
                         <div class="right floated content">
                             <button class="ui inverted red labeled icon button">
                                 <i class="ban icon"></i>
                                 Remove
                             </button>
-                            <button class="ui inverted blue labeled icon button">
+                            <button class="ui inverted blue labeled icon button" ng-click="EditMember(member)">
                                 <i class="edit icon"></i>
                                 Edit
                             </button>
                         </div>
-                        <img class="ui avatar image" src="/images/helen.jpg">
+                        <img class="ui avatar image" src="{{member.imgURL}}">
                         <div class="content">
-                            Helen
+                            {{member.name}}
                         </div>
                     </div>
+                  
                 </div>
             </div>
         </div>
+        <div id="owModal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+               Edit Memeber, {{memberName}}
+            </div>
+            <div class="image content">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui special cards">
+                            <a class="red card">
+                                <div class="blurring dimmable small image">
+                                    <div class="ui dimmer">
+                                        <div class="content">
+                                            <div class="center">
+                                                <button class="ui inverted blue labeled icon button">
+                                                    <i class="upload icon"></i>
+                                                    Replace
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="{{memberImg}}">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="eight wide column">
 
+                        <div class="description">
+                            <div class="ui header"><h3> About {{memberName}}</h3></div>
+                            <textarea style="width:100%;height:75px;"> {{memeberAbout}}</textarea>
+                        </div>
+                    </div>
+                    <div class="four wide column">
+
+                        <div class="description">
+                            <div class="ui header"><h3> Social Media</h3></div>
+                            <div class="ui styled fluid accordion">
+                                <div class="title">
+                                    <i class="facebook icon"></i>
+                                    Facebook
+                                </div>
+                                <div class="content">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="Url.." style="width:100%;">
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <i class="twitter sqaure icon"></i>
+                                    Twitter
+                                </div>
+                                <div class="content">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="URl.." style="width:100%;">
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <i class="instagram icon"></i>
+                                    Instagram
+                                </div>
+                                <div class="content">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="URl.." style="width:100%;">
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <i class="linkedin square icon"></i>
+                                    Linkedin
+                                </div>
+                                <div class="content">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="URl.." style="width:100%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                </div>
+            <div class="actions">
+                <div class="ui black deny button">
+                    Cancel
+                </div>
+                <div class="ui positive right labeled icon button">
+                   Save
+                    <i class="save icon"></i>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -323,9 +370,10 @@
         </ol>
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="item active">
+
+            <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}" >
                 <div class="ui four special cards">
-                    <a class="red card">
+                    <a class="red card" ng-show="$index == 0">
                         <div class="blurring dimmable small image">
                             <div class="ui dimmer">
                                 <div class="content">
@@ -340,7 +388,7 @@
                             <img src="/images/empty.png">
                         </div>
                     </a>
-                    <a class="red card">
+                    <a class="red card"  ng-repeat="pics in item  track by $index">
                         <div class="blurring dimmable small image">
                             <div class="ui dimmer">
                                 <div class="content">
@@ -352,123 +400,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <img src="/images/brushes.jpg">
-                        </div>
-                    </a>
-                    <a class="red card">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted red labeled icon button">
-                                            <i class="ban icon"></i>
-                                            Delete
-                                        </button>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="/images/brushes.jpg">
-                        </div>
-                    </a>
-                    <a class="red card">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted red labeled icon button">
-                                            <i class="ban icon"></i>
-                                            Delete
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="/images/brushes.jpg">
+                            <img src="{{pics}}">
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="item">
-                <div class="ui four special cards">
-                    <a class="red card">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted blue labeled icon button">
-                                            <i class="upload icon"></i>
-                                            Upload
-                                        </button>
-                                        <button class="ui inverted red labeled icon button">
-                                            <i class="ban icon"></i>
-                                            Delete
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="/images/brushes.jpg">
-                        </div>
-                    </a>
-                    <a class="red card">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted blue labeled icon button">
-                                            <i class="upload icon"></i>
-                                            Upload
-                                        </button>
-                                        <button class="ui inverted red labeled icon button">
-                                            <i class="ban icon"></i>
-                                            Delete
-                                        </button>
 
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="/images/brushes.jpg">
-                        </div>
-                    </a>
-                    <a class="red card">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted blue labeled icon button">
-                                            <i class="upload icon"></i>
-                                            Upload
-                                        </button>
-                                        <button class="ui inverted red labeled icon button">
-                                            <i class="ban icon"></i>
-                                            Delete
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="/images/brushes.jpg">
-                        </div>
-                    </a>
-                    <a class="red card">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted blue labeled icon button">
-                                            <i class="upload icon"></i>
-                                            Upload
-                                        </button>
-                                        <button class="ui inverted red labeled icon button">
-                                            <i class="ban icon"></i>
-                                            Delete
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="/images/brushes.jpg">
-                        </div>
-                    </a>
-                </div>
-            </div>
+
         </div>
         <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width: 10px;">
@@ -480,3 +418,78 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+<br /><br/>
+
+<legend class="lgFont"><i class="fa fa-lg fa-envelope" aria-hidden="true"></i> Contact Information</legend>
+
+<div class="ui grid centered">
+    <div class="two wide column">
+        <h4>Phone Number:</h4>
+        <div class="ui input">
+            <input type="text" placeholder="Number">
+        </div>
+    </div>
+    <div class="two wide column">
+        <h4>Email:</h4>
+        <div class="ui input">
+            <input type="text" placeholder="Email">
+        </div>
+    </div>
+    <div class="two wide column"><h4>Address:</h4>
+        <div class="ui input">
+            <input type="text" placeholder="Address">
+        </div>
+    </div>
+</div>
+<br />
+<center>
+    <h3>Social Media Links</h3>
+    <div class="ui styled accordion">
+        <div class="title">
+            <i class="facebook icon"></i>
+            Facebook
+        </div>
+        <div class="content">
+            <div class="ui input">
+                <input type="text" placeholder="Url.." style="width:100%;">
+            </div>
+        </div>
+        <div class="title">
+            <i class="twitter sqaure icon"></i>
+            Twitter
+        </div>
+        <div class="content">
+            <div class="ui input">
+                <input type="text" placeholder="URl.." style="width:100%;">
+            </div>
+        </div>
+        <div class="title">
+            <i class="instagram icon"></i>
+            Instagram
+        </div>
+        <div class="content">
+            <div class="ui input">
+                <input type="text" placeholder="URl.." style="width:100%;">
+            </div>
+        </div>
+        <div class="title">
+            <i class="linkedin square icon"></i>
+            Linkedin
+        </div>
+        <div class="content">
+            <div class="ui input">
+                <input type="text" placeholder="URl.." style="width:100%;">
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="ui grid">
+        <div class="four wide column centered">
+            <button class="ui inverted blue labeled icon button fluid">
+                <i class="save icon"></i>
+                Save
+            </button>
+        </div>
+
+    </div>
+</center>

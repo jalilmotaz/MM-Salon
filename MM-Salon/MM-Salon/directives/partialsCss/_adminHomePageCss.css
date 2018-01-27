@@ -207,3 +207,7 @@ However, delay the fade out process for 2.5 seconds */
   font-size: 2em !important;
   margin-top: 150px !important;
 }
+#owModal {
+  margin-top: 0 !important;
+  top: 100px !important;
+}
