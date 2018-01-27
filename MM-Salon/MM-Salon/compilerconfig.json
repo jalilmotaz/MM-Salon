@@ -38,5 +38,9 @@
   {
     "outputFile": "directives/partialsCss/_workgalleryCSS.css",
     "inputFile": "directives/partialsCss/_workgalleryCSS.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_adminHomePageCss.css",
+    "inputFile": "directives/partialsCss/_adminHomePageCss.less"
   }
 ]
