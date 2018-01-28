@@ -69,7 +69,6 @@ namespace MM_Salon.App_Start
                     }
                    
                     httpPostedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/images/" + fileName));
-                    httpPostedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/images/temp/" + fileName));
 
                     return "good";
                 }
