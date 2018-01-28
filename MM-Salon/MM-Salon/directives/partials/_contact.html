@@ -12,7 +12,7 @@
     <div class="ui six stackable cards">
         <div class="card"  ng-repeat="person in  $root.pageModel.homePage.team">
             <div class="image ">
-                <img src="{{person.imgURL}}">
+                <img ng-src="{{person.imgURL}}">
             </div>
             <div class="content">
                 <p class="header">{{person.name}}</p>

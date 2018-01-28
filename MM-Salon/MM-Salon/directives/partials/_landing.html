@@ -1,8 +1,8 @@
-﻿<div id="Landing" class="topBorder">
+﻿<div id="Landing" class="topBorder" ng-cloak>
     <div class="w3-display-container">
          <div id="slider">
             <figure>
-                <img class="imgSliders" ng-repeat="img in $root.pageModel.homePage.imgSlides track by $index" src="{{img}}"/>
+                <img class="imgSliders" ng-repeat="img in $root.pageModel.homePage.imgSlides track by $index" ng-src="{{img}}"/>
 
             </figure>
         </div> 

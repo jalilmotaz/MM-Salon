@@ -16,10 +16,11 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
+
                     <div class="ui four doubling cards" >
-                        <a  ng-repeat="pics in item  track by $index" class="blue card" ng-click="showModal({{pics}})">
+                        <a  ng-repeat="pics in item  track by $index" class="blue card" ng-click="showModal(pics)">
                             <div class="image">
-                                <img src="{{pics}}">
+                                <img  ng-src="{{pics}}">
                             </div>
                         </a>
                     </div>
@@ -44,7 +45,7 @@
 
         <div class="ui basic modal">
             <center>
-            <img src="{{src}}" class="modalImg" />
+            <img ng-src="{{src}}" class="modalImg" />
             </center>
         </div>
 </div>

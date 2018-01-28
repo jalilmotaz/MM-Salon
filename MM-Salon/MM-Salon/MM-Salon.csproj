@@ -84,6 +84,12 @@
     <Content Include="AdminPanel.html" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\gFont.css" />
+    <Content Include="css\lessVars.css">
+      <DependentUpon>lessVars.less</DependentUpon>
+    </Content>
+    <Content Include="css\lessVars.min.css">
+      <DependentUpon>lessVars.css</DependentUpon>
+    </Content>
     <Content Include="css\MyCss.css" />
     <Content Include="css\MyCss.min.css" />
     <Content Include="directives\partialsCss\_aboutCss.css">
@@ -213,6 +219,7 @@
     </None>
     <Content Include="directives\partialsCtrl\_workGalleryCtrl.js" />
     <Content Include="directives\partialsCss\_adminHomePageCss.less" />
+    <Content Include="css\lessVars.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
     <None Include="Web.Debug.config">

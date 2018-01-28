@@ -1,21 +1,4 @@
-﻿.gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes)) when (@index > 0) {
-    .gradient(@type; @colors; @dir; @prefixes; (@index - 1));
- 
-    @prefix  : extract(@prefixes, @index);
-    @dir-old : 90 - (@dir);
- 
-    background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
-  & when ( @index = length(@prefixes) ) {
-        background-image: ~"@{type}-gradient(@{dir}, @{colors})";
-    }
-}
-
-@myBlue: #148BE1;
-@myOrange: #FF9307;
-@myGreen: #009D56;
-@gColor2:rgba(147,206,222,1);
-
-@borderColor: #555;
+﻿@import "lessVars";
 
 body{
     font-family: 'Times New Roman', Times, serif !important;
@@ -54,10 +37,7 @@ body{
         height:40px !important;
     }
 
-    .footerBody{
-    width:100% !important;
-    height:400px;
-   }
+
  .footerImg{
  
       background-position:left;
@@ -75,23 +55,31 @@ body{
 }
 
 #footer p{
+    cursor:pointer;
  transition:all ease-in 0.2s;  
+}
+#footer a{
+    color:white;
+    cursor:pointer;
 }
 #footer p:hover{
     
     color:#FF9307;
 }
+ 
 .footerBody{
     width:100%;
-    height:200px;
+    height: 140px;
     max-width:1500px;
     margin-left:auto;
     margin-right:auto;
         color:white;
 }
  
+
 .footerImg{
-      height:200px; background-image:url('../images/flower.png');background-size:contain;
+      height: 140px;
+       background-image:url('../images/flower.png');background-size:contain;
       background-repeat:no-repeat;
       background-position:center;
        border-radius:10px;

@@ -42,5 +42,9 @@
   {
     "outputFile": "directives/partialsCss/_adminHomePageCss.css",
     "inputFile": "directives/partialsCss/_adminHomePageCss.less"
+  },
+  {
+    "outputFile": "css/lessVars.css",
+    "inputFile": "css/lessVars.less"
   }
 ]
