@@ -179,10 +179,7 @@
 
                     if (files[0] != undefined) {
                         var fu = "#memberUpload";
-
-                        $scope.UploadImages(fu, imgName);
-
-                   
+                        $scope.UploadImages(fu, imgName);                   
                   }
 
                 }
@@ -296,6 +293,7 @@
                     var name = $scope.FileNameToUpload + '.jpg';
 
                     if ($scope.FileNameToUpload == "gallery") {
+                        $scope.dateTime = new Date().getTime();
                         $scope.FileNameToUpload = "workGallery/"+$scope.FileNameToUpload + $scope.dateTime+'.jpg';
                         $scope.UploadImages(fu, $scope.FileNameToUpload);
 
@@ -338,12 +336,13 @@
                             $rootScope.ShowToast("✔ Upload Success", "limegreen");
 
 
-                            $rootScope.SetPageModel().then(function () {
-
                                 if ($scope.newMember != null) {
                                     $rootScope.pageModel.homePage.team.push($scope.newMember);
                                     $scope.newMember = null;
                                 }
+
+                            $rootScope.SetPageModel().then(function () {
+
 
                                 UpdateWorkGallery();
                                 $rootScope.isLoading = false;
