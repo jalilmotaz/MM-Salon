@@ -17,7 +17,7 @@
             $scope.txtAddress = $rootScope.pageModel.homePage.address;
             $scope.memeberImgSource = "";
             $scope.memeberImgSource2 = "";
-
+            $scope.newMember = null;
             for (var i = 0; i < $rootScope.pageModel.homePage.specialties.length; i++) {
                 var special = $rootScope.pageModel.homePage.specialties[i];
                 if(special == "Nails"){
@@ -158,12 +158,15 @@
                 $scope.memberFBLink = member.facebook;
                 $scope.memberTwitterLink = member.twitter;
                 $scope.memberInstaLink = member.instagram;
+                $scope.FileNameToUpload = member.name.split(' ')[0];
                 $('.ui.edit.modal').modal({ blurring: true }).modal('show');
             }
             $scope.AddMember = function () {
+              
+
                 if ($scope.memName != undefined && $scope.memAbout != undefined && $scope.memName != "" && $scope.memAbout != "" && $scope.memeberImgSource != "") {
                     var imgName = 'members/' + $scope.memName + '.jpg';
-                    var newMember = {
+                    $scope.newMember = {
                         "name": $scope.memName,
                         "about": $scope.memAbout,
                         "imgURL": 'images/' + imgName,
@@ -178,12 +181,9 @@
                         var fu = "#memberUpload";
 
                         $scope.UploadImages(fu, imgName);
-                        $rootScope.pageModel.homePage.team.push(newMember);
 
-                    }
-
-
-
+                   
+                  }
 
                 }
                 else {
@@ -215,18 +215,17 @@
                                 var member = $rootScope.pageModel.homePage.team[i];
 
                                 if (member == $scope.memberToEdit) {
+
                                     var imgName = 'members/' + member.name + '.jpg';
                                     member.imgURL = "images/" + imgName;
                                     member.about = $scope.memeberAbout;
                                     member.facebook = $scope.memberFBLink;
                                     member.twitter = $scope.memberTwitterLink;
                                     member.instagram = $scope.memberInstaLink;
-
+                                    $rootScope.pageModel.homePage.team[i] = member;
+                                    
                                     $scope.UploadImages(fu, imgName);
 
-                                    $rootScope.pageModel.homePage.team[i] = member;
-                                    $rootScope.SetPageModel();
-                                    $scope.$apply();
                                 }
                             }
                         }
@@ -246,7 +245,6 @@
 
                                 $rootScope.pageModel.homePage.team[i] = member;
                                 $rootScope.SetPageModel();
-                                $scope.$apply();
 
                             }
                         }
@@ -341,10 +339,19 @@
 
 
                             $rootScope.SetPageModel().then(function () {
+
+                                if ($scope.newMember != null) {
+                                    $rootScope.pageModel.homePage.team.push($scope.newMember);
+                                    $scope.newMember = null;
+                                }
+
                                 UpdateWorkGallery();
                                 $rootScope.isLoading = false;
+
                                 var eleID = $scope.FileNameToUpload.split('/')[$scope.FileNameToUpload.split('/').length - 1];
-                                var ele = $("#" + eleID).attr('src', $("#" + eleID).attr('src')+'?'+new Date().getTime());
+                                
+                                var ele = $("#" + eleID).attr('src', $("#" + eleID).attr('src') + '?' + new Date().getTime());
+
                             });
 
                             $scope.$apply();
