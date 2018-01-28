@@ -292,7 +292,7 @@
 
             $scope.FileChanged = function () {
                 var files = $("#imgUpload").get(0).files;
-
+                $rootScope.isLoading = true;
                 if (files[0] != undefined) {
                     var fu = "#imgUpload";
                     var name = $scope.FileNameToUpload + '.jpg';
@@ -307,9 +307,7 @@
                     else {
                         $scope.UploadImages(fu, name);
                     }
-                    if ($scope.FileNameToUpload == "store") {
-                        $rootScope.pageModel.homePage.aboutUsStoreImg = "images/" + name;
-                    }
+                   
                 }
 
             }
@@ -338,20 +336,26 @@
 
                     ajaxRequest.done(function (xhr, textStatus) {
                         if (xhr == "good") {
-
+                            
                             $rootScope.ShowToast("✔ Upload Success", "limegreen");
+
 
                             $rootScope.SetPageModel().then(function () {
                                 UpdateWorkGallery();
-                             
+                                $rootScope.isLoading = false;
+                                var eleID = $scope.FileNameToUpload.split('/')[$scope.FileNameToUpload.split('/').length - 1];
+                                var ele = $("#" + eleID).attr('src', $("#" + eleID).attr('src')+'?'+new Date().getTime());
                             });
+
                             $scope.$apply();
+
+
                             //var tempImg = $scope.FileNameToUpload.split('/')[1];
                             //$("#" + tempImg).attr('src', 'images/temp/' + $scope.FileNameToUpload + '.jpg');
                         }
                         else {
-                            alert("Error Uploading");
                             $rootScope.ShowToast("❌ Error Uploading", "darkred");
+                            $rootScope.isLoading = false;
 
                         }
                     });
@@ -360,6 +364,8 @@
                 }
                 else {
                     $rootScope.ShowToast("No image selected", "darkred");
+                    $rootScope.isLoading = false;
+
                 }
             }
 

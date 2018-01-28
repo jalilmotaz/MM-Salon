@@ -26,6 +26,9 @@
 .xlFont {
   font-size: 27pt;
 }
+.showInMobile {
+  display: none;
+}
 @media (max-width: 992px) {
   .xsFont {
     font-size: 5pt;
@@ -52,6 +55,18 @@
   .footerImg {
     background-position: left;
   }
+  .showInMobile {
+    display: block;
+  }
+}
+.ui.cards a.card:hover,
+.ui.link.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover {
+  z-index: 0;
+}
+.myImgHeight {
+  height: 350px !important;
 }
 #footer {
   width: 100vw;
@@ -121,7 +136,7 @@
   /* Padding */
   position: fixed;
   /* Sit on top of the screen */
-  z-index: 1;
+  z-index: 999999;
   /* Add a z-index if needed */
   bottom: 200px;
   /* 30px from the bottom */

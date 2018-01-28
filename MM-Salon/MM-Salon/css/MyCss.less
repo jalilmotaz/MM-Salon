@@ -22,6 +22,10 @@ body{
 .lgFont{font-size: 22pt;}
 .xlFont{font-size: 27pt;}
 
+.showInMobile{
+     display:none;
+ }
+
 @media(max-width: 992px){
     .xsFont{font-size: 5pt;}
     .smFont{font-size: 8pt;}
@@ -42,8 +46,17 @@ body{
  
       background-position:left;
  }
+ .showInMobile{
+     display:block;
+ }
 }
 
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover{
+    z-index:0;
+}
+.myImgHeight{
+    height:350px !important;
+}
 #footer {
      width:100vw;
     background-color: @myBlue;
@@ -113,7 +126,7 @@ body{
     border-radius: 4px; /* Rounded borders */
     padding: 16px; /* Padding */
     position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
+    z-index: 999999; /* Add a z-index if needed */
      bottom:200px;/* 30px from the bottom */
     font-size:12pt;
     left:0;

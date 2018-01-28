@@ -90,8 +90,12 @@
     <Content Include="css\lessVars.min.css">
       <DependentUpon>lessVars.css</DependentUpon>
     </Content>
-    <Content Include="css\MyCss.css" />
-    <Content Include="css\MyCss.min.css" />
+    <Content Include="css\MyCss.css">
+      <DependentUpon>MyCss.less</DependentUpon>
+    </Content>
+    <Content Include="css\MyCss.min.css">
+      <DependentUpon>MyCss.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCss\_aboutCss.css">
       <DependentUpon>_aboutCss.less</DependentUpon>
     </Content>

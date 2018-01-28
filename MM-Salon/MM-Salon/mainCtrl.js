@@ -3,8 +3,8 @@
 myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelFactory) {
     $rootScope.isLoading = true;
 
-    //$rootScope.server = "http://localhost:56014/";   //dev
-    $rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
+    $rootScope.server = "http://localhost:56014/";   //dev
+    //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
 

@@ -3,10 +3,24 @@
 <center><h1 class="ui header">Home Page</h1></center>
 <div class="ui styled fluid accordion">
     <div class="title navabar" ng-click="tabClick = 1">
-        <legend class="lgFont"><i class="fa fa-picture-o" aria-hidden="true"></i>  Image Slides <i class="help circle icon" ng-show="tabClick == 1" data-variation="inverted huge" data-position="right center" data-content="Replace the four images to be displayed on the home page slider (Note: you need to refresh to see changes after success message)" ></i></legend>
+        <h1 class="lgFont"><i class="fa fa-picture-o" aria-hidden="true"></i>  Image Slides <i class="help circle icon" ng-show="tabClick == 1" data-variation="inverted huge" data-position="right center" data-content="Replace the four images to be displayed on the home page slider (Note: you need to refresh to see changes after success message)" ></i></h1>
     </div> 
     <div class="content">
         <br/><br />
+        <div class="ui grid">
+            <div class="four wide column">
+                <h3>Slide 1</h3>
+            </div>
+            <div class="four wide column">
+                <h3>Slide 2</h3>
+            </div>
+            <div class="four wide column">
+                <h3>Slide 3</h3>
+            </div>
+            <div class="four wide column">
+                <h3>Slide 4</h3>
+            </div>
+        </div>
         <div class="ui four stackable special cards">
             <a class="red card homePageSlide" ng-repeat="imgSlide in $root.pageModel.homePage.imgSlides track by $index">
                 <div class="blurring dimmable small image">
@@ -22,388 +36,380 @@
                         </div>
                     </div>
 
-                    <img id="slide{{($index+1)}}" ng-src="{{imgSlide}}?v={{dateTime}}">
+                    <img id="slide{{($index+1)}}" ng-src="{{imgSlide}}?v={{dateTime}}" class="myImgHeight">
                 </div>
             </a>
         </div>
 
     </div>
     <div class="title navabar" ng-click="tabClick = 2">
-        <legend class="lgFont"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i> About Us</legend>
+        <h1 class="lgFont"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i> About Us</h1>
 
     </div>
     <div class="content">
         <div style="width:60%; margin-left:20%">
-            <h3><u>About Us Text</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Write a quick story about your store and what you offer."></i></h3>
-            <textarea style="width:100%; height:100px;" placeholder="About us text..." ng-model="txtAboutUs"></textarea>
-            <center>
-                <button class="ui inverted blue labeled icon button" ng-click="SaveAboutUsText()">
-                    <i class="save icon"></i> 
-                    Save
-                </button>
-            </center>
-            <br />
-            <br />
 
-            <center><h3><u>About us Image (Store Image)</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Upload an image of your store. (this can be also used to display a special going on or anything you see fit)"></i></h3></center>
-            <br />
-
-            <div class="ui special cards centered">
-
-                <a class="red card">
-                    <div class="blurring dimmable small image">
-                        <div class="ui dimmer">
-                            <div class="content">
-                                <div class="center">
-                                    <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('store')">
-                                        <i class="upload icon"></i>
-                                        Replace
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <img  ng-src="{{$root.pageModel.homePage.aboutUsStoreImg}}?v={{dateTime}}">
-                    </div>
-                </a>
-            </div>
-
-            <br />
-            <br />
             <div class="ui grid">
                 <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                    <div class="ui container">
-                        <center><h3><u>Specialties</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Select specialties from the list below based on your busieness"></i></h3></center>
-                        <div class="ui middle aligned divided list">
-                            <div class="item">
-                                <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Nails')" ng-disabled="nailsAdded">
-                                        <i class="plus icon"></i>
-                                        Add
-                                    </button>
-                                </div>
-                                <img class="ui avatar image" ng-src="/images/nails.png">
-                                <div class="content">
-                                    Nails
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Hair')" ng-disabled="hairAdded">
-                                        <i class="plus icon"></i>
-                                        Add
-                                    </button>
-                                </div>
-                                <img class="ui avatar image" ng-src="/images/hair.png">
-                                <div class="content">
-                                    Hair
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Skin')" ng-disabled="skinAdded">
-                                        <i class="plus icon"></i>
-                                        Add
-                                    </button>
-                                </div>
-                                <img class="ui avatar image" ng-src="/images/skin.png">
-                                <div class="content">
-                                    Skin
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Products')" ng-disabled="prodAdded">
-                                        <i class="plus icon"></i>
-                                        Add
-                                    </button>
-                                </div>
-                                <img class="ui avatar image" ng-src="/images/products.png">
-                                <div class="content">
-                                    Products
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                    <center><h3><u>My Specialties</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="List of specialties you selected that will be dispalyed for your users (If none selected this section will not show up for users)"></i></h3></center>
-
-                    <div class="ui middle aligned divided list">
-                        <div class="item" ng-repeat="sepcial in $root.pageModel.homePage.specialties">
-                            <div class="right floated content">
-                                <button class="ui inverted red labeled icon button" ng-click="RemoveSpecial(sepcial)">
-                                    <i class="ban icon"></i>
-                                    Remove
-                                </button>
-                            </div>
-                            <img class="ui avatar image" ng-src="/images/{{sepcial}}.png">
-                            <div class="content">
-                                {{sepcial}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <div class="title navabar" ng-click="tabClick = 3">
-        <legend class="lgFont"><i class="fa fa-lg fa-users" aria-hidden="true"></i> Our Team <i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Manage your team members information"></i></legend>
-    </div>
-    <div class="content">
-        <div class="ui stackable grid">
-            <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                 <center>
-                        <h3><u>Add Member</u> <i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Fill out the form to add a new member (Name, picture, and about member sections are required)"></i></h3>
-                        <div class="ui stackable grid">
-                            <div class="four wide column"><h4>Member name:</h4></div>
-                            <div class="four wide column">
-                                <div class="ui input">
-                                    <input type="text" placeholder="Name" ng-model="memName">
-                                </div>
-                            </div>
-                            <div class="four wide column"><h4>Member image:</h4></div>
-                            <div class="four wide column">
-                                <div class="ui special cards centered ">
-
-                                    <a class="red card">
-                                        <div class="blurring dimmable small image">
-                                            <div class="ui dimmer">
-                                                <div class="content">
-                                                    <div class="center">
-                                                        <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('memberUpload')">
-                                                            <i class="upload icon"></i>
-                                                            Upload
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <img  src="/images/empty.png" ng-src="{{memeberImgSource}}">
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <br />
-                        <div class="ui stackable grid">
-                            <div class="four wide column"><h4>About member: </h4></div>
-                            <div class="four wide column">
-                                <textarea style="width:100%; height:75px;" ng-model="memAbout"></textarea>
-                            </div>
-                            <div class="four wide column"><h4>Social Media Links</h4></div>
-                            <div class="four wide column">
-                                <div class="accordion">
-                                    <div class="title">
-                                        <i class="facebook icon"></i>
-                                        Facebook
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="Url.." style="width:100%;" ng-model="memFB">
-                                        </div>
-                                    </div>
-                                    <div class="title">
-                                        <i class="twitter sqaure icon"></i>
-                                        Twitter
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memTwitter">
-                                        </div>
-                                    </div>
-                                    <div class="title">
-                                        <i class="instagram icon"></i>
-                                        Instagram
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memInsta">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="ui stackable grid">
-                            <div class="eight wide column centered">
-                                <button class="ui inverted blue labeled icon button fluid" ng-click="AddMember()">
-                                    <i class="add user icon"></i>
-                                    Add Member
-                                </button>
-                            </div>
-
-                        </div>
-                    </center>
-            </div>
-
-            <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                <div class="ui container">
+                    <h3><u>About Us Text</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Write a quick story about your store and what you offer."></i></h3>
+                    <textarea style="width:100%; height:200px; overflow:hidden; border-radius:6px;" placeholder="About us text..." ng-model="txtAboutUs"></textarea>
                     <center>
-                        <h3><u>Team Members</u><i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Your current team members"></i></h3>
+                        <button class="ui inverted blue labeled icon button" ng-click="SaveAboutUsText()">
+                            <i class="save icon"></i>
+                            Save Text
+                        </button>
                     </center>
-                    <div class="ui middle aligned divided list">
-                        <div class="item" ng-repeat="member in $root.pageModel.homePage.team track by $index">
-                            <div class="right floated content">
-                                <button class="ui inverted red labeled icon button" ng-click="ShowDeleteMemberWarning(member)">
-                                    <i class="ban icon"></i>
-                                    Remove
-                                </button>
-                                <button class="ui inverted blue labeled icon button" ng-click="EditMember(member)">
-                                    <i class="edit icon"></i>
-                                    Edit
-                                </button>
-                            </div>
-                            <img class="ui avatar image" ng-src="{{member.imgURL}}">
-                            <div class="content">
-                                {{member.name}}
-                            </div>
-                        </div>
+                    <br />
+                    <br />
+                    </div>
+                <div class="sixteen wide mobile eight wide tablet eight wide computer column">
 
-                    </div>
-                </div>
-            </div>
-            <div class="ui remove modal">
-                <div class="ui icon header">
-                    <i class="ban icon"></i>
-                    Remove member from team
-                </div>
-                <div class="content">
-                    <h3>Are you sure you want to remove {{memberToDeleteName}} from the team?</h3>
-                </div>
-                <div class="actions">
-                    <div class="ui red basic cancel button">
-                        <i class="remove icon"></i>
-                        No
-                    </div>
-                    <div class="ui green ok button" ng-click="RemoveMember(memberToDelete)">
-                        <i class="checkmark icon"></i>
-                        Yes
-                    </div>
-                </div>
-            </div>
+                    <center><h3><u>About us Image (Store Image)</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Upload an image of your store. (this can be also used to display a special going on or anything you see fit)"></i></h3></center>
+                    <br />
 
-            <div id="owModal" class="ui edit modal">
-                <i class="close icon"></i>
-                <div class="header">
-                    Edit Member, {{memberName}}
+                    <div class="ui special cards centered">
+
+                        <a class="red card">
+                            <div class="blurring dimmable small image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('store')">
+                                                <i class="upload icon"></i>
+                                                Replace
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img id="store" ng-src="{{$root.pageModel.homePage.aboutUsStoreImg}}?v={{dateTime}}" style="height:195px;">
+                            </div>
+                        </a>
+                    </div>
+                    </div>
                 </div>
-                <div class="image content">
+                    <br />
+                    <br />
                     <div class="ui grid">
-                        <div class="four wide column">
-                            <div class="ui special cards">
-                                <a class="red card">
-                                    <div class="blurring dimmable small image">
-                                        <div class="ui dimmer">
-                                            <div class="content">
-                                                <div class="center">
-                                                    <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('memberUpload')">
-                                                        <i class="upload icon"></i>
-                                                        Replace
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="{{memberImg}}" ng-src="{{memeberImgSource2}}">
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="eight wide column">
 
-                            <div class="description">
-                                <div class="ui header"><h3> About {{memberName}}</h3></div>
-                                <textarea style="width:100%;height:75px;" ng-model="memeberAbout"></textarea>
-                            </div>
-                        </div>
-                        <div class="four wide column">
 
-                            <div class="description">
-                                <div class="ui header"><h3> Social Media</h3></div>
-                                <div class="ui styled fluid accordion">
-                                    <div class="title">
-                                        <i class="facebook icon"></i>
-                                        Facebook
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="Url.." style="width:100%;" ng-model="memberFBLink">
+                        <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+                
+
+                            <div class="ui container">
+                                <center><h3><u>Specialties</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Select specialties from the list below based on your busieness"></i></h3></center>
+                                <div class="ui middle aligned divided list">
+                                    <div class="item">
+                                        <div class="right floated content">
+                                            <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Nails')" ng-disabled="nailsAdded">
+                                                <i class="plus icon"></i>
+                                                Add
+                                            </button>
+                                        </div>
+                                        <img class="ui avatar image" ng-src="/images/nails.png">
+                                        <div class="content">
+                                            Nails
                                         </div>
                                     </div>
-                                    <div class="title">
-                                        <i class="twitter sqaure icon"></i>
-                                        Twitter
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memberTwitterLink">
+                                    <div class="item">
+                                        <div class="right floated content">
+                                            <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Hair')" ng-disabled="hairAdded">
+                                                <i class="plus icon"></i>
+                                                Add
+                                            </button>
+                                        </div>
+                                        <img class="ui avatar image" ng-src="/images/hair.png">
+                                        <div class="content">
+                                            Hair
                                         </div>
                                     </div>
-                                    <div class="title">
-                                        <i class="instagram icon"></i>
-                                        Instagram
+                                    <div class="item">
+                                        <div class="right floated content">
+                                            <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Skin')" ng-disabled="skinAdded">
+                                                <i class="plus icon"></i>
+                                                Add
+                                            </button>
+                                        </div>
+                                        <img class="ui avatar image" ng-src="/images/skin.png">
+                                        <div class="content">
+                                            Skin
+                                        </div>
                                     </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memberInstaLink">
+                                    <div class="item">
+                                        <div class="right floated content">
+                                            <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Products')" ng-disabled="prodAdded">
+                                                <i class="plus icon"></i>
+                                                Add
+                                            </button>
+                                        </div>
+                                        <img class="ui avatar image" ng-src="/images/products.png">
+                                        <div class="content">
+                                            Products
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-                <div class="actions">
-                    <div class="ui black deny button">
-                        Cancel
-                    </div>
-                    <div class="ui positive right labeled icon button" ng-click="SaveMemberEdit()">
-                        Save
-                        <i class="save icon"></i>
-                    </div>
-                </div>
-            </div>
+                        <div class="sixteen wide mobile eight wide tablet eight wide computer column">
+                            <center><h3><u>My Specialties</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="List of specialties you selected that will be dispalyed for your users (If none selected this section will not show up for users)"></i></h3></center>
 
-        </div>
-    </div>
-    <div class="title navabar" ng-click="tabClick = 4">
-        <legend class="lgFont"><i class="fa fa-lg fa-picture-o" aria-hidden="true"></i> Work Gallery <i class="help circle icon" ng-show="tabClick == 4"  data-variation="inverted huge" data-position="right center" data-content="Upload images of your work (NOTE: You may have to refresh to see changes after success message)"></i></legend>
-
-    </div>
-    <div class="content">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-            <!-- Indicators -->
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="ui four doubling special cards">
-
-                    <a class="red card" ng-show="AllItems.length == 0">
-                        <div class="blurring dimmable small image">
-                            <div class="ui dimmer">
-                                <div class="content">
-                                    <div class="center">
-                                        <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('gallery')">
-                                            <i class="plus icon"></i>
-                                            Add image
+                            <div class="ui middle aligned divided list">
+                                <div class="item" ng-repeat="sepcial in $root.pageModel.homePage.specialties">
+                                    <div class="right floated content">
+                                        <button class="ui inverted red labeled icon button" ng-click="RemoveSpecial(sepcial)">
+                                            <i class="ban icon"></i>
+                                            Remove
                                         </button>
                                     </div>
+                                    <img class="ui avatar image" ng-src="/images/{{sepcial}}.png">
+                                    <div class="content">
+                                        {{sepcial}}
+                                    </div>
                                 </div>
                             </div>
-                            <img ng-src="/images/empty.png">
                         </div>
-                    </a>
                     </div>
-                    <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
+
+                </div>
+            </div>
+            <div class="title navabar" ng-click="tabClick = 3">
+                <h1 class="lgFont"><i class="fa fa-lg fa-users" aria-hidden="true"></i> Our Team <i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Manage your team members information"></i></h1>
+            </div>
+            <div class="content">
+                <div class="ui stackable grid">
+                    <div class="sixteen wide mobile eight wide tablet ten wide computer column" style="border-right:solid thin #ccc">
+                        <center>
+                            <h3><u>Add Member</u> <i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Fill out the form to add a new member (Name, picture, and about member sections are required)"></i></h3>
+                            <div class="ui stackable grid">
+                                <div class="four wide column"><h4>Member name:</h4></div>
+                                <div class="four wide column">
+                                    <div class="ui input">
+                                        <input type="text" placeholder="Name" ng-model="memName">
+                                    </div>
+                                </div>
+                                <div class="four wide column"><h4>Member image:</h4></div>
+                                <div class="four wide column">
+                                    <div class="ui special cards centered ">
+
+                                        <a class="red card">
+                                            <div class="blurring dimmable small image">
+                                                <div class="ui dimmer">
+                                                    <div class="content">
+                                                        <div class="center">
+                                                            <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('memberUpload')">
+                                                                <i class="upload icon"></i>
+                                                                Upload
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="/images/empty.png" ng-src="{{memeberImgSource}}">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <div class="ui stackable grid">
+                                <div class="four wide column"><h4>About member: </h4></div>
+                                <div class="four wide column">
+                                    <textarea style="width:100%;height: 140px;border-radius: 6px;overflow: hidden;" ng-model="memAbout"></textarea>
+                                </div>
+                                <div class="four wide column"><h4>Social Media Links</h4></div>
+                                <div class="four wide column">
+                                    <div class="accordion">
+                                        <div class="title">
+                                            <i class="facebook icon"></i>
+                                            Facebook
+                                        </div>
+                                        <div class="content">
+                                            <div class="ui input">
+                                                <input type="text" placeholder="Url.." style="width:100%;" ng-model="memFB">
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <i class="twitter sqaure icon"></i>
+                                            Twitter
+                                        </div>
+                                        <div class="content">
+                                            <div class="ui input">
+                                                <input type="text" placeholder="URl.." style="width:100%;" ng-model="memTwitter">
+                                            </div>
+                                        </div>
+                                        <div class="title">
+                                            <i class="instagram icon"></i>
+                                            Instagram
+                                        </div>
+                                        <div class="content">
+                                            <div class="ui input">
+                                                <input type="text" placeholder="URl.." style="width:100%;" ng-model="memInsta">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="ui stackable grid">
+                                <div class="eight wide column centered">
+                                    <button class="ui inverted blue labeled icon button fluid" ng-click="AddMember()">
+                                        <i class="add user icon"></i>
+                                        Add Member
+                                    </button>
+                                </div>
+
+                            </div>
+                        </center>
+                    </div>
+
+                    <div class="sixteen wide mobile eight wide tablet six wide computer column">
+                        <div class="ui container">
+                            <center>
+                                <h3><u>Team Members</u><i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Your current team members"></i></h3>
+                            </center>
+                            <div class="ui middle aligned divided list">
+                                <div class="item" ng-repeat="member in $root.pageModel.homePage.team track by $index">
+                                    <div class="right floated content">
+                                        <button class="ui inverted red labeled icon button" ng-click="ShowDeleteMemberWarning(member)">
+                                            <i class="ban icon"></i>
+                                            Remove
+                                        </button>
+                                        <button class="ui inverted blue labeled icon button" ng-click="EditMember(member)">
+                                            <i class="edit icon"></i>
+                                            Edit
+                                        </button>
+                                    </div>
+                                    <img class="ui avatar image" ng-src="{{member.imgURL}}">
+                                    <div class="content">
+                                        {{member.name}}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui remove modal">
+                        <div class="ui icon header">
+                            <i class="ban icon"></i>
+                            Remove member from team
+                        </div>
+                        <div class="content">
+                            <h3>Are you sure you want to remove {{memberToDeleteName}} from the team?</h3>
+                        </div>
+                        <div class="actions">
+                            <div class="ui red basic cancel button">
+                                <i class="remove icon"></i>
+                                No
+                            </div>
+                            <div class="ui green ok button" ng-click="RemoveMember(memberToDelete)">
+                                <i class="checkmark icon"></i>
+                                Yes
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="owModal" class="ui edit modal">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Edit Member, {{memberName}}
+                        </div>
+                        <div class="image content">
+                            <div class="ui grid">
+                                <div class="four wide column">
+                                    <div class="ui special cards">
+                                        <a class="red card">
+                                            <div class="blurring dimmable small image">
+                                                <div class="ui dimmer">
+                                                    <div class="content">
+                                                        <div class="center">
+                                                            <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('memberUpload')">
+                                                                <i class="upload icon"></i>
+                                                                Replace
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="{{memberImg}}" ng-src="{{memeberImgSource2}}">
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="eight wide column">
+
+                                    <div class="description">
+                                        <div class="ui header"><h3> About {{memberName}}</h3></div>
+                                        <textarea style="width:100%;height:75px;" ng-model="memeberAbout"></textarea>
+                                    </div>
+                                </div>
+                                <div class="four wide column">
+
+                                    <div class="description">
+                                        <div class="ui header"><h3> Social Media</h3></div>
+                                        <div class="ui styled fluid accordion">
+                                            <div class="title">
+                                                <i class="facebook icon"></i>
+                                                Facebook
+                                            </div>
+                                            <div class="content">
+                                                <div class="ui input">
+                                                    <input type="text" placeholder="Url.." style="width:100%;" ng-model="memberFBLink">
+                                                </div>
+                                            </div>
+                                            <div class="title">
+                                                <i class="twitter sqaure icon"></i>
+                                                Twitter
+                                            </div>
+                                            <div class="content">
+                                                <div class="ui input">
+                                                    <input type="text" placeholder="URl.." style="width:100%;" ng-model="memberTwitterLink">
+                                                </div>
+                                            </div>
+                                            <div class="title">
+                                                <i class="instagram icon"></i>
+                                                Instagram
+                                            </div>
+                                            <div class="content">
+                                                <div class="ui input">
+                                                    <input type="text" placeholder="URl.." style="width:100%;" ng-model="memberInstaLink">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="actions">
+                            <div class="ui black deny button">
+                                Cancel
+                            </div>
+                            <div class="ui positive right labeled icon button" ng-click="SaveMemberEdit()">
+                                Save
+                                <i class="save icon"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="title navabar" ng-click="tabClick = 4">
+                <h1 class="lgFont"><i class="fa fa-lg fa-picture-o" aria-hidden="true"></i> Work Gallery <i class="help circle icon" ng-show="tabClick == 4" data-variation="inverted huge" data-position="right center" data-content="Upload images of your work (NOTE: You may have to refresh to see changes after success message)"></i></h1>
+
+            </div>
+            <div class="content">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <!-- Indicators -->
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
                         <div class="ui four doubling special cards">
-                            <a class="red card" ng-show="$index == 0">
+
+                            <a class="red card" ng-show="AllItems.length == 0">
                                 <div class="blurring dimmable small image">
                                     <div class="ui dimmer">
                                         <div class="content">
@@ -415,101 +421,119 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <img ng-src="/images/empty.png">
+                                    <img ng-src="/images/empty.png" class="myImgHeight">
                                 </div>
                             </a>
-                            <a class="red card" ng-repeat="pics in item  track by $index">
-                                <div class="blurring dimmable small image">
-                                    <div class="ui dimmer">
-                                        <div class="content">
-                                            <div class="center">
-                                                <button class="ui inverted red labeled icon button" ng-click="RemoveFromGallery(pics)">
-                                                    <i class="ban icon"></i>
-                                                    Delete
-                                                </button>
+                        </div>
+                        <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
+                            <div class="ui four doubling special cards">
+                                <a class="red card" ng-show="$index == 0">
+                                    <div class="blurring dimmable small image">
+                                        <div class="ui dimmer">
+                                            <div class="content">
+                                                <div class="center">
+                                                    <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('gallery')">
+                                                        <i class="plus icon"></i>
+                                                        Add image
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
+                                        <img ng-src="/images/empty.png" class="myImgHeight">
                                     </div>
-                                    <img ng-src="{{pics}}?v={{dateTime}}">
+                                </a>
+                                <a class="red card" ng-repeat="pics in item  track by $index">
+                                    <div class="blurring dimmable small image">
+                                        <div class="ui dimmer">
+                                            <div class="content">
+                                                <div class="center">
+                                                    <button class="ui inverted red labeled icon button" ng-click="RemoveFromGallery(pics)">
+                                                        <i class="ban icon"></i>
+                                                        Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img ng-src="{{pics}}?v={{dateTime}}" class="myImgHeight">
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width: 10px;">
+                        <i class="chevron circle left icon slideArrow"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next" style="width: 40px;">
+                        <i class="chevron circle right icon slideArrow"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="title navabar" ng-click="tabClick = 5">
+                <h1 class="lgFont"><i class="fa fa-lg fa-envelope" aria-hidden="true"></i> Contact Information <i class="help circle icon" ng-show="tabClick == 5" data-variation="inverted huge" data-position="right center" data-content="Manage the store's contact information"></i></h1>
+
+            </div>
+            <div class="content">
+                <div class="ui  grid stackable">
+                    <div class="two wide column centered">
+                        <h4>Phone Number:</h4>
+                        <div class="ui input">
+                            <input type="text" placeholder="Number" ng-model="txtNumber">
+                        </div>
+                    </div>
+                    <div class="two wide column centered">
+                        <h4>Email:</h4>
+                        <div class="ui input">
+                            <input type="text" placeholder="Email" ng-model="txtEmail">
+                        </div>
+                    </div>
+                    <div class="two wide column centered">
+                        <h4>Address:</h4>
+                        <div class="ui input">
+                            <input type="text" placeholder="Address" ng-model="txtAddress">
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="ui grid stackable ">
+                    <div class="three wide column centered">
+                        <h3>Social Media Links</h3>
+                        <div class="accordion">
+                            <div class="title">
+                                <i class="facebook icon"></i>
+                                Facebook
+                            </div>
+                            <div class="content">
+                                <div class="ui input">
+                                    <input type="text" placeholder="Url.." style="width:100%;" ng-model="txtFBLink">
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                </div>
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width: 10px;">
-                <i class="chevron circle left icon slideArrow"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next" style="width: 40px;">
-                <i class="chevron circle right icon slideArrow"></i>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="title navabar" ng-click="tabClick = 5">
-        <legend class="lgFont"><i class="fa fa-lg fa-envelope" aria-hidden="true"></i> Contact Information <i class="help circle icon" ng-show="tabClick == 5" data-variation="inverted huge" data-position="right center" data-content="Manage the store's contact information"></i></legend>
-
-    </div>
-    <div class="content">
-        <div class="ui  grid stackable">
-            <div class="two wide column centered">
-                <h4>Phone Number:</h4>
-                <div class="ui input">
-                    <input type="text" placeholder="Number" ng-model="txtNumber">
-                </div>
-            </div>
-            <div class="two wide column centered">
-                <h4>Email:</h4>
-                <div class="ui input">
-                    <input type="text" placeholder="Email" ng-model="txtEmail">
-                </div>
-            </div>
-            <div class="two wide column centered">
-                <h4>Address:</h4>
-                <div class="ui input">
-                    <input type="text" placeholder="Address" ng-model="txtAddress">
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="ui grid stackable ">
-            <div class="three wide column centered">
-                <h3>Social Media Links</h3>
-                <div class="accordion">
-                    <div class="title">
-                        <i class="facebook icon"></i>
-                        Facebook
-                    </div>
-                    <div class="content">
-                        <div class="ui input">
-                            <input type="text" placeholder="Url.." style="width:100%;" ng-model="txtFBLink">
-                        </div>
-                    </div>
-                    <div class="title">
-                        <i class="twitter sqaure icon"></i>
-                        Twitter
-                    </div>
-                    <div class="content">
-                        <div class="ui input">
-                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="txtTwitterLink">
-                        </div>
-                    </div>
-                    <div class="title">
-                        <i class="instagram icon"></i>
-                        Instagram
-                    </div>
-                    <div class="content">
-                        <div class="ui input">
-                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="txtInstaLink">
+                            </div>
+                            <div class="title">
+                                <i class="twitter sqaure icon"></i>
+                                Twitter
+                            </div>
+                            <div class="content">
+                                <div class="ui input">
+                                    <input type="text" placeholder="URl.." style="width:100%;" ng-model="txtTwitterLink">
+                                </div>
+                            </div>
+                            <div class="title">
+                                <i class="instagram icon"></i>
+                                Instagram
+                            </div>
+                            <div class="content">
+                                <div class="ui input">
+                                    <input type="text" placeholder="URl.." style="width:100%;" ng-model="txtInstaLink">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
                 <br />
                 <div class="ui stackable grid ">
                     <div class="four wide column centered">
@@ -519,6 +543,6 @@
                         </button>
                     </div>
                 </div>
-     
-        </div>  
-</div>
+
+            </div>
+        </div>

@@ -29,6 +29,9 @@
     <link href="directives/partialsCss/_adminHomePageCss.min.css" rel="stylesheet" />
 </head>
 <body ng-app="myApp">
+    <div class="loaderBg" ng-show="$root.isLoading">
+        <img src="images/load.gif" />
+    </div>
     <div id="borderBox">
         <center>
             <h1><u>Admin Panel</u></h1>
