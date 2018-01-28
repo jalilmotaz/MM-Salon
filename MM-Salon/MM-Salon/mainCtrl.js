@@ -51,16 +51,12 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelF
         if ($('#pageView').html() != undefined) {
             if (!$('#pageView').html().includes(key)) {
                 $('#pageView').empty().append($compile(dir)($rootScope));
-
             }
         }
         else {
             $('#adminBody').empty().append($compile('<adminhomepage></adminhomepage>')($rootScope));
-
         }
         $rootScope.isLoading = false;
-
-
     }
 
 
@@ -122,8 +118,6 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelF
               
         }
     }
-
- 
 });
 
 
