@@ -47,7 +47,7 @@
 
                 $('.carousel').carousel('pause');
 
-
+                $('.help').popup();
 
             });
 

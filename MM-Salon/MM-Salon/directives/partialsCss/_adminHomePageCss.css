@@ -223,6 +223,12 @@ However, delay the fade out process for 2.5 seconds */
 .carousel-indicators .active {
   background-color: #148BE1 !important;
 }
+.title.navabar.active {
+  background-color: dodgerblue !important;
+}
+.title.navabar.active legend {
+  color: white !important;
+}
 .carousel-inner .image,
 .homePageSlide .image {
   min-height: 350px;
@@ -240,4 +246,10 @@ However, delay the fade out process for 2.5 seconds */
 #owModal {
   margin-top: 0 !important;
   top: 100px !important;
+}
+@media (max-width: 992px) {
+  .carousel-inner .image {
+    min-height: 150px;
+    max-height: 150px;
+  }
 }
