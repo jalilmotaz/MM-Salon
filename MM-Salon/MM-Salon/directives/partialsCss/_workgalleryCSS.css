@@ -11,6 +11,9 @@
   font-size: 2em !important;
   margin-top: 150px !important;
 }
+.modalImg {
+  max-width: 100%;
+}
 @media (max-width: 992px) {
   .carousel-inner .image {
     min-height: 150px;

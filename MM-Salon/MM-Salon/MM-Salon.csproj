@@ -174,12 +174,25 @@
     <Content Include="Global.asax" />
     <Content Include="images\brushes.jpg" />
     <Content Include="images\cosmetics.jpg" />
+    <Content Include="images\daniel.jpg" />
+    <Content Include="images\elliot.jpg" />
+    <Content Include="images\empty.png" />
     <Content Include="images\feather.jpg" />
+    <Content Include="images\flower.png" />
     <Content Include="images\hair.png" />
+    <Content Include="images\helen.jpg" />
+    <Content Include="images\imgSlides\slide1.jpg" />
+    <Content Include="images\imgSlides\slide2.jpg" />
+    <Content Include="images\imgSlides\slide3.jpg" />
+    <Content Include="images\imgSlides\slide4.jpg" />
+    <Content Include="images\load.gif" />
+    <Content Include="images\memberUpload2.jpg" />
     <Content Include="images\nails.png" />
     <Content Include="images\palette.jpg" />
     <Content Include="images\products.png" />
-    <Content Include="images\skin2.png" />
+    <Content Include="images\skin.png" />
+    <Content Include="images\store - Copy.jpg" />
+    <Content Include="images\store.jpg" />
     <Content Include="js\angular.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\fontAwesome.js" />
@@ -188,7 +201,9 @@
     <Content Include="js\router.js" />
     <Content Include="main.html" />
     <Content Include="mainCtrl.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Appointment.cs" />
@@ -222,6 +237,7 @@
     <Content Include="css\lessVars.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
+    <None Include="Properties\PublishProfiles\azure.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,7 +248,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
-    <Folder Include="images\imgSlides\" />
     <Folder Include="images\members\" />
     <Folder Include="images\workGallery\" />
     <Folder Include="Models\" />
