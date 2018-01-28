@@ -226,6 +226,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="images\imgSlides\" />
+    <Folder Include="images\members\" />
+    <Folder Include="images\workGallery\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

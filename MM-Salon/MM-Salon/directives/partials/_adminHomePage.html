@@ -1,4 +1,5 @@
-﻿<input type="file" id="imgUpload" style="display:none;"   onchange="angular.element(this).scope().FileChanged()" accept="image/*" />
+﻿<input type="file" id="imgUpload" style="display:none;"   onchange="angular.element(this).scope().FileChanged(this)" accept="image/*" />
+<input type="file" id="memberUpload" class="ng-hide" onchange="angular.element(this).scope().setMemberFile(this)" accept="image/*">
 <center><h1 class="ui header">Home Page</h1></center>
 <div class="ui styled fluid accordion">
     <div class="title">
@@ -33,10 +34,10 @@
     <div class="content">
         <div style="width:60%; margin-left:20%">
             <h3><u>About Us Text</u></h3>
-            <textarea style="width:100%; height:100px;" placeholder="About us text...">{{$root.pageModel.homePage.aboutUsTxt}}</textarea>
+            <textarea style="width:100%; height:100px;" placeholder="About us text..." ng-model="txtAboutUs"></textarea>
             <center>
-                <button class="ui inverted blue labeled icon button">
-                    <i class="save icon"></i>
+                <button class="ui inverted blue labeled icon button" ng-click="SaveAboutUsText()">
+                    <i class="save icon"></i> 
                     Save
                 </button>
             </center>
@@ -53,14 +54,14 @@
                         <div class="ui dimmer">
                             <div class="content">
                                 <div class="center">
-                                    <button class="ui inverted blue labeled icon button">
+                                    <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('store')">
                                         <i class="upload icon"></i>
                                         Replace
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <img src="{{$root.pageModel.homePage.aboutUsStoreImg}}">
+                        <img  src="{{$root.pageModel.homePage.aboutUsStoreImg}}?v={{dateTime}}">
                     </div>
                 </a>
             </div>
@@ -74,7 +75,7 @@
                         <div class="ui middle aligned divided list">
                             <div class="item">
                                 <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button">
+                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Nails')" ng-disabled="nailsAdded">
                                         <i class="plus icon"></i>
                                         Add
                                     </button>
@@ -86,19 +87,19 @@
                             </div>
                             <div class="item">
                                 <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button">
+                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Hair')" ng-disabled="hairAdded">
                                         <i class="plus icon"></i>
                                         Add
                                     </button>
                                 </div>
                                 <img class="ui avatar image" src="/images/hair.png">
                                 <div class="content">
-                                    hair
+                                    Hair
                                 </div>
                             </div>
                             <div class="item">
                                 <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button">
+                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Skin')" ng-disabled="skinAdded">
                                         <i class="plus icon"></i>
                                         Add
                                     </button>
@@ -110,7 +111,7 @@
                             </div>
                             <div class="item">
                                 <div class="right floated content">
-                                    <button class="ui inverted blue labeled icon button">
+                                    <button class="ui inverted blue labeled icon button" ng-click="AddSpecailty('Products')" ng-disabled="prodAdded">
                                         <i class="plus icon"></i>
                                         Add
                                     </button>
@@ -130,7 +131,7 @@
                     <div class="ui middle aligned divided list">
                         <div class="item" ng-repeat="sepcial in $root.pageModel.homePage.specialties">
                             <div class="right floated content">
-                                <button class="ui inverted red labeled icon button">
+                                <button class="ui inverted red labeled icon button" ng-click="RemoveSpecial(sepcial)">
                                     <i class="ban icon"></i>
                                     Remove
                                 </button>
@@ -159,7 +160,7 @@
                             <div class="four wide column"><h4>Name:</h4></div>
                             <div class="four wide column">
                                 <div class="ui input">
-                                    <input type="text" placeholder="Name">
+                                    <input type="text" placeholder="Name" ng-model="memName">
                                 </div>
                             </div>
                             <div class="four wide column"><h4>Member image:</h4></div>
@@ -171,14 +172,14 @@
                                             <div class="ui dimmer">
                                                 <div class="content">
                                                     <div class="center">
-                                                        <button class="ui inverted blue labeled icon button">
+                                                        <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('memberUpload')">
                                                             <i class="upload icon"></i>
                                                             Upload
                                                         </button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <img src="/images/empty.png">
+                                            <img  src="/images/empty.png" ng-src="{{memeberImgSource}}">
                                         </div>
                                     </a>
                                 </div>
@@ -190,7 +191,7 @@
                         <div class="ui grid">
                             <div class="four wide column"><h4>About member: </h4></div>
                             <div class="four wide column">
-                                <textarea style="width:100%; height:75px;"></textarea>
+                                <textarea style="width:100%; height:75px;" ng-model="memAbout"></textarea>
                             </div>
                             <div class="four wide column"><h4>Social Media Links</h4></div>
                             <div class="four wide column">
@@ -201,7 +202,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="ui input">
-                                            <input type="text" placeholder="Url.." style="width:100%;">
+                                            <input type="text" placeholder="Url.." style="width:100%;" ng-model="memFB">
                                         </div>
                                     </div>
                                     <div class="title">
@@ -210,7 +211,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;">
+                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memTwitter">
                                         </div>
                                     </div>
                                     <div class="title">
@@ -219,16 +220,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;">
-                                        </div>
-                                    </div>
-                                    <div class="title">
-                                        <i class="linkedin square icon"></i>
-                                        Linkedin
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;">
+                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memInsta">
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +229,7 @@
                         </div>
                         <div class="ui grid">
                             <div class="eight wide column centered">
-                                <button class="ui inverted blue labeled icon button fluid">
+                                <button class="ui inverted blue labeled icon button fluid" ng-click="AddMember()">
                                     <i class="add user icon"></i>
                                     Add Member
                                 </button>
@@ -256,7 +248,7 @@
                     <div class="ui middle aligned divided list">
                         <div class="item" ng-repeat="member in $root.pageModel.homePage.team track by $index">
                             <div class="right floated content">
-                                <button class="ui inverted red labeled icon button">
+                                <button class="ui inverted red labeled icon button" ng-click="ShowDeleteMemberWarning(member)">
                                     <i class="ban icon"></i>
                                     Remove
                                 </button>
@@ -274,10 +266,30 @@
                     </div>
                 </div>
             </div>
-            <div id="owModal" class="ui modal">
+            <div class="ui remove modal">
+                <div class="ui icon header">
+                    <i class="ban icon"></i>
+                    Remove member from team
+                </div>
+                <div class="content">
+                    <h3>Are you sure you want to remove {{memberToDeleteName}} from the team?</h3>
+                </div>
+                <div class="actions">
+                    <div class="ui red basic cancel button">
+                        <i class="remove icon"></i>
+                        No
+                    </div>
+                    <div class="ui green ok button" ng-click="RemoveMember(memberToDelete)">
+                        <i class="checkmark icon"></i>
+                        Yes
+                    </div>
+                </div>
+            </div>
+
+            <div id="owModal" class="ui edit modal">
                 <i class="close icon"></i>
                 <div class="header">
-                    Edit Memeber, {{memberName}}
+                    Edit Member, {{memberName}}
                 </div>
                 <div class="image content">
                     <div class="ui grid">
@@ -288,14 +300,14 @@
                                         <div class="ui dimmer">
                                             <div class="content">
                                                 <div class="center">
-                                                    <button class="ui inverted blue labeled icon button">
+                                                    <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('memberUpload')">
                                                         <i class="upload icon"></i>
                                                         Replace
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img src="{{memberImg}}">
+                                        <img src="{{memberImg}}" ng-src="{{memeberImgSource2}}">
                                     </div>
                                 </a>
                             </div>
@@ -304,7 +316,7 @@
 
                             <div class="description">
                                 <div class="ui header"><h3> About {{memberName}}</h3></div>
-                                <textarea style="width:100%;height:75px;"> {{memeberAbout}}</textarea>
+                                <textarea style="width:100%;height:75px;" ng-model="memeberAbout"></textarea>
                             </div>
                         </div>
                         <div class="four wide column">
@@ -318,7 +330,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="ui input">
-                                            <input type="text" placeholder="Url.." style="width:100%;">
+                                            <input type="text" placeholder="Url.." style="width:100%;" ng-model="memberFBLink">
                                         </div>
                                     </div>
                                     <div class="title">
@@ -327,7 +339,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;">
+                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memberTwitterLink">
                                         </div>
                                     </div>
                                     <div class="title">
@@ -336,16 +348,7 @@
                                     </div>
                                     <div class="content">
                                         <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;">
-                                        </div>
-                                    </div>
-                                    <div class="title">
-                                        <i class="linkedin square icon"></i>
-                                        Linkedin
-                                    </div>
-                                    <div class="content">
-                                        <div class="ui input">
-                                            <input type="text" placeholder="URl.." style="width:100%;">
+                                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="memberInstaLink">
                                         </div>
                                     </div>
                                 </div>
@@ -358,7 +361,7 @@
                     <div class="ui black deny button">
                         Cancel
                     </div>
-                    <div class="ui positive right labeled icon button">
+                    <div class="ui positive right labeled icon button" ng-click="SaveMemberEdit()">
                         Save
                         <i class="save icon"></i>
                     </div>
@@ -374,50 +377,68 @@
     <div class="content">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Indicators -->
+            <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="{{$index}}" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}"></li>
             </ol>
+
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
+                <div class="ui four special cards">
 
-                <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
-                    <div class="ui four special cards">
-                        <a class="red card" ng-show="$index == 0">
-                            <div class="blurring dimmable small image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <button class="ui inverted blue labeled icon button">
-                                                <i class="plus icon"></i>
-                                                Add image
-                                            </button>
-                                        </div>
+                    <a class="red card" ng-show="AllItems.length == 0">
+                        <div class="blurring dimmable small image">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <div class="center">
+                                        <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('gallery')">
+                                            <i class="plus icon"></i>
+                                            Add image
+                                        </button>
                                     </div>
                                 </div>
-                                <img src="/images/empty.png">
                             </div>
-                        </a>
-                        <a class="red card" ng-repeat="pics in item  track by $index">
-                            <div class="blurring dimmable small image">
-                                <div class="ui dimmer">
-                                    <div class="content">
-                                        <div class="center">
-                                            <button class="ui inverted red labeled icon button">
-                                                <i class="ban icon"></i>
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <img src="{{pics}}">
-                            </div>
-                        </a>
+                            <img src="/images/empty.png">
+                        </div>
+                    </a>
                     </div>
+                    <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
+                        <div class="ui four special cards">
+                            <a class="red card" ng-show="$index == 0">
+                                <div class="blurring dimmable small image">
+                                    <div class="ui dimmer">
+                                        <div class="content">
+                                            <div class="center">
+                                                <button class="ui inverted blue labeled icon button" ng-click="TriggerFileUpload('gallery')">
+                                                    <i class="plus icon"></i>
+                                                    Add image
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="/images/empty.png">
+                                </div>
+                            </a>
+                            <a class="red card" ng-repeat="pics in item  track by $index">
+                                <div class="blurring dimmable small image">
+                                    <div class="ui dimmer">
+                                        <div class="content">
+                                            <div class="center">
+                                                <button class="ui inverted red labeled icon button" ng-click="RemoveFromGallery(pics)">
+                                                    <i class="ban icon"></i>
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <img src="{{pics}}?v={{dateTime}}">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
                 </div>
-
-
-            </div>
             <!-- Left and right controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width: 10px;">
                 <i class="chevron circle left icon slideArrow"></i>
@@ -441,73 +462,66 @@
             <div class="two wide column">
                 <h4>Phone Number:</h4>
                 <div class="ui input">
-                    <input type="text" placeholder="Number">
+                    <input type="text" placeholder="Number" ng-model="txtNumber">
                 </div>
             </div>
             <div class="two wide column">
                 <h4>Email:</h4>
                 <div class="ui input">
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Email" ng-model="txtEmail">
                 </div>
             </div>
             <div class="two wide column">
                 <h4>Address:</h4>
                 <div class="ui input">
-                    <input type="text" placeholder="Address">
+                    <input type="text" placeholder="Address" ng-model="txtAddress">
                 </div>
             </div>
         </div>
         <br />
-        <center>
-            <h3>Social Media Links</h3>
-            <div class="accordion">
-                <div class="title">
-                    <i class="facebook icon"></i>
-                    Facebook
-                </div>
-                <div class="content">
-                    <div class="ui input">
-                        <input type="text" placeholder="Url.." style="width:100%;">
+        <div class="ui grid centered">
+            <div class="three wide column">
+                <h3>Social Media Links</h3>
+                <div class="accordion">
+                    <div class="title">
+                        <i class="facebook icon"></i>
+                        Facebook
                     </div>
-                </div>
-                <div class="title">
-                    <i class="twitter sqaure icon"></i>
-                    Twitter
-                </div>
-                <div class="content">
-                    <div class="ui input">
-                        <input type="text" placeholder="URl.." style="width:100%;">
+                    <div class="content">
+                        <div class="ui input">
+                            <input type="text" placeholder="Url.." style="width:100%;" ng-model="txtFBLink">
+                        </div>
                     </div>
-                </div>
-                <div class="title">
-                    <i class="instagram icon"></i>
-                    Instagram
-                </div>
-                <div class="content">
-                    <div class="ui input">
-                        <input type="text" placeholder="URl.." style="width:100%;">
+                    <div class="title">
+                        <i class="twitter sqaure icon"></i>
+                        Twitter
                     </div>
-                </div>
-                <div class="title">
-                    <i class="linkedin square icon"></i>
-                    Linkedin
-                </div>
-                <div class="content">
-                    <div class="ui input">
-                        <input type="text" placeholder="URl.." style="width:100%;">
+                    <div class="content">
+                        <div class="ui input">
+                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="txtTwitterLink">
+                        </div>
+                    </div>
+                    <div class="title">
+                        <i class="instagram icon"></i>
+                        Instagram
+                    </div>
+                    <div class="content">
+                        <div class="ui input">
+                            <input type="text" placeholder="URl.." style="width:100%;" ng-model="txtInstaLink">
+                        </div>
                     </div>
                 </div>
             </div>
-            <br />
-            <div class="ui grid">
-                <div class="four wide column centered">
-                    <button class="ui inverted blue labeled icon button fluid">
-                        <i class="save icon"></i>
-                        Save
-                    </button>
+        </div>
+                <br />
+                <div class="ui grid">
+                    <div class="four wide column centered">
+                        <button class="ui inverted blue labeled icon button fluid" ng-click="SaveContactInfo()">
+                            <i class="save icon"></i>
+                            Save
+                        </button>
+                    </div>
                 </div>
-
-            </div>
-        </center>
-    </div>  
+     
+        </div>  
 </div>
