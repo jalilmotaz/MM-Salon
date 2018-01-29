@@ -14,17 +14,19 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelF
         console.log(value);
         console.log($rootScope.pageModel);
 
-        var path = $location.path();
+        var path = $location.path().toUpperCase();
         switch (path) {
 
-            case "/ScheduleAppointment":
+            case "/SCHEDULEAPPOINTMENT":
                 $rootScope.LoadPage('<dealerportal></dealerportal>', '</dealerportal>');
                 break;
-
-            case "/Landing":
-            case "/About":
-            case "/Contact":
-            case "/Gallery":
+            case "/LOGIN":
+                $rootScope.LoadPage('<userlogin></userlogin>', '</userlogin>');
+                break;
+            case "/LANDING":
+            case "/ABOUT":
+            case "/CONTACT":
+            case "/GALLERY":
             default:
                 $rootScope.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>');
                 break;
@@ -141,7 +143,15 @@ myApp.factory('PageModelFactory', function ($http, $rootScope) {
         }).catch(function (res) {
             return res.data;
         });
+    };
 
+    this.Post = function (url, data) {
+        return $http.post($rootScope.server + url, data)
+        .then(function (response) {
+            return response.data;
+        }).catch(function (res) {
+            return res.data;
+        });
     };
     return this;
 });
