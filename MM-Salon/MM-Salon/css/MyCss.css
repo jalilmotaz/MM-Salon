@@ -60,7 +60,10 @@ body {
   font-size: 27pt;
 }
 .showInMobile {
-  display: none;
+  display: none !important;
+}
+.showInDesktop {
+  display: block !important;
 }
 @media (max-width: 992px) {
   .xsFont {
@@ -89,7 +92,10 @@ body {
     background-position: left;
   }
   .showInMobile {
-    display: block;
+    display: block !important;
+  }
+  .showInDesktop {
+    display: none !important;
   }
 }
 .ui.cards a.card:hover,

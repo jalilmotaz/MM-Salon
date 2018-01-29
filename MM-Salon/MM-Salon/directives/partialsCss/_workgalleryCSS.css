@@ -1,6 +1,6 @@
-﻿.carousel-inner .image {
-  min-height: 350px;
-  max-height: 350px;
+﻿.slider .img {
+  min-height: 350px !important;
+  max-height: 350px !important;
   overflow: hidden;
 }
 .slideArrow {

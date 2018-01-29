@@ -46,21 +46,21 @@ div#slider figure {
 .slider {
   width: 100%;
   height: 100vh;
-  max-height: 800px;
   overflow: hidden;
   position: relative;
   background: #e6e6e6;
-  border: 20px solid #FFF;
   margin-top: 20px;
 }
 .slide {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100vh;
 }
 .arrow {
   position: absolute;
-  z-index: 1002;
+  z-index: 5;
   display: block;
   top: 50%;
   margin-top: -35px;
@@ -68,6 +68,7 @@ div#slider figure {
   height: 71px;
   outline: none;
   cursor: pointer;
+  color: #148BE1;
 }
 .arrow.prev {
   opacity: 0.2;
@@ -92,7 +93,7 @@ NAV
   text-align: center;
   display: block;
   position: absolute;
-  z-index: 1002;
+  z-index: 4;
   left: 0;
   bottom: -4px;
   right: 0;
@@ -125,8 +126,8 @@ NAV
   position: absolute;
   top: 2px;
   left: 2px;
-  width: 6px;
-  height: 6px;
+  width: 15px;
+  height: 15px;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;

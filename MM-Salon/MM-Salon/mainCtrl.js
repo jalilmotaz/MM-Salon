@@ -1,4 +1,4 @@
-﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies', 'ngAnimate']);
+﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies', 'ngAnimate', 'ngTouch']);
 
 myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, PageModelFactory) {
     $rootScope.isLoading = true;

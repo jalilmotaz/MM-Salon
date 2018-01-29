@@ -1,22 +1,20 @@
 ﻿<div id="Landing" class="topBorder" ng-cloak>
     <div class="slider">
-        <img class="slide slide-animation" ng-repeat="img in $root.pageModel.homePage.imgSlides track by $index" ng-src="{{img}}" id="imgSlide{{$index}}" ng-hide="!isCurrentSlideIndex($index)" style="width:100%" />
+        <img class="slide slide-animation nonDraggableImage" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-repeat="img in $root.pageModel.homePage.imgSlides track by $index" ng-src="{{img}}" id="imgSlide{{$index}}" ng-hide="!isCurrentSlideIndex($index)"  />
 
-        <i class="arrow prev" href="#" ng-click="nextSlide()"><i class="chevron circle left icon huge"></i></i>
-        <i class="arrow next" href="#" ng-click="prevSlide()"><i class="chevron circle right  icon huge"></i></i>
+        <i class="arrow prev showInDesktop" href="#" ng-click="nextSlide()"><i class="chevron circle left icon huge"></i></i>
+        <i class="arrow next showInDesktop" id="goRight" href="#" ng-click="prevSlide()"><i class="chevron circle right  icon huge"></i></i>
 
         <nav class="nav">
             <div class="wrapper">
                 <ul class="dots">
-                    <li class="dot" ng-repeat="img in  $root.pageModel.homePage.imgSlides track by $index" style="color:dodgerblue">
+                    <li class="dot" ng-repeat="img in  $root.pageModel.homePage.imgSlides track by $index">
                         <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
                            ng-click="setCurrentSlideIndex($index);"></a>
                     </li>
                 </ul>
             </div>
         </nav>
-
-        
     </div>
     <!--<div class="w3-display-container">
          <div id="slider">
