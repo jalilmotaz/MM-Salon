@@ -1,6 +1,6 @@
-﻿myApp.directive('adminlogin', function ($rootScope) {
+﻿myApp.directive('userlogin', function ($rootScope) {
     return {
-        templateUrl: 'directives/partials/_adminLogin.html',
+        templateUrl: 'directives/partials/_userLogin.html',
         scope: {
         },
         controller: ["$scope", function ($scope) {

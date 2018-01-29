@@ -108,12 +108,6 @@
     <Content Include="directives\partialsCss\_adminHomePageCss.min.css">
       <DependentUpon>_adminHomePageCss.css</DependentUpon>
     </Content>
-    <Content Include="directives\partialsCss\_adminLoginCss.css">
-      <DependentUpon>_adminLoginCss.less</DependentUpon>
-    </Content>
-    <Content Include="directives\partialsCss\_adminLoginCss.min.css">
-      <DependentUpon>_adminLoginCss.css</DependentUpon>
-    </Content>
     <Content Include="directives\partialsCss\_adminPortalCss .css">
       <DependentUpon>_adminPortalCss .less</DependentUpon>
     </Content>
@@ -150,6 +144,12 @@
     <Content Include="directives\partialsCss\_navbarCss.min.css">
       <DependentUpon>_navbarCss.css</DependentUpon>
     </Content>
+    <Content Include="directives\partialsCss\_userLoginCss.css">
+      <DependentUpon>_userLoginCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_userLoginCss.min.css">
+      <DependentUpon>_userLoginCss.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCss\_workgalleryCSS.css">
       <DependentUpon>_workgalleryCSS.less</DependentUpon>
     </Content>
@@ -158,7 +158,7 @@
     </Content>
     <Content Include="directives\partialsCtrl\_aboutCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminHomePageCtrl.js" />
-    <Content Include="directives\partialsCtrl\_adminLoginCtrl.js" />
+    <Content Include="directives\partialsCtrl\_userLoginCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminPortalCtrl.js" />
     <Content Include="directives\partialsCtrl\_contactCtrl.js" />
     <Content Include="directives\partialsCtrl\_dealerLoginCtrl.js" />
@@ -170,7 +170,7 @@
     <Content Include="directives\partials\_adminLogin.html" />
     <Content Include="directives\partials\_adminPortal.html" />
     <Content Include="directives\partials\_contact.html" />
-    <Content Include="directives\partials\_dealerLogin.html" />
+    <Content Include="directives\partials\_userLogin.html" />
     <Content Include="directives\partials\_dealerPortal.html" />
     <Content Include="directives\partials\_landing.html" />
     <Content Include="directives\partials\_navbar.html" />
@@ -225,7 +225,7 @@
     <Content Include="packages.config" />
     <Content Include="css\MyCss.less" />
     <Content Include="directives\partialsCss\_aboutCss.less" />
-    <Content Include="directives\partialsCss\_adminLoginCss.less" />
+    <Content Include="directives\partialsCss\_userLoginCss.less" />
     <Content Include="directives\partialsCss\_adminPortalCss .less" />
     <Content Include="directives\partialsCss\_contactCss.less" />
     <Content Include="directives\partialsCss\_dealerLoginCss.less" />
