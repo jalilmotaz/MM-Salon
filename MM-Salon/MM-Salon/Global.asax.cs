@@ -11,9 +11,10 @@ namespace MM_Salon
     {
         protected void Application_Start()
         {
+
             RouteTable.Routes.MapHttpRoute(
             name: "Action",
-            routeTemplate: "api/{controller}/{action}"
+            routeTemplate: "api/{controller}/{action}/{info}"
         );
 
         }

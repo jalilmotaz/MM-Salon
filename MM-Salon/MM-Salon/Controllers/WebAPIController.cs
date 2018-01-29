@@ -142,7 +142,7 @@ namespace MM_Salon.App_Start
                 User newUser = new User();
 
                 List<User> listUser = ReadUsers();
-                User found = listUser.Where(s => s.email == splitInfo[0]).SingleOrDefault();
+                User found = listUser.Where(s => s.email == splitInfo[2]).SingleOrDefault();
                 if (found != null)
                 {
                     return "exists";
@@ -188,7 +188,7 @@ namespace MM_Salon.App_Start
                 string[] splitInfo = info.Split(new string[] { "|sep|" }, StringSplitOptions.None);
 
                 string email = splitInfo[0];
-                string pass = splitInfo[0];
+                string pass = splitInfo[1];
                 
                 List<User> listUser = ReadUsers();
                 User found = listUser.Where(s => s.email == email && s.password == pass).SingleOrDefault();

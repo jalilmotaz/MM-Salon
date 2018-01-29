@@ -5,6 +5,25 @@
         },
         controller: ["$scope", function ($scope) {
 
+            $scope.LoginUser = function() {
+                if (!$scope.logEmail || $scope.logEmail == "" || !$scope.logPassword || $scope.logPassword == "") {
+                    $rootScope.ShowToast("Please fill all the fields", "darkred");
+                    return;
+                }
+                var url = "api/WebAPI/LoginUser/post";
+                var data = $scope.logEmail + "|sep|"+ $scope.logPassword;
+                PageModelFactory.Post(url, data).then(function (res) {
+                    $rootScope.isLoading = false;
+                    if (res != "bad") {
+                        $rootScope.ShowToast("Login successfully", "limegreen");
+                    } else {
+                        $rootScope.ShowToast("Sorry, email and password do not match", "darkred");
+                    }
+                });
+
+            }
+
+
             $scope.RegisterUser = function () {
 
                 if (!$scope.regName || $scope.regName == "" || !$scope.regEmail || $scope.regEmail == "" || !$scope.regPassword || $scope.regPassword == "" || !$scope.regPassword2 || $scope.regPassword2 == "") {
@@ -16,13 +35,13 @@
                 }
                 $rootScope.isLoading = true;
 
-                var url = "api/WebAPI/CreateUser";
-                var data = $scope.regName + "|sep|" + $scope.regEmail + "|sep|" + $scope.regPassword;
+                var url = "api/WebAPI/CreateUser/post";
+                var data = new Date().getTime() + "|sep|" + $scope.regName + "|sep|" + $scope.regEmail + "|sep||sep|" + $scope.regPassword;
                 PageModelFactory.Post(url, data).then(function (res) {
                     $rootScope.isLoading = false;
-                    if (res.Message == "good") {
+                    if (res == "good") {
                         $rootScope.ShowToast("Registered successfully", "limegreen");
-                    } else if (res.Message == "exists") {
+                    } else if (res == "exists") {
                         $rootScope.ShowToast("Email already exists", "darkred");
                     } else {
                         $rootScope.ShowToast("Sorry, an error occured. Try again", "darkred");
