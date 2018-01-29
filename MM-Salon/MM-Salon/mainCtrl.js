@@ -52,6 +52,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, PageModelF
         if ($('#pageView').html() != undefined) {
             if (!$('#pageView').html().includes(key)) {
                 $('#pageView').empty().append($compile(dir)($rootScope));
+              
             }
         }
         else {
