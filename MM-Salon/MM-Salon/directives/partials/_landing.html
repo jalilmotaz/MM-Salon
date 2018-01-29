@@ -1,10 +1,29 @@
 ﻿<div id="Landing" class="topBorder" ng-cloak>
-    <div class="w3-display-container">
+    <div class="slider">
+        <img class="slide slide-animation" ng-repeat="img in $root.pageModel.homePage.imgSlides track by $index" ng-src="{{img}}" id="imgSlide{{$index}}" ng-hide="!isCurrentSlideIndex($index)" style="width:100%" />
+
+        <i class="arrow prev" href="#" ng-click="nextSlide()"><i class="chevron circle left icon huge"></i></i>
+        <i class="arrow next" href="#" ng-click="prevSlide()"><i class="chevron circle right  icon huge"></i></i>
+
+        <nav class="nav">
+            <div class="wrapper">
+                <ul class="dots">
+                    <li class="dot" ng-repeat="img in  $root.pageModel.homePage.imgSlides track by $index" style="color:dodgerblue">
+                        <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                           ng-click="setCurrentSlideIndex($index);"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        
+    </div>
+    <!--<div class="w3-display-container">
          <div id="slider">
             <figure>
                 <img class="imgSliders" ng-repeat="img in $root.pageModel.homePage.imgSlides track by $index" ng-src="{{img}}"/>
 
             </figure>
         </div> 
-    </div>
+    </div>-->
 </div>
