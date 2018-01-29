@@ -48,7 +48,7 @@ namespace MM_Salon.App_Start
 
         [HttpPost]
         [Route("api/webAPI/UploadImage")]
-        public string UploadImage()
+        public string UploadImage(string info)
         {
             if (!Request.Content.IsMimeMultipartContent())
             {

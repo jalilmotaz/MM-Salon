@@ -325,7 +325,7 @@
 
                     var ajaxRequest = $.ajax({
                         type: "POST",
-                        url: $rootScope.server + 'api/webapi/UploadImage',
+                        url: $rootScope.server + 'api/webapi/UploadImage/post',
                         contentType: false,
                         processData: false,
                         data: data

@@ -13,7 +13,8 @@
     <script src="/js/less.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/fontAwesome.js"></script>
-    
+
+    <script src="/js/parallex.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet" type="text/css" />
@@ -57,13 +58,31 @@
     <script>
         $(document).ready(function () {
             $('.fab.icon').popup(
-                     {
-                         popup: $('.flowing.popup'),
-                         on: 'click',
-                         position:'left center',
-                         lastResort: 'left center'
-                     }
-                   );
+            {
+                popup: $('.flowing.popup'),
+                on: 'click',
+                position:'left center',
+                lastResort: 'left center'
+            });
+
+            $(window).scroll(function (event) {
+                var scroll = $(window).scrollTop();
+              
+                var el = document.getElementById("About");
+                if (el != null) {
+                    var viewportOffset = el.getBoundingClientRect();
+                    var top = viewportOffset.top;
+
+                    if (scroll >= top) {
+                        $('.share ').show("200");
+                        $('.share ').addClass("animated bounceInRight");
+                    } else {
+                        $('.share ').removeClass("animated bounceInRight");
+                        $('.share ').hide("200");
+                    }
+                }
+            
+             });
         });
     </script>
 </head>
@@ -85,7 +104,7 @@
     </div>
     <br /><br />
 
-    <div id="footer">
+    <div id="footer" ng-cloak>
         <div class="footerBody">
             <div class="row">
                 <div class="col-xs-4 col-sm-3 footerImg"></div>
