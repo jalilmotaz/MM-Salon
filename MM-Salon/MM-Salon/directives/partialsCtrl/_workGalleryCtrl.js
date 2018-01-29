@@ -7,9 +7,8 @@
 
             $scope.showModal = function (src) {
                 $scope.src = src;
-                $('.ui.basic.modal').modal('show');
-                
-            }
+                $('.imgModal').modal('show');
+             }
 
      
      
