@@ -92,8 +92,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
         });
     }
     $rootScope.GetCookie = function (key) {
-        alert($cookies.get(key));
-        return $cookies.get(key);
+         return $cookies.get(key);
     }
  
 
