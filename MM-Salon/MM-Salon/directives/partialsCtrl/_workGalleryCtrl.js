@@ -3,7 +3,7 @@
         templateUrl: 'directives/partials/_workgallery.html',
         scope: {
         },
-        controller: ["$scope", function ($scope) {
+        controller: ["$scope", function ($scope,$window) {
 
             $scope.showModal = function (src) {
                 $scope.src = src;
@@ -51,6 +51,14 @@
                 $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.AllItems.length - 1;
             };
 
+           
+
+
+
+        }]
+
+    }
+});
 
 
             myApp.animation('.slide-animation', function () {
@@ -87,9 +95,3 @@
                     }
                 };
             });
-
-
-        }]
-
-    }
-});

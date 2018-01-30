@@ -123,6 +123,10 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
               
         }
     }
+ 
+    $rootScope.isDesktop = true;
+
+
 });
 
 

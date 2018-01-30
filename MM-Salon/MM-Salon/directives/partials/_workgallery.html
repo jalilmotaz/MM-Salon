@@ -8,7 +8,7 @@
         <br />
         <legend class="lgFont"><i class="fa fa-lg fa-picture-o" aria-hidden="true"></i>  Work Gallery</legend>
 
-        <div class="slider img" style="max-height:360px;">
+        <div class="slider img" id="workGallery">
             <div style="height:auto;" class="slide slide-animation nonDraggableImage" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-repeat="item in AllItems track by $index" ng-hide="!isCurrentSlideIndex($index)">
                 <div class="ui four doubling cards">
                     <a ng-repeat="pics in item  track by $index" class="blue card" ng-click="showModal(pics)">
@@ -20,9 +20,8 @@
             </div>
              
 
-                <i class="arrow prev showInDesktop" href="#" ng-click="nextSlide()"><i class="chevron circle left icon huge"></i></i>
-                <i class="arrow next showInDesktop" id="goRight" href="#" ng-click="prevSlide()"><i class="chevron circle right  icon huge"></i></i>
-
+            <p ng-click="nextSlide()" class="leftSwipers   arrow prev"><span>‹</span><span>‹</span><span>‹</span></p>
+            <p id="goRight" ng-click="prevSlide()" class="rightSwipers arrow next"><span>›</span><span>›</span><span>›</span></p>
                 <nav class="nav">
                     <div class="wrapper">
                         <ul class="dots">
@@ -35,43 +34,7 @@
                 </nav>
            
        </div>
-
-        <!--<div id="myCarousel" class="carousel " data-ride="carousel">
-            <!-- Indicators 
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="{{$index}}"  ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}"></li>
-            </ol>
-
-            <!-- Wrapper for slides 
-            <div class="carousel-inner">
-                <div class="item" ng-repeat="item in AllItems track by $index" ng-class="{'active': $index == 0}">
-
-                    <div class="ui four doubling cards" >
-                        <a  ng-repeat="pics in item  track by $index" class="blue card" ng-click="showModal(pics)">
-                            <div class="image">
-                                <img   ng-src="{{pics}}" class="myImgHeight">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                 
-            </div>
-
-            <!-- Left and right controls 
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width: 10px;">
-                <i class="chevron circle left icon slideArrow"></i>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next" style="width: 40px;">
-                <i class="chevron circle right icon slideArrow"></i>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>-->
-
-      
-   
-        
-
+           
         <div class="ui imgModal modal">
             <i class="close icon"></i>
             <center>
