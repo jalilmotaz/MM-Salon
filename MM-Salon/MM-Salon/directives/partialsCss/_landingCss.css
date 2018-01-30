@@ -1,50 +1,140 @@
-﻿.imgSliders {
+﻿.slider {
   width: 100%;
   height: 100vh;
-  max-height: 800px;
-}
-@keyframes slidy {
-  0% {
-    left: 0%;
-  }
-  20% {
-    left: 0%;
-  }
-  25% {
-    left: -100%;
-  }
-  45% {
-    left: -100%;
-  }
-  50% {
-    left: -200%;
-  }
-  70% {
-    left: -200%;
-  }
-  75% {
-    left: -300%;
-  }
-  95% {
-    left: -300%;
-  }
-  100% {
-    left: -400%;
-  }
-}
-div#slider {
   overflow: hidden;
-}
-div#slider figure img {
-  width: 20%;
-  float: left;
-}
-div#slider figure {
   position: relative;
-  width: 500%;
-  margin: 0;
+  background: #e6e6e6;
+  margin-top: 20px;
+}
+.slide {
+  position: absolute;
+  top: 0;
   left: 0;
-  text-align: left;
-  font-size: 0;
-  animation: 20s slidy infinite;
+  width: 100%;
+  height: 100vh;
+}
+.arrow {
+  position: absolute;
+  z-index: 5;
+  display: block;
+  top: 50%;
+  margin-top: -35px;
+  width: 36px;
+  height: 71px;
+  outline: none;
+  cursor: pointer;
+  color: #148BE1;
+}
+.arrow.prev {
+  font-size: 75pt;
+  left: 20px;
+  transition: 0.2s linear all;
+  font-weight: bolder;
+}
+.arrow.next {
+  font-size: 75pt;
+  right: 70px;
+  font-weight: bolder;
+  transition: 0.2s linear all;
+}
+/*---------------------------------------------------------
+NAV
+---------------------------------------------------------*/
+.nav {
+  text-align: center;
+  display: block;
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  bottom: -4px;
+  right: 0;
+  height: 48px;
+}
+.nonDraggableImage {
+  -webkit-user-drag: none;
+}
+.nav .wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em 0 .8em;
+}
+.nav ul {
+  margin: 0;
+  width: 100%;
+}
+.nav .dot,
+.nav .dot a {
+  display: inline-block;
+  zoom: 1;
+}
+.dots .dot {
+  position: relative;
+  margin: 0 8px;
+  width: 12px;
+  height: 12px;
+}
+.dots .dot a {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 15px;
+  height: 15px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #148BE1;
+  border: 1px solid transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.25s, border-color 0.25s;
+  -moz-transition: background-color 0.25s, border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+.dots .dot a.active {
+  border-color: #148BE1;
+  background-color: transparent;
+}
+@keyframes blink {
+  /**
+     * At the start of the animation the dot
+     * has an opacity of .2
+     */
+  0% {
+    opacity: .2;
+  }
+  /**
+     * At 20% the dot is fully visible and
+     * then fades out slowly
+     */
+  20% {
+    opacity: 1;
+  }
+  /**
+     * Until it reaches an opacity of .2 and
+     * the animation can start again
+     */
+  100% {
+    opacity: .2;
+  }
+}
+.rightSwipers span,
+.leftSwipers span,
+.leftSwipers span:nth-child(3) {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+.rightSwipers span:nth-child(2),
+.leftSwipers span:nth-child(2) {
+  animation-delay: .2s;
+}
+.rightSwipers span:nth-child(3),
+.leftSwipers span:first-child {
+  animation-delay: .4s;
 }

@@ -1,7 +1,6 @@
-﻿.carousel-inner .image {
-  min-height: 350px;
-  max-height: 350px;
-  overflow: hidden;
+﻿#workGallery {
+  height: 400px;
+  max-height: 500px;
 }
 .slideArrow {
   font-size: 2em !important;
@@ -21,5 +20,9 @@
   }
   .modalImg {
     max-width: 100%;
+  }
+  #workGallery {
+    height: 100vh;
+    max-height: 100vh;
   }
 }
