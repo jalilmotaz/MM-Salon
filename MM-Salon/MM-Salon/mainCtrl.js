@@ -1,4 +1,4 @@
-﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies']);
+﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies', 'ngSanitize']);
 
 myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, PageModelFactory) {
     $rootScope.isLoading = true;
@@ -11,9 +11,9 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     //Setting the page model in rootscope
     PageModelFactory.GetPageModel().then(function (value) {
         $rootScope.pageModel = value;
+        $rootScope.pageModel.homePage.aboutUsTxt = $rootScope.pageModel.homePage.aboutUsTxt.replace(/\n/g, '<br/>');
         console.log(value);
-        console.log($rootScope.pageModel);
-
+ 
         var path = $location.path().toUpperCase();
         switch (path) {
 
@@ -39,7 +39,12 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
 
     $rootScope.SetPageModel = function () {
         return PageModelFactory.PostPageModel().then(function (value) {
-            $rootScope.ShowToast("Saved Successfully", 'limegreen');
+            if (value == "good") {
+                $rootScope.ShowToast("Saved Successfully", 'limegreen');
+            } else {
+                $rootScope.ShowToast("Error Saving", 'darkred');
+            }
+
             return value;
 
         }).catch(function () {
@@ -72,8 +77,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
         x.style.backgroundColor = color;
         x.className = "show";
         x.onclick = function () {
-            console.log(document.getElementById("snackbar"));
-            document.getElementById("snackbar").style.visibility = "hidden";
+             document.getElementById("snackbar").style.visibility = "hidden";
         };
         setTimeout(function () {
             x.className = x.className.replace("show", "");
@@ -132,13 +136,12 @@ myApp.factory('PageModelFactory', function ($http, $rootScope) {
     this.GetPageModel = function () {
         return $http.get($rootScope.server + 'PageModel.json')
              .then(function (response) {
-                 console.log(response);
-                 return response.data;
+                  return response.data;
              });
     };
 
     this.PostPageModel = function () {
-        return $http.post($rootScope.server + "api/WebApi/SetPageModel", $rootScope.pageModel)
+        return $http.post($rootScope.server + "api/WebApi/SetPageModel/post", $rootScope.pageModel)
         .then(function (response) {
             return response.data;
         }).catch(function (res) {

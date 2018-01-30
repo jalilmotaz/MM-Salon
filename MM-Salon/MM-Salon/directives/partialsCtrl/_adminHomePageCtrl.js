@@ -60,6 +60,8 @@
                 $rootScope.SetPageModel();
 
             }
+
+
             $scope.AddSpecailty = function (special) {
                 $rootScope.pageModel.homePage.specialties.push(special);
                 $rootScope.SetPageModel();

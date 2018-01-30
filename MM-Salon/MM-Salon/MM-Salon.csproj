@@ -204,6 +204,7 @@
     <Content Include="js\less.min.js" />
     <Content Include="js\parallex.js" />
     <Content Include="js\router.js" />
+    <Content Include="js\sanatize.js" />
     <Content Include="main.html" />
     <Content Include="mainCtrl.js" />
     <Content Include="Web.config">
