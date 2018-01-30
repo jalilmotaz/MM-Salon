@@ -4,8 +4,8 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.isLoading = true;
     $rootScope.isLoggedIn = false;
 
-    $rootScope.server = "http://localhost:56014/";   //dev
-    //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
+    // $rootScope.server = "http://localhost:56014/";   //dev
+   $rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
 

@@ -197,6 +197,7 @@
     <Content Include="images\skin.png" />
     <Content Include="images\store - Copy.jpg" />
     <Content Include="images\store.jpg" />
+    <Content Include="images\teambg.jpg" />
     <Content Include="js\angular.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\fontAwesome.js" />
