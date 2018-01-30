@@ -4,6 +4,10 @@
         scope: {
         },
         controller: ["$scope", function ($scope) {
+            $rootScope.isLoggedIn = false;
+            $scope.rememeberMe = true;
+            $rootScope.PutCookie("userID", undefined);
+
 
             $scope.LoginUser = function() {
                 if (!$scope.logEmail || $scope.logEmail == "" || !$scope.logPassword || $scope.logPassword == "") {
@@ -16,6 +20,10 @@
                     $rootScope.isLoading = false;
                     if (res != "bad") {
                         $rootScope.ShowToast("Login successfully", "limegreen");
+                        if ($scope.rememeberMe) {
+                            $rootScope.PutCookie("userID", res);
+                          }
+                        $rootScope.isLoggedIn = true;
                     } else {
                         $rootScope.ShowToast("Sorry, email and password do not match", "darkred");
                     }

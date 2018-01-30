@@ -5,6 +5,9 @@ body {
 .btn-primary {
   background-color: #148BE1;
 }
+.pointer {
+  cursor: pointer;
+}
 .backColor {
   background-color: white;
 }

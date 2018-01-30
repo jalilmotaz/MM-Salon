@@ -33,14 +33,24 @@
         </a>
     </div>
     <div class="row" ng-show="accountHovered">
-        <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  >
+        <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  >
             <div class="navLink">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</p>
             </div> 
         </div>
-        <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
+        <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
             <div class="navLink">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</p>
+            </div>
+        </div>
+        <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
+            <div class="navLink">
+                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> My Acccount</p>
+            </div>
+        </div>
+        <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;">
+            <div class="navLink">
+                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Sign Out</p>
             </div>
         </div>
     </div>
@@ -94,16 +104,34 @@
             </a>
         </div>
         <div class="row">
-            <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6"><a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
-    <div class="col-xs-12 navbarTab mediumFont">
-        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</span>
-    </div>
-</a></div>
-            <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6"><a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
-    <div class="col-xs-12 navbarTab mediumFont">
-        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</span>
-    </div>
-</a></div>
+            <div ng-show="!$root.isLoggedIn"  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6">
+                <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
+                    <div class="col-xs-12 navbarTab mediumFont">
+                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</span>
+                    </div>
+                </a>
+            </div>
+            <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6">
+                <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
+                    <div class="col-xs-12 navbarTab mediumFont">
+                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</span>
+                    </div>
+                </a>
+            </div>
+            <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-6">
+                <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
+                    <div class="col-xs-12 navbarTab mediumFont">
+                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> My Account</span>
+                    </div>
+                </a>
+            </div>
+            <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-6">
+                <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
+                    <div class="col-xs-12 navbarTab mediumFont">
+                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Sign Out</span>
+                    </div>
+                </a>
+            </div>
         </div>
         <div class="row"><br /></div>
     </div>
