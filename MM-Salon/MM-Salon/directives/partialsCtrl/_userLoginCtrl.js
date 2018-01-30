@@ -52,7 +52,29 @@
             }
 
 
+            $scope.RecoverPassword = function () {
+                var email = $scope.recPassEmail;
+                if (email != "" && email != undefined) {
+                    $rootScope.isLoading = true;
 
+                    var url = "api/WebAPI/ForgotPassword/post";
+
+                    PageModelFactory.Post(url, email).then(function (res) {
+                        $rootScope.isLoading = false;
+                        if (res == "good") {
+                            $rootScope.ShowToast("Password sent to email", "limegreen");
+                        } else if (res == "bad") {
+                            $rootScope.ShowToast("Email not found", "darkred");
+                        } else {
+                            $rootScope.ShowToast("Sorry, an error occured. Try again", "darkred");
+                        }
+                    });
+
+                }
+                else {
+                    $rootScope.ShowToast("Please fill all the fields", "darkred");
+                }
+            }
 
 
 

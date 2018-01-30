@@ -13,6 +13,7 @@ namespace MM_Salon.App_Start
 {
     public class WebAPIController : ApiController
     {
+        private static readonly HttpClient client = new HttpClient();
 
         [HttpPost]
         [Route("api/webAPI/SetPageModel")]
@@ -209,6 +210,56 @@ namespace MM_Salon.App_Start
             }
         }
 
+        [HttpPost]
+        [Route("api/webAPI/ForgotPassword")]
+        public async Task<string> ForgotPassword(string info)
+        {
+            using (var c = await this.Request.Content.ReadAsStreamAsync())
+            {
+                c.Seek(0, SeekOrigin.Begin);
+                using (var s = new StreamReader(c))
+                {
+                    info = s.ReadToEnd();
+                }
+            }
 
+            if (info != "")
+            {
+              
+                string email = info;
+
+                List<User> listUser = ReadUsers();
+                User found = listUser.Where(s => s.email == email).SingleOrDefault();
+                if (found != null)
+                {
+                  string msg = "You Requested your password\nPassword:\n" + found.password;
+                        var values = new Dictionary<string, string>
+                    {
+                       { "post", "2|sep|"+email+"|sep|mmwtinfo@gmail.com|sep|MM Salon|sep|Account Password Recovery |sep|"+msg }
+                    };
+
+                        var content = new FormUrlEncodedContent(values);
+
+                        var response = await client.PostAsync("http://musicmaestromoe.azurewebsites.net/api/MailerAPI/", content);
+
+                        var responseString = await response.Content.ReadAsStringAsync();
+                     return "good";
+
+                }
+                else
+                {
+
+                    return "bad";
+                }
+
+            }
+            else
+            {
+                return "no info sent";
+            }
+        }
+
+
+   
     }
 }

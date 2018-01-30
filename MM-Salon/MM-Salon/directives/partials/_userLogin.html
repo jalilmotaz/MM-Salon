@@ -69,7 +69,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" ng-click="RegisterUser()" tabindex="4" class="form-control btn btn-primary" value="Register Now" ng-click="$root.tabSelected = 4;">
+                                                <input type="submit" ng-click="RegisterUser()" tabindex="4" class="form-control btn btn-primary" value="Register Now">
                                             </div>
                                         </div>
                                     </div>
@@ -79,13 +79,13 @@
                                         <span class="smFont">Enter your email to recover your password.</span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email"  tabindex="1" class="form-control" placeholder="Your Email" value="">
+                                        <input type="text" name="email" ng-model="recPassEmail"  tabindex="1" class="form-control" placeholder="Your Email" value="">
                                     </div>
                              
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="login-submit" id="forgot-submit" tabindex="4" class="form-control btn btn-primary" value="Recover Password">
+                                                <input type="submit" name="login-submit" id="forgot-submit" tabindex="4" class="form-control btn btn-primary" value="Recover Password" ng-click="RecoverPassword()">
                                             </div>
                                         </div>
                                     </div>
