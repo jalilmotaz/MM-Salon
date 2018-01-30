@@ -33,12 +33,12 @@
         </a>
     </div>
     <div class="row" ng-show="accountHovered">
-        <div class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  >
+        <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  >
             <div class="navLink">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</p>
             </div> 
         </div>
-        <div class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
+        <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
             <div class="navLink">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</p>
             </div>
@@ -48,9 +48,11 @@
 
 <div id="mobileNavbar">
     <div>
-        <span style="color:white;"  class="xlFont">
-            <i class="fa fa-lg fa-paint-brush" aria-hidden="true"></i> MM Salon
-        </span>
+        <a  ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#Landing">
+            <span style="color:white;" class="xlFont">
+                <i class="fa fa-lg fa-paint-brush" aria-hidden="true"></i> MM Salon
+            </span>
+        </a>
          <span>
             <button id="navToggle" class="collapsed" data-toggle="collapse" data-target="#navbarTabs">
                 <center>
@@ -67,29 +69,41 @@
     <div id="navbarTabs" class="collapse text-center">
         <div class="row">
 
-            <a ng-click="$root.tabSelected = 1" href="#About" data-toggle="collapse" data-target="#navbarTabs">
+            <a ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#About" data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
                     <span  ><i class="fa fa-info-circle" aria-hidden="true"></i> About Us</span>
                 </div>
             </a>
 
-            <a ng-click="$root.tabSelected = 1" href="#Contact"  data-toggle="collapse" data-target="#navbarTabs">
+            <a ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#Contact"  data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
                     <span  ><i class="fa fa-users" aria-hidden="true"></i> Our Team</span>
                 </div>
             </a>
             
-            <a ng-click="$root.tabSelected = 1" href="#Gallery"  data-toggle="collapse" data-target="#navbarTabs">
+            <a ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#Gallery"  data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
                     <span><i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</span>
                 </div>
             </a>
 
-            <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment"  data-toggle="collapse" data-target="#navbarTabs">
+            <a ng-click="$root.LoadPage('<dealerportal></dealerportal>', '</dealerportal>')" href="#ScheduleAppointment"  data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
                     <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Schedule Appointment</span>
                 </div>
             </a>
+        </div>
+        <div class="row">
+            <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6"><a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
+    <div class="col-xs-12 navbarTab mediumFont">
+        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</span>
+    </div>
+</a></div>
+            <div  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6"><a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
+    <div class="col-xs-12 navbarTab mediumFont">
+        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</span>
+    </div>
+</a></div>
         </div>
         <div class="row"><br /></div>
     </div>
