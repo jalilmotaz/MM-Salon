@@ -1,71 +1,133 @@
-﻿
-<script>
+﻿<br />
+<br />
+<br />
+<br />
+<style>
+    .pull-right {
+        pointer-events:none;
+    }
+       .custom-template-cell {
+        color: purple;
+    }
+</style>
+<script id="customMonthCell.html" type="text/ng-template">
+    <div class="cal-month-day {{day.cssClass}}">
+
+        <span class="pull-right"
+              data-cal-date
+              ng-click="vm.calendarCtrl.dateClicked(day.date)"
+              ng-bind="day.label">
+        </span>
+
+        <small style="position: absolute; bottom: 10px; left: 5px">
+            There are {{ day.events.length }} events on this day
+        </small>
+
+    </div>
+</script>
+
+
+<div style="padding-left:30px; padding-right:30px; overflow:hidden">
+    <button class="btn btn-primary"
+            mwl-date-modifier
+            date="viewDate"
+            decrement="calendarView"
+           >
+        Previous
+    </button>
+
+    <button class="btn btn-default"
+            mwl-date-modifier
+            date="viewDate"
+            set-to-today>
+        Today
+    </button>
+
+    <button class="btn btn-primary"
+            mwl-date-modifier
+            date="viewDate"
+            increment="calendarView">
+        Next
+    </button>
+    <mwl-calendar view="calendarView"
+                  view-date="viewDate"
+                  events="events"
+                  view-title="calendarTitle"
+                  cell-is-open="true"
+                   on-timespan-click="timespanClicked(calendarDate)"
+                  custom-template-urls="{calendarMonthCell: 'customMonthCell.html'}"
+                  cell-modifier="vm.cellModifier(calendarCell)">
+                  >
+    </mwl-calendar>
+    </div>
+    <script>
         var today = new Date();
         $('#example1').calendar({
-    minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-    maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 365)
-});
-</script>
-<legend class="lgFont"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Create Appointment</legend>
-<div class="ui grid">
-    <div class="sixteen wide mobile eight wide tablet four wide computer column">
-        <div class="ui container">
-            <h3>Date & Time</h3>
-            <div class="ui calendar" id="example1">
-                <div class="ui large input left icon">
-                    <i class="calendar icon"></i>
-                    <input type="text" placeholder="Date/Time" ng-model="txtDateTime" style="width:275px;">
-                </div>
-            </div>
-            <br />
-        </div>
-    </div>
-    <div class="sixteen wide mobile eight wide tablet four wide computer column">
-        <div class="ui container">
+            minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
+            maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 365)
+        });
+    </script>
 
-            <h3>Employees/Slots</h3>
-            <div class="ui vertical menu">
-                <a class="teal item" ng-class="{'active':tab == 1}" ng-click="tab = 1">
-                    John Doe (Slot 1)
-                </a>
-                <a class="teal item" ng-class="{'active':tab == 2}" ng-click="tab = 2">
-                    Mary Doe (Slot 2)
-                </a>
-                <a class="teal item" ng-class="{'active':tab == 3}" ng-click="tab = 3">
-                    Mary John (Slot 3)
+    <legend class="lgFont"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Create Appointment</legend>
+    <div class="ui grid">
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
+                <h3>Date & Time</h3>
+                <div class="ui calendar" id="example1">
+                    <div class="ui large input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" placeholder="Date/Time" ng-model="txtDateTime" style="width:275px;">
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
 
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="sixteen wide mobile eight wide tablet four wide computer column">
-        <div class="ui container">
-            <h3>Review and confirm</h3>
-            <div class="ui two column grid">
-                <div class="row">
-                    <div class="column">Date</div>
-                    <div class="column">Jan 24, 2018 </div>
-                </div>
-                <div class="row">
-                    <div class="column">Time</div>
-                    <div class="column">2:00 P.M</div>
-                </div>
-                <div class="row">
-                    <div class="column">Employee/Slot</div>
-                    <div class="column">John Doe/1</div>
+                <h3>Employees/Slots</h3>
+                <div class="ui vertical menu">
+                    <a class="teal item" ng-class="{'active':tab == 1}" ng-click="tab = 1">
+                        John Doe (Slot 1)
+                    </a>
+                    <a class="teal item" ng-class="{'active':tab == 2}" ng-click="tab = 2">
+                        Mary Doe (Slot 2)
+                    </a>
+                    <a class="teal item" ng-class="{'active':tab == 3}" ng-click="tab = 3">
+                        Mary John (Slot 3)
+
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="sixteen wide mobile eight wide tablet four wide computer column">
-        <div class="ui container">
-            <h3>Confirm</h3>
-            <button class="ui inverted blue labeled icon button">
-                <i class="check circle icon"></i>
-                Confirm
-            </button>
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
+                <h3>Review and confirm</h3>
+                <div class="ui two column grid">
+                    <div class="row">
+                        <div class="column">Date</div>
+                        <div class="column">Jan 24, 2018 </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">Time</div>
+                        <div class="column">2:00 P.M</div>
+                    </div>
+                    <div class="row">
+                        <div class="column">Employee/Slot</div>
+                        <div class="column">John Doe/1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sixteen wide mobile eight wide tablet four wide computer column">
+            <div class="ui container">
+                <h3>Confirm</h3>
+                <button class="ui inverted blue labeled icon button">
+                    <i class="check circle icon"></i>
+                    Confirm
+                </button>
+            </div>
         </div>
     </div>
-</div>
-<br />
-<br />
+    <br />
+    <br />
