@@ -99,24 +99,57 @@
         <div class="header">
             Update Information
         </div>
-        <div class="col-xs-12">
-            <div class="col-xs-12"><br /><br /></div>
-            <div class="col-xs-12 col-sm-4">
-                <div class="form-group">
-                    <input ng-model="fullName" tabindex="1" class="form-control" placeholder="Full Name" value="">
+        <div class="content" style="height:300px;">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="ui styled accordion">
+                        <div class="title editUsertTitle">
+                            Change Name
+                        </div>
+                        <div class="content">
+                            <div class="form-group">
+                                <input ng-model="fullName" tabindex="1" class="form-control" placeholder="Full Name" value="">
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="ui styled accordion">
+                        <div class="title editUsertTitle">
+                            Change Number
+                        </div>
+                        <div class="content">
+                            <div class="form-group">
+                                <input ng-model="phoneNumber" tabindex="1" class="form-control" placeholder="Phone Number" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="ui styled accordion">
+                        <div class="title editUsertTitle">
+                            Change Password
+                        </div>
+                        <div class="content">
+                            <div class="form-group">
+                                <input type="password" ng-model="curPass" tabindex="1" class="form-control" placeholder="Current password" value="">
+                            </div>    <br />
+
+                            <div class="form-group">
+                                <input type="password" ng-model="newPass" tabindex="1" class="form-control" placeholder="New password" value="">
+                            </div>    <br />
+
+                            <div class="form-group">
+                                <input type="password" ng-model="confNewPass" tabindex="1" class="form-control" placeholder="Confirm new password" value="">
+                            </div>    <br />
+                        </div>
+                    </div>
+
+                </div>
+                <br /><br />
             </div>
-            <div class="col-xs-12 col-sm-4">
-                <div class="form-group">
-                    <input ng-model="phoneNumber" tabindex="1" class="form-control" placeholder="Phone Number" value="">
-                </div>                </div>
-            <div class="col-xs-12 col-sm-4">
-                <div class="form-group">
-                    <input type="password" ng-model="password" tabindex="1" class="form-control" placeholder="Password" value="">
-                </div>                
-            </div>
-        </div>
-  
+ 
          <div class="actions">
             <div class="ui black deny button">
                 Cancel

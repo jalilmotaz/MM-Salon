@@ -19,7 +19,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
         switch (path) {
 
             case "/SCHEDULEAPPOINTMENT":
-                $rootScope.LoadPage('<dealerportal></dealerportal>', '</dealerportal>');
+                $rootScope.LoadPage('<scheduler></scheduler>', '</scheduler>');
                 break;
             case "/LOGIN":
                 $rootScope.LoadPage('<userlogin></userlogin>', '</userlogin>');
