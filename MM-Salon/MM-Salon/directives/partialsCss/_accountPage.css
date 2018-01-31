@@ -3,6 +3,10 @@
   height: 100vh;
   max-height: 400px;
 }
+.editUsertTitle {
+  height: 40px;
+  font-size: 12pt !important;
+}
 .responstable tr:hover {
   background-color: #148BE1;
 }

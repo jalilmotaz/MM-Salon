@@ -55,14 +55,43 @@ namespace MM_Salon.App_Start
 
             try
             {
- 
-                if (info != null)
+                using (var c = await this.Request.Content.ReadAsStreamAsync())
                 {
-                    //split info into user id name number password then find user, update him, save
-                    
+                    c.Seek(0, SeekOrigin.Begin);
+                    using (var s = new StreamReader(c))
+                    {
+                        info = s.ReadToEnd();
+                    }
+                }
 
- 
-                    return "good";
+                if (info != "")
+                {
+                    string[] splitInfo = info.Split(new string[] { "|sep|" }, StringSplitOptions.None);
+
+                    //split info into user id name number password then find user, update him, save
+                    string userID = splitInfo[0];
+                    string name = splitInfo[1];
+                    string phoneNumber = splitInfo[2];
+                    string password = splitInfo[3];
+
+                    List<User> listUsers = ReadUsers();
+
+                    User found = listUsers.Where(s => s.userID == userID).SingleOrDefault();
+                    if(found != null)
+                    {
+                        found.name = name;
+                        found.number = phoneNumber;
+                        found.password = password;
+
+                        listUsers[listUsers.IndexOf(found)] = found;
+                        WriteUsers(listUsers);
+                        return "good";
+
+                    }
+                   else
+                    {
+                        return "bad";
+                    }
                 }
                 else
                 {

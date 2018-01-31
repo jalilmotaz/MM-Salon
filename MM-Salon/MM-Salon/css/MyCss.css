@@ -21,6 +21,10 @@ body {
   background-color: transparent;
   color: black;
 }
+#owModal {
+  margin-top: 0 !important;
+  top: 100px !important;
+}
 .fab {
   border-radius: 50%;
   padding-top: 3px;

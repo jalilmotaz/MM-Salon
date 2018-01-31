@@ -11,30 +11,54 @@
                 $('.special.cards .image').dimmer({
                     on: 'hover'
                 });
+                $('.ui.accordion').accordion();
+                
                 user = JSON.parse($rootScope.GetCookie("user"));
-                console.log(user);
                 $scope.fullName = user.name;
                 $scope.phoneNumber = user.number;
-                $scope.password = "************";
-
 
             });
 
             $scope.SaveEdit = function myfunction() {
-                if (!$scope.fullName || $scope.fullName == "" || !$scope.phoneNumber || $scope.phoneNumber == "" || !$scope.password || $scope.password == "" || $scope.password.indexOf('*') != -1) {
+                var changedPass = false;
+                if ($scope.fullName == "" || $scope.phoneNumber == "") {
                     $rootScope.ShowToast("Please fill all feilds", "darkred");
                     return;
                 }
+                if ($scope.curPass == undefined || $scope.curPass == "") {
+                    var data = user.userID + "|sep|" + $scope.fullName + "|sep|" + $scope.phoneNumber + "|sep|" + user.password;
 
-                user.name = $scope.fullName;
-                user.number = $scope.phoneNumber;
-                user.password = $scope.password;
-
+                }
+                else {
+                    if ($scope.newPass != undefined && $scope.newPass != "" && $scope.confNewPass != undefined && $scope.confNewPass != "") {
+                        if ($scope.curPass != user.password) {
+                            $rootScope.ShowToast("Current password did not match", "darkred");
+                            return;
+                        }
+                        else if ($scope.newPass != $scope.confNewPass) {
+                            $rootScope.ShowToast("Confirmed password did not match", "darkred");
+                            return;
+                        }
+                        else {
+                            var data = user.userID + "|sep|" + $scope.fullName + "|sep|" + $scope.phoneNumber + "|sep|" + $scope.newPass;
+                            changedPass = true;
+                        }
+                    }
+                    else {
+                        $rootScope.ShowToast("Please fill all feilds", "darkred");
+                        return;
+                    }
+                }
                 var url = "api/WebAPI/UpdateUser/post";
-                var data = user;//make this id sep user name, sep phone sep password
 
                 PageModelFactory.Post(url, data).then(function(res) {
-                    alert("done");
+                    $rootScope.loggedInUser.name = $scope.fullName;
+                    $rootScope.loggedInUser.number = $scope.phoneNumber;
+                    if (changedPass) {
+                        $rootScope.loggedInUser.password = $scope.newPass;
+                    }
+                    $rootScope.ShowToast("✔ Saved Succesfully", "limegreen");
+
                 });
 
             }
