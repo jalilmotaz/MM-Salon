@@ -21,12 +21,12 @@
                 <p><i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</p>
             </div>
         </a>
-        <a  ng-click="$root.LoadPage('<dealerportal></dealerportal>', '</dealerportal>')"  href="#ScheduleAppointment" >
+        <a  ng-click="$root.LoadPage('<scheduler></scheduler>', '</scheduler>')"  href="#ScheduleAppointment" >
             <div class="col-xs-2 text-center navLink mdFont">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Scheduler</p>
             </div>
         </a>
-        <a ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
+        <a ng-click="AccountTabClick()" href="#login" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
             <div class="col-xs-2 text-center navLink mdFont">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Account</p>
             </div>
@@ -43,7 +43,7 @@
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</p>
             </div>
         </div>
-        <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
+        <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<accountpage></accountpage>', '</accountpage>')" href="#login" class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
             <div class="navLink">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> My Acccount</p>
             </div>

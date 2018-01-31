@@ -102,6 +102,12 @@
     <Content Include="directives\partialsCss\_aboutCss.min.css">
       <DependentUpon>_aboutCss.css</DependentUpon>
     </Content>
+    <Content Include="directives\partialsCss\_accountPage.css">
+      <DependentUpon>_accountPage.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_accountPage.min.css">
+      <DependentUpon>_accountPage.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCss\_adminHomePageCss.css">
       <DependentUpon>_adminHomePageCss.less</DependentUpon>
     </Content>
@@ -126,12 +132,6 @@
     <Content Include="directives\partialsCss\_dealerLoginCss.min.css">
       <DependentUpon>_dealerLoginCss.css</DependentUpon>
     </Content>
-    <Content Include="directives\partialsCss\_dealerPortalCss.css">
-      <DependentUpon>_dealerPortalCss.less</DependentUpon>
-    </Content>
-    <Content Include="directives\partialsCss\_dealerPortalCss.min.css">
-      <DependentUpon>_dealerPortalCss.css</DependentUpon>
-    </Content>
     <Content Include="directives\partialsCss\_landingCss.css">
       <DependentUpon>_landingCss.less</DependentUpon>
     </Content>
@@ -143,6 +143,12 @@
     </Content>
     <Content Include="directives\partialsCss\_navbarCss.min.css">
       <DependentUpon>_navbarCss.css</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_schedulerCss.css">
+      <DependentUpon>_schedulerCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_schedulerCss.min.css">
+      <DependentUpon>_schedulerCss.css</DependentUpon>
     </Content>
     <Content Include="directives\partialsCss\_userLoginCss.css">
       <DependentUpon>_userLoginCss.less</DependentUpon>
@@ -158,11 +164,12 @@
     </Content>
     <Content Include="directives\partialsCtrl\_aboutCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminHomePageCtrl.js" />
+    <Content Include="directives\partialsCtrl\_schedulerCtrl.js" />
     <Content Include="directives\partialsCtrl\_userLoginCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminPortalCtrl.js" />
     <Content Include="directives\partialsCtrl\_contactCtrl.js" />
     <Content Include="directives\partialsCtrl\_dealerLoginCtrl.js" />
-    <Content Include="directives\partialsCtrl\_dealerPortalCtrl.js" />
+    <Content Include="directives\partialsCtrl\_accountPageCtrl.js" />
     <Content Include="directives\partialsCtrl\_landingCtrl.js" />
     <Content Include="directives\partialsCtrl\_navbarCtrl.js" />
     <Content Include="directives\partials\_about.html" />
@@ -170,8 +177,9 @@
     <Content Include="directives\partials\_adminLogin.html" />
     <Content Include="directives\partials\_adminPortal.html" />
     <Content Include="directives\partials\_contact.html" />
+    <Content Include="directives\partials\_scheduler.html" />
     <Content Include="directives\partials\_userLogin.html" />
-    <Content Include="directives\partials\_dealerPortal.html" />
+    <Content Include="directives\partials\_accountPage.html" />
     <Content Include="directives\partials\_landing.html" />
     <Content Include="directives\partials\_navbar.html" />
     <Content Include="directives\partials\_workgallery.html" />
@@ -232,7 +240,7 @@
     <Content Include="directives\partialsCss\_adminPortalCss .less" />
     <Content Include="directives\partialsCss\_contactCss.less" />
     <Content Include="directives\partialsCss\_dealerLoginCss.less" />
-    <Content Include="directives\partialsCss\_dealerPortalCss.less" />
+    <Content Include="directives\partialsCss\_accountPage.less" />
     <Content Include="directives\partialsCss\_landingCss.less" />
     <Content Include="directives\partialsCss\_navbarCss.less" />
     <None Include="compilerconfig.json" />
@@ -242,6 +250,7 @@
     <Content Include="directives\partialsCtrl\_workGalleryCtrl.js" />
     <Content Include="directives\partialsCss\_adminHomePageCss.less" />
     <Content Include="css\lessVars.less" />
+    <Content Include="directives\partialsCss\_schedulerCss.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
     <None Include="Properties\PublishProfiles\azure.pubxml" />

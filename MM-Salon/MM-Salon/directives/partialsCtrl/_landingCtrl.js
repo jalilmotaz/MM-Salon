@@ -26,9 +26,15 @@
                 $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $rootScope.pageModel.homePage.imgSlides.length - 1;
             };
 
+
             $(document).ready(function () {
+                var counter = 0;
+                
                 setInterval(function () {
-                    $("#goRight").trigger('click');
+                    if (counter < 4) {
+                        $("#goRight").trigger('click');
+                        counter++;
+                    }
                 }, 5000);
 
             });

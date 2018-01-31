@@ -12,7 +12,7 @@
             <div class="wrapper">
                 <ul class="dots">
                     <li class="dot" ng-repeat="img in  $root.pageModel.homePage.imgSlides track by $index">
-                        <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                        <a style="cursor:pointer" ng-class="{'active':isCurrentSlideIndex($index)}"
                            ng-click="setCurrentSlideIndex($index);"></a>
                     </li>
                 </ul>

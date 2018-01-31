@@ -173,7 +173,7 @@ namespace MM_Salon.App_Start
 
         [HttpPost]
         [Route("api/webAPI/LoginUser")]
-        public async Task<string> LoginUser(string info)
+        public async Task<User> LoginUser(string info)
         {
             using (var c = await this.Request.Content.ReadAsStreamAsync())
             {
@@ -195,18 +195,18 @@ namespace MM_Salon.App_Start
                 User found = listUser.Where(s => s.email == email && s.password == pass).SingleOrDefault();
                 if (found != null)
                 {
-                    return found.userID;
+                    return found;
                 }
                 else
                 {
                     
-                    return "bad";
+                    return null;
                 }
 
             }
             else
             {
-                return "no info sent";
+                return null;
             }
         }
 

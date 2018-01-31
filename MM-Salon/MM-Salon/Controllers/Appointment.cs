@@ -8,9 +8,9 @@ namespace MM_Salon.App_Start
     public class Appointment
     {
         public string createdDate { get; set; }
-        public string createdTime { get; set; }
-        public string slot { get; set; }
+        public string scheduledate { get; set; }
+        public string seats { get; set; }
         public string note{ get; set; }
-        public User userID { get; set; }
+        public User user { get; set; }
     }
 }

@@ -27,7 +27,7 @@
                             <div class="col-lg-12">
                                 <form id="login-form" role="form" style="display: block;">
                                     <div class="form-group">
-                                        <input type="text" ng-model="logEmail" tabindex="1" class="form-control" placeholder="Email" value="">
+                                        <input type="email" ng-model="logEmail" tabindex="1" class="form-control" placeholder="Email" value="">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" ng-model="logPassword"  tabindex="2" class="form-control" placeholder="Password">
@@ -58,7 +58,7 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" ng-click="LoginUser()" tabindex="4" class="pointer form-control btn btn-primary" value="Log In" ng-click="$root.tabSelected = 4;">
+                                                <input type="submit" ng-click="LoginUser()" tabindex="4" class="pointer form-control btn btn-primary" value="Log In" >
                                             </div>
                                         </div>
                                     </div>
@@ -68,18 +68,22 @@
                                         <input type="text" tabindex="1" class="form-control" placeholder="Full Name" value="" ng-model="regName">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" tabindex="1" class="form-control" placeholder="Email Address" value="" ng-model="regEmail">
+                                        <input type="email" tabindex="2" class="form-control" placeholder="Email Address" value="" ng-model="regEmail">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password"  tabindex="2" class="form-control" placeholder="Password" ng-model="regPassword">
+                                        <input type="text" tabindex="3" class="form-control" placeholder="Phone Number" ng-model="regNumber">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" tabindex="2" class="form-control" placeholder="Confirm Password"  ng-model="regPassword2">
+                                        <input type="password"  tabindex="4" class="form-control" placeholder="Password" ng-model="regPassword">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <input type="password" tabindex="5" class="form-control" placeholder="Confirm Password"  ng-model="regPassword2">
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" ng-click="RegisterUser()" tabindex="4" class="form-control btn btn-primary" value="Register Now">
+                                                <input type="submit" ng-click="RegisterUser()" tabindex="6" class="form-control btn btn-primary" value="Register Now">
                                             </div>
                                         </div>
                                     </div>

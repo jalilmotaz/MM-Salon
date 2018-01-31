@@ -18,12 +18,18 @@
                 var data = $scope.logEmail + "|sep|"+ $scope.logPassword;
                 PageModelFactory.Post(url, data).then(function (res) {
                     $rootScope.isLoading = false;
-                    if (res != "bad") {
+                    console.log(res);
+                    if (res != null) {
                         $rootScope.ShowToast("Login successfully", "limegreen");
                         if ($scope.rememeberMe) {
-                            $rootScope.PutCookie("userID", res);
-                          }
+                            $rootScope.PutCookie("userID", res.userID);
+                            $rootScope.PutCookie("user", JSON.stringify(res));
+                            
+                        }
+                        $rootScope.loggedInUser = JSON.parse($rootScope.GetCookie("user"));
+                        
                         $rootScope.isLoggedIn = true;
+                        $rootScope.LoadPage('<accountpage></accountpage>', '</accountpage>');
                     } else {
                         $rootScope.ShowToast("Sorry, email and password do not match", "darkred");
                     }
@@ -34,7 +40,7 @@
 
             $scope.RegisterUser = function () {
 
-                if (!$scope.regName || $scope.regName == "" || !$scope.regEmail || $scope.regEmail == "" || !$scope.regPassword || $scope.regPassword == "" || !$scope.regPassword2 || $scope.regPassword2 == "") {
+                if (!$scope.regName || $scope.regName == "" || !$scope.regEmail || $scope.regEmail == "" || !$scope.regPassword || $scope.regPassword == "" || !$scope.regPassword2 || $scope.regPassword2 == "" || !$scope.regNumber || $scope.regNumber == "") {
                     $rootScope.ShowToast("Please fill all the fields", "darkred");
                     return;
                 } else if ($scope.regPassword != $scope.regPassword2) {
@@ -44,11 +50,14 @@
                 $rootScope.isLoading = true;
 
                 var url = "api/WebAPI/CreateUser/post";
-                var data = new Date().getTime() + "|sep|" + $scope.regName + "|sep|" + $scope.regEmail + "|sep||sep|" + $scope.regPassword;
+                var data = new Date().getTime() + "|sep|" + $scope.regName + "|sep|" + $scope.regEmail + "|sep|" + $scope.regNumber + "|sep|" + $scope.regPassword;
                 PageModelFactory.Post(url, data).then(function (res) {
                     $rootScope.isLoading = false;
                     if (res == "good") {
                         $rootScope.ShowToast("Registered successfully", "limegreen");
+                        $('#login-form-link').trigger("click");
+                        $scope.logEmail = $scope.regEmail;
+
                     } else if (res == "exists") {
                         $rootScope.ShowToast("Email already exists", "darkred");
                     } else {

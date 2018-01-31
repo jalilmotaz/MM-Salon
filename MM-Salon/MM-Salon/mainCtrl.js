@@ -1,14 +1,14 @@
-﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies', 'ngSanitize']);
+﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies', 'ngSanitize','ngTouch']);
 
 myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, PageModelFactory) {
     $rootScope.isLoading = true;
     $rootScope.isLoggedIn = false;
 
-    // $rootScope.server = "http://localhost:56014/";   //dev
-   $rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
+    $rootScope.server = "http://localhost:56014/";   //dev
+   //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
-
+    $rootScope.loggedInUser = {};
     //Setting the page model in rootscope
     PageModelFactory.GetPageModel().then(function (value) {
         $rootScope.pageModel = value;
@@ -99,7 +99,9 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     if ($rootScope.GetCookie("userID") && $rootScope.GetCookie("userID") != "") {
          $rootScope.isLoggedIn = true;
     }
-
+    if ($rootScope.GetCookie("user") && $rootScope.GetCookie("user") !="") {
+            $rootScope.loggedInUser = JSON.parse($rootScope.GetCookie("user"));
+    }
     
     $rootScope.GetWordNumber = function (num) {
         switch (num) {
@@ -144,6 +146,12 @@ myApp.factory('PageModelFactory', function ($http, $rootScope) {
              .then(function (response) {
                   return response.data;
              });
+    };
+    this.GetUsers = function () {
+        return $http.get($rootScope.server + 'Users.json')
+            .then(function(response){
+            return response.data;
+            });
     };
 
     this.PostPageModel = function () {

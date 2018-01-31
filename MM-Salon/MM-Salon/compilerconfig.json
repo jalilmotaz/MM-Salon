@@ -50,5 +50,17 @@
   {
     "outputFile": "directives/partialsCss/_userLoginCss.css",
     "inputFile": "directives/partialsCss/_userLoginCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_schedulerCss.css",
+    "inputFile": "directives/partialsCss/_schedulerCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/accountPage.css",
+    "inputFile": "directives/partialsCss/accountPage.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_accountPage.css",
+    "inputFile": "directives/partialsCss/_accountPage.less"
   }
 ]
