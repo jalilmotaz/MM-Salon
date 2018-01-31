@@ -47,6 +47,35 @@ namespace MM_Salon.App_Start
         }
 
 
+
+        [HttpPost]
+        [Route("api/webAPI/UpdateUser")]
+        public async Task<string> UpdateUser(string info)
+        {
+
+            try
+            {
+ 
+                if (info != null)
+                {
+                    //split info into user id name number password then find user, update him, save
+                    
+
+ 
+                    return "good";
+                }
+                else
+                {
+                    return "bad";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
+
         [HttpPost]
         [Route("api/webAPI/UploadImage")]
         public string UploadImage(string info)

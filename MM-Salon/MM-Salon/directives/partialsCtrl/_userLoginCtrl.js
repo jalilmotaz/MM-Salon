@@ -26,6 +26,8 @@
                             $rootScope.PutCookie("user", JSON.stringify(res));
                             
                         }
+                        $rootScope.myID = res.userID;
+
                         $rootScope.loggedInUser = JSON.parse($rootScope.GetCookie("user"));
                         
                         $rootScope.isLoggedIn = true;
