@@ -3,7 +3,7 @@
 myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, PageModelFactory) {
     $rootScope.isLoading = true;
     $rootScope.isLoggedIn = false;
-
+    $rootScope.myID = "";
     $rootScope.server = "http://localhost:56014/";   //dev
    //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 
@@ -97,7 +97,8 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
  
 
     if ($rootScope.GetCookie("userID") && $rootScope.GetCookie("userID") != "") {
-         $rootScope.isLoggedIn = true;
+        $rootScope.isLoggedIn = true;
+        $rootScope.myID = $rootScope.GetCookie("userID");
     }
     if ($rootScope.GetCookie("user") && $rootScope.GetCookie("user") !="") {
             $rootScope.loggedInUser = JSON.parse($rootScope.GetCookie("user"));

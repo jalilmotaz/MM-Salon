@@ -18,28 +18,120 @@
 
 
          <div class="col-xs-12 mdFont" style="line-height:35pt;">
-            <div class="col-xs-12 col-sm-6">
-                Email: {{$root.loggedInUser.email}} 
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                Full Name: {{$root.loggedInUser.name}} <a href="#" class="smFont">(edit)</a>
 
-            </div>
              <div class="col-xs-12 col-sm-6">
-               
-                 Password: ********* <a href="#" class="smFont">(edit)</a>
+                 <div class="ui special cards">
 
-             </div>
-          
+                     <a class="blue card homePageSlide">
+                         <div class="blurring dimmable small image">
+                             <div class="ui dimmer">
+                                 <div class="content">
+                                     <div class="center">
+                                         <button class="ui inverted blue labeled icon button" onclick="$('#imgUpload').trigger('click')">
+                                             <i class="upload icon"></i>
+                                             Replace
+                                         </button>
+
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <img id="userPic" ng-src="{{'/images/'+$root.myID + '.jpg'}}" class="myImgHeight">
+                         </div>
+                     </a>
+                     </div>
+                 </div>
+             <input type="file" id="imgUpload" style="display:none;" onchange="angular.element(this).scope().FileChanged(this)" accept="image/*" />
+
             <div class="col-xs-12 col-sm-6">
-                Phone No: {{$root.loggedInUser.number}} <a href="#" class="smFont">(edit)</a>
+                <div class="col-xs-12">
+                    <br /> 
+                </div>
+                <div class="col-xs-12">
+                    <p>Email: {{$root.loggedInUser.email}} </p>
+                    <p></p>
+                </div>
 
+                <div class="col-xs-7">
+                    <p>Full Name: {{$root.loggedInUser.name}}</p>
+                    <p></p>
+                </div>
+                <div class="col-xs-5">
+                    <p></p>
+                </div>
+
+                <div class="col-xs-7">
+                    <p>Password: *********</p><p></p>
+
+                </div>
+                <div class="col-xs-5">
+                    <p></p>
+                </div>
+
+                <div class="col-xs-7">
+                    <p>Phone No: {{$root.loggedInUser.number}}</p><p></p>
+
+                </div>
+                <div class="col-xs-5">
+                    <p></p>
+                </div>
+                <div class="col-xs-12">
+                    <br /> <center>
+    <button class="ui inverted blue labeled icon button" onclick="$('.ui.edit.modal').modal({ blurring: true }).modal('show')">
+        <i class="edit icon"></i>
+        Update Information
+     </button>
+</center></div>            
             </div>
+
+            
+ 
+
              <div class="col-xs-12">
                  <br /><br />
              </div>
          </div>
  
+
+
+    <div id="owModal" class="ui edit modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Update Information
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-12"><br /><br /></div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                    <input ng-model="fullName" tabindex="1" class="form-control" placeholder="Full Name" value="">
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                    <input ng-model="phoneNumber" tabindex="1" class="form-control" placeholder="Phone Number" value="">
+                </div>                </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                    <input type="password" ng-model="password" tabindex="1" class="form-control" placeholder="Password" value="">
+                </div>                
+            </div>
+        </div>
+  
+         <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui positive right labeled icon button" ng-click="SaveEdit()">
+                Save
+                <i class="save icon"></i>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
     <legend class="lgFont"><i class="fa fa-lg fa-calendar-check-o" aria-hidden="true"></i>  My Appointments</legend>
 
