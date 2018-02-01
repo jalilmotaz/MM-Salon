@@ -19,5 +19,6 @@ namespace MM_Salon.App_Start
         public string fbLink { get; set; }
         public string twitterLink { get; set; }
         public string instaLink { get; set; }
+        public string[] hours { get; set; }
     }
 }

@@ -4,11 +4,11 @@
         scope: {
         },
         controller: ["$scope", "$window", function ($scope, $window) {
-
+ 
 
             $scope.AllItems = [];
             $scope.FileNameToUpload = '';
-            $scope.txtAboutUs = $rootScope.pageModel.homePage.aboutUsTxt;
+            $scope.txtAboutUs = $rootScope.pageModel.homePage.aboutUsTxt.replace(/<br\s*\/?>/gi, '\n');
             $scope.txtFBLink = $rootScope.pageModel.homePage.fbLink;
             $scope.txtTwitterLink = $rootScope.pageModel.homePage.twitterLink;
             $scope.txtInstaLink = $rootScope.pageModel.homePage.instaLink;
