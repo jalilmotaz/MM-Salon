@@ -136,6 +136,23 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
               
         }
     }
+    function AddZero(num) {
+        return (num >= 0 && num < 10) ? "0" + num : num + "";
+    }
+    $rootScope.GetFormattedDate = function () {
+        var now = new Date();
+        var hours = now.getHours();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        return [[
+            AddZero(now.getMonth() + 1),
+            AddZero(now.getDate()),
+            now.getFullYear()].join("/"),
+            [AddZero(hours),
+            AddZero(now.getMinutes())].join(":"),
+            now.getHours() >= 12 ? "PM" : "AM"].join(" ");
+    }
 });
 
 
