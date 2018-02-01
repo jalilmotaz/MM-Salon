@@ -39,6 +39,7 @@
                 if (cell.label % 2 === 1 && cell.inMonth) {
                     cell.cssClass = 'custom-template-cell';
                 }
+                
             };
 
             function formatDate(d) {
