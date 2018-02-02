@@ -4,6 +4,9 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.isLoading = true;
     $rootScope.isLoggedIn = false;
     $rootScope.myID = "";
+    $rootScope.seatsAvaliable = 5;
+    $rootScope.Holidays = ["02/04/2018", "03/15/2018"];
+
     $rootScope.server = "http://localhost:56014/";   //dev
    //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 

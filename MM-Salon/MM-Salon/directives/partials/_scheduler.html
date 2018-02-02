@@ -25,30 +25,31 @@
     }
 </style>
 <div style="padding-left:30px; padding-right:30px; overflow:hidden">
-    <br />
-    <br />
     <h2 class="text-center">{{ calendarTitle }}</h2>
-    <button class="btn btn-primary"
-            mwl-date-modifier
-            date="viewDate"
-            decrement="calendarView"
-           >
-        Previous
-    </button>
+    <center>
+        <button class="btn btn-primary"
+                mwl-date-modifier
+                date="viewDate"
+                decrement="calendarView">
+            Previous
+        </button>
 
-    <button class="btn btn-default"
-            mwl-date-modifier
-            date="viewDate"
-            set-to-today>
-        Today
-    </button>
+        <button class="btn btn-default"
+                mwl-date-modifier
+                date="viewDate"
+                set-to-today>
+            Today
+        </button>
 
-    <button class="btn btn-primary"
-            mwl-date-modifier
-            date="viewDate"
-            increment="calendarView">
-        Next
-    </button>
+        <button class="btn btn-primary"
+                mwl-date-modifier
+                date="viewDate"
+                increment="calendarView">
+            Next
+        </button>
+    </center>
+    <br />
+    <br/>
     <mwl-calendar view="calendarView"
                   view-date="viewDate"
                   events="events"
@@ -68,9 +69,19 @@
 
 <div id="owModal" class="ui schedule large modal">
     <div class="header">
-        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Schedule Appointment
+        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Schedule Appointment <span class="mdFont">{{dateSelected}}</span>
     </div>
-    <div class="content">
+    <div class="content" ng-class="{'ExtraHeight': pastDate || closedDay }">
+        <div ng-show="$root.isLoggedIn && closedDay">
+            <center>
+                <h3>Sorry, No Appointments avaliable for this day</h3>
+            </center>
+        </div>
+        <div ng-show="$root.isLoggedIn && pastDate">
+            <center>
+                <h3>Date selected is in the past</h3>
+            </center>
+        </div>
         <div ng-show="!$root.isLoggedIn">
             <center>
                 <h3>You must be logged in to schedule appointment</h3>
@@ -79,40 +90,39 @@
                 </div>
             </center>
         </div>
-        <div ng-show="$root.isLoggedIn">
+        <div ng-show="$root.isLoggedIn && !pastDate && !closedDay">
 
-            <div class="ui four column centered grid">
-                <div class="sixteen wide mobile eight wide tablet four wide computer column">
-                    <h3>Date Selected</h3>
-                    <div class="ui large input left icon">
-                        <span class="mdFont">{{dateSelected}}</span>
+            <div class="ui relaxed grid">
+                <div  class="sixteen wide mobile eight wide tablet ten wide computer column"> 
+
+                    <div style="height:300px;overflow-y:auto;">
+                        <table class="responstable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Time</th>
+                                    <th>Seats</th>
+                                    <th>Select</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="times in timesAvaliable">
+                                    <td>{{times.time}}</td>
+                                    <td ng-show="times.seats > 0">{{times.seats}}</td>
+                                    <td ng-show="times.seats == 0"><span class="smFont">BOOKED</span></td>
+                                    <td>
+                                        <button class="ui inverted blue labeled icon button" ng-click="SelectTimeSlot(times)">
+                                            <i class="hand pointer icon"></i>
+                                            Select
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="sixteen wide mobile eight wide tablet four wide computer column">
-                    <h3>Select Time</h3>
+                <div class="two wide computer column">
 
-                    <select ng-model="timeSelected" placeholder="Set Time" style="border-radius: 6px;font-size: 16pt;">
-                        <option ng-repeat="time in ddlTime" value="{{time}}">{{time}}</option>
-                    </select>
-
-
-                    <!--<div class="ui scrolling dropdown">
-                    <input type="hidden" id="timeSelected">
-                    <div class="default text" >Select Time</div>
-                    <i class="dropdown icon"></i>
-                    <div class="menu">
-                        <div class="item" </div>
-                    </div>
-                </div>-->
-                </div>
-                <div class="sixteen wide mobile eight wide tablet four wide computer column">
-                    <center>
-                        <h3>Avaliable Seats</h3>
-
-                        <div class="ui button disabled">
-                            5
-                        </div>
-                    </center>
                 </div>
                 <div class="sixteen wide mobile eight wide tablet four wide computer column">
                     <h3>Review and confirm</h3>
@@ -136,7 +146,7 @@
         </div>
     </div>
 
-    <div class="actions" ng-show="$root.isLoggedIn">
+    <div class="actions" ng-show="$root.isLoggedIn && !pastDate">
         <div class="ui black deny button" >
             Cancel
         </div>

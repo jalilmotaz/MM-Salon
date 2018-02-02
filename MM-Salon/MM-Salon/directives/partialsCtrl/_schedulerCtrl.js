@@ -4,7 +4,8 @@
         scope: {
         },
         controller: ["$scope","PageModelFactory" ,function ($scope, PageModelFactory,$watch) {
-          
+            $scope.pastDate = false;
+
             $(document).ready(function () {
                 $('.ui.dropdown').dropdown();
 
@@ -20,8 +21,15 @@
                         $scope.ddlTime.push(tConvert(i + ":30"));
                     }
                     else {
-                        $scope.ddlTime.push(i + ":00 AM");
-                        $scope.ddlTime.push(i + ":30 AM");
+                        if (i == 12) {
+                            $scope.ddlTime.push(i + ":00 PM");
+                            $scope.ddlTime.push(i + ":30 PM");
+                        }
+                        else {
+                            $scope.ddlTime.push(i + ":00 AM");
+                            $scope.ddlTime.push(i + ":30 AM");
+                        }
+                      
                     }
                 }
               
@@ -31,8 +39,68 @@
             $scope.calendarView = 'month';
             $scope.viewDate = new Date();
             $scope.timespanClicked = function (date) {
-                $(".ui.schedule.modal").modal({ blurring: true }).modal('show');
+                $(".ui.schedule.modal").modal({ onDeny: function () { $('.ui.schedule.modal').modal('hide all'); } }, { blurring: true }).modal('show');
+         
                 $scope.dateSelected = formatDate(new Date(date));
+
+                var selectedDate = new Date($scope.dateSelected);
+                var now = new Date();
+
+                now.setHours(0, 0, 0, 0);
+
+                if (selectedDate < now) {
+                    $scope.pastDate = true;
+                }
+                else {
+                    $scope.pastDate = false;
+
+                }
+              
+                for (var i = 0; i < $rootScope.Holidays.length; i++) {
+
+                    var closedDay = $rootScope.Holidays[i];
+                    if (closedDay == $scope.dateSelected) {
+                        $scope.closedDay = true;
+                        break;
+                    }
+                    else {
+
+                        $scope.closedDay = false;
+                    }
+
+                }
+                $scope.apptsForSelectedDate = [];
+                for (var i = 0; i < $rootScope.pageModel.appointments.length; i++) {
+                    var temp = $rootScope.pageModel.appointments[i];
+                    
+                    if (temp.scheduledate.split(' ')[0] == $scope.dateSelected) {
+                        $scope.apptsForSelectedDate.push(temp);
+
+                    }
+
+                }
+                $scope.timesAvaliable = [];
+
+                for (var j = 0; j < $scope.ddlTime.length; j++) {
+                    var time = $scope.ddlTime[j];
+                    var counter = 0;
+                     for (var i = 0; i < $scope.apptsForSelectedDate.length; i++) {
+
+                         var tempAppt = $scope.apptsForSelectedDate[i];
+                         if (time.split(' ')[0] == tempAppt.scheduledate.split(' ')[1]) {
+                             counter++;
+                         }
+                   
+                     }
+                     var obj = {
+                         "time": time,
+                         "seats": $rootScope.seatsAvaliable - counter
+                     }
+
+                     $scope.timesAvaliable.push(obj);
+
+                }
+
             };
 
             $scope.cellModifier = function (cell) {
@@ -68,8 +136,6 @@
       
             $scope.ddlTime = [];
         
-            $scope.Holidays = ["2/1/2018", "3/15/2018"];
-
             $scope.seats = "5";
 
         
@@ -78,8 +144,11 @@
 
                 var scheduledDate = $scope.dateSelected +" " + $scope.timeSelected;
                 
+              
                 var note = $scope.note;
-
+                if (note == undefined) {
+                    note = "";
+                }
                 var userID = $rootScope.GetCookie("userID");
 
 
@@ -87,9 +156,11 @@
                 var data = createdDate + "|sep|" + scheduledDate + "|sep|" + note + "|sep|" + userID;
                 PageModelFactory.Post(url, data).then(function (res) {
                     $rootScope.isLoading = false;
-                    $rootScope.ShowToast("Scheudled Appointment", "limegreen");
+                    $rootScope.ShowToast("✔ Scheduled Appointment", "limegreen");
                     $rootScope.dateSelected = "";
                     $rootScope.timeSelected = "";
+                    $scope.note = "";
+                   
                 });
 
             }
@@ -99,11 +170,21 @@
                 $(".ui.schedule.modal").modal('hide');
             }
 
-            $scope.disableSchedule = ($scope.timeSelected == undefined || $scope.timeSelected =="") ?true : false;
+
+            $scope.disableSchedule = ($scope.timeSelected == undefined || $scope.timeSelected == "") ? true : false;
+           
             $scope.$watch('timeSelected', function () {
                 $scope.disableSchedule = ($scope.timeSelected == undefined || $scope.timeSelected == "") ? true : false;
-
+              
             });
+
+            $scope.SelectTimeSlot = function (timeAppt) {
+                $scope.timeSelected = timeAppt.time;
+
+            }
+
+
+
         }]
 
     }

@@ -9,7 +9,9 @@
             $rootScope.PutCookie("userID", undefined);
 
 
-            $scope.LoginUser = function() {
+            $scope.LoginUser = function () {
+                $rootScope.isLoading = true;
+
                 if (!$scope.logEmail || $scope.logEmail == "" || !$scope.logPassword || $scope.logPassword == "") {
                     $rootScope.ShowToast("Please fill all the fields", "darkred");
                     return;

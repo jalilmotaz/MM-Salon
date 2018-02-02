@@ -6,6 +6,7 @@
         controller: ["$scope", "PageModelFactory", function ($scope, PageModelFactory) {
         
             var user;
+            $scope.userAppointments = [];
             $(document).ready(function () {
 
                 $('.special.cards .image').dimmer({
@@ -17,7 +18,18 @@
                 $scope.fullName = user.name;
                 $scope.phoneNumber = user.number;
 
+                for (var i = 0; i < $rootScope.pageModel.appointments.length; i++) {
+                    var tempAppt = $rootScope.pageModel.appointments[i];
+                    if (tempAppt.userID == user.userID) {
+                        $scope.userAppointments.push(tempAppt);
+                    }
+                }
+            
+
             });
+
+          
+
 
             $scope.SaveEdit = function myfunction() {
                 var changedPass = false;
@@ -124,6 +136,19 @@
                     }
                 }
 
+
+
+                $scope.CancelApptModal = function (appt) {
+                    $scope.ApptSelected = appt;
+                    $('.ui.cancelAppt.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show');
+                }
+
+                $scope.EditApptModal = function (appt) {
+                    $scope.ApptSelected = appt;
+
+                    $('.ui.editAppt.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show');
+
+                }
         }]
 
     }
