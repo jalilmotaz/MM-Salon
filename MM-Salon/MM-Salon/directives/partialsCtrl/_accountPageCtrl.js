@@ -4,7 +4,6 @@
         scope: {
         },
         controller: ["$scope", "PageModelFactory", function ($scope, PageModelFactory) {
-        
             var user;
             $scope.userAppointments = [];
             $(document).ready(function () {
@@ -25,7 +24,7 @@
                     }
                 }
             
-
+ 
             });
 
           
