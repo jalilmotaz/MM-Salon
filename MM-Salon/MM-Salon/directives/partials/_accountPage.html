@@ -1,20 +1,11 @@
 ﻿<div  id="accountPage"></div>
 <br />
 <br />
-<br />
-<br />
 <div style="padding-left:30px; padding-right:30px; overflow:hidden">
     <!--https://cdn-user.dealerrater.com/uimages/5649/main-5649-95c3b8782ce0_large.jpg-->
     <br /><br /><br />
 
-   <p class="mdFont" style="background-color:#F1F1F1; padding:4px;">
-        Welcome {{$root.loggedInUser.name}}, <br />
-        Below you can view your account information and appointments.
-    </p>
-  
-    <br /><br /><br />
-
-    <legend class="lgFont"><i class="fa fa-lg fa-address-card-o" aria-hidden="true"></i>  My Information</legend>
+    <legend class="lgFont"><i class="far fa-id-card fa-lg " aria-hidden="true"></i>  My Information</legend>
 
 
          <div class="col-xs-12 mdFont" style="line-height:35pt;">
@@ -76,12 +67,13 @@
                     <p></p>
                 </div>
                 <div class="col-xs-12">
-                    <br /> <center>
-    <button class="ui inverted blue labeled icon button" onclick="$('.ui.editUser.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show')">
+                    <br />
+                            
+    <button class="ui inverted blue labeled icon button" onclick="$('.ui.editUser.modal').modal({detachable: false  },{ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show')">
         <i class="edit icon"></i>
         Update Information
      </button>
-</center></div>            
+                </div>            
             </div>
 
             
@@ -160,92 +152,6 @@
         </div>
     </div>
 
-
-
-
-
-
-    <legend class="lgFont"><i class="fa fa-lg fa-calendar-check-o" aria-hidden="true"></i>  My Appointments</legend>
-
-    <table class="responstable">
-        <thead>
-            <tr class="text-center">
-
-                <th>Created date & time</th>
-                <th>Scheduled date</th>
-                <th>Scheduled time</th>
-                <th>Note</th>
-                <th>Cancel</th>
-                <th>Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="appt in userAppointments">
-                <td>{{appt.createdDate}}</td>
-                <td >{{appt.scheduledate.split(" ")[0]}}</td>
-                <td>{{appt.scheduledate.split(" ")[1] + appt.scheduledate.split(" ")[2] }}</td>
-                <td>{{appt.note}}</td>
-                <td>
-                    <button class="ui inverted red labeled icon button" ng-click="CancelApptModal(appt)">
-                        <i class="ban icon"></i>
-                        Cancel
-                    </button>
-                </td>
-                <td>
-                    <button class="ui inverted green labeled icon button" ng-click="EditApptModal(appt)">
-                        <i class="edit icon"></i>
-                        Edit
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <br /><br /><br />
-
-    <br /><br /><br />
-
-    <br /><br /><br />
-
-    <div id="owModal" class="ui cancelAppt modal">
-        <div class="header">
-            Cancel Appointment
-        </div>
-        <div class="content">
-
-            <br /><br />
-        </div>
-
-        <div class="actions">
-            <div class="ui black deny button">
-                Nevermind
-            </div>
-            <div class="ui red right labeled icon button" ng-click="CancelAppt()">
-                Cancel
-                <i class="ban icon"></i>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="owModal" class="ui editAppt modal">
-        <div class="header">
-            Edit Appointment
-        </div>
-        <div class="content">
-     
-            <br /><br />
-        </div>
-
-        <div class="actions">
-            <div class="ui black deny button">
-                Nevermind
-            </div>
-            <div class="ui positive right labeled icon button" ng-click="EditAppt()">
-                Edit
-                <i class="save icon"></i>
-            </div>
-        </div>
-    </div>
 
 </div>
  

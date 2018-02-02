@@ -5,7 +5,6 @@
         },
         controller: ["$scope", "PageModelFactory", function ($scope, PageModelFactory) {
             var user;
-            $scope.userAppointments = [];
             $(document).ready(function () {
 
                 $('.special.cards .image').dimmer({
@@ -16,13 +15,7 @@
                 user = JSON.parse($rootScope.GetCookie("user"));
                 $scope.fullName = user.name;
                 $scope.phoneNumber = user.number;
-
-                for (var i = 0; i < $rootScope.pageModel.appointments.length; i++) {
-                    var tempAppt = $rootScope.pageModel.appointments[i];
-                    if (tempAppt.userID == user.userID) {
-                        $scope.userAppointments.push(tempAppt);
-                    }
-                }
+              
             
  
             });
@@ -32,6 +25,7 @@
 
             $scope.SaveEdit = function myfunction() {
                 var changedPass = false;
+                $rootScope.isLoading = true;
                 if ($scope.fullName == "" || $scope.phoneNumber == "") {
                     $rootScope.ShowToast("Please fill all feilds", "darkred");
                     return;
@@ -62,14 +56,19 @@
                 }
                 var url = "api/WebAPI/UpdateUser/post";
 
-                PageModelFactory.Post(url, data).then(function(res) {
-                    $rootScope.loggedInUser.name = $scope.fullName;
-                    $rootScope.loggedInUser.number = $scope.phoneNumber;
-                    if (changedPass) {
-                        $rootScope.loggedInUser.password = $scope.newPass;
-                    }
-                    $rootScope.ShowToast("✔ Saved Succesfully", "limegreen");
+                PageModelFactory.Post(url, data).then(function (res) {
+                    $rootScope.isLoading = false;
+                    if (res != null) {
+                        $rootScope.loggedInUser = res;
+                        $rootScope.PutCookie("user",  JSON.stringify(res));
+                        $rootScope.ShowToast("✔ Saved Succesfully", "limegreen");
 
+                    }
+                    else {
+                        $rootScope.ShowToast("Error saving changes", "darkred");
+
+                    }
+                 
                 });
 
             }
@@ -137,17 +136,6 @@
 
 
 
-                $scope.CancelApptModal = function (appt) {
-                    $scope.ApptSelected = appt;
-                    $('.ui.cancelAppt.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show');
-                }
-
-                $scope.EditApptModal = function (appt) {
-                    $scope.ApptSelected = appt;
-
-                    $('.ui.editAppt.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show');
-
-                }
         }]
 
     }

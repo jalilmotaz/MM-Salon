@@ -13,11 +13,11 @@
     <script src="/js/less.min.js"></script>
     <script src="/js/bootstrap.js"></script>
     <script src="/js/fontAwesome.js"></script>
-
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="/js/parallex.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
 
@@ -40,6 +40,7 @@
     <script src="directives/partialsCtrl/_adminPortalCtrl.js"></script>    
     <script src="directives/partialsCtrl/_workGalleryCtrl.js"></script>
     <script src="directives/partialsCtrl/_schedulerCtrl.js"></script>
+    <script src="directives/partialsCtrl/_userAppointmentsCtrl.js"></script>
     <!--Directive's Styles-->
     <link href="/directives/partialsCss/_navbarCss.min.css" rel="stylesheet" />
     <link href="directives/partialsCss/_landingCss.min.css" rel="stylesheet" />
@@ -51,9 +52,10 @@
     <link href="directives/partialsCss/_adminPortalCss .min.css" rel="stylesheet" />
     <link href="directives/partialsCss/_workgalleryCSS.min.css" rel="stylesheet" />
     <link href="directives/partialsCss/_schedulerCss.min.css" rel="stylesheet" />
+    <link href="directives/partialsCss/_userLoginCss.min.css" rel="stylesheet" />
     <script>
         $(document).ready(function () {
-            $('.fab.icon').popup(
+            $('#fab.icon').popup(
             {
                 popup: $('.flowing.popup'),
                 on: 'click',
@@ -123,35 +125,22 @@
                         </div>
                         <div class="col-xs-11 col-xs-offset-1  col-sm-8 col-sm-offset-0">
                             
-                            <p class="smFont col-xs-12"><br class="showInMobile" /><i class="fa fa-building-o" aria-hidden="true"></i> {{$root.pageModel.homePage.address}}</p>
+                            <p class="smFont col-xs-12"><br class="showInMobile" /><i class="fas fa-building" aria-hidden="true"></i> {{$root.pageModel.homePage.address}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12  col-sm-1">
-                    
-                    <i  class="share alternate huge fab circle icon"></i>
+                    <i id="fab"  class="share alternate huge  circle icon"></i>
                     <div id="flowingPopup" class="ui flowing popup">
                                 
-                                <a href="{{$root.pageModel.homePage.twitterLink}}" target="_blank"> <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i></a> <br/>
-                                <a href="{{$root.pageModel.homePage.fbLink}}" target="_blank">    <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a> <br />
-                                <a href="{{$root.pageModel.homePage.twitterLink}}" target="_blank">   <i class="fa fa-youtube-square fa-lg" aria-hidden="true"> </i> </a> <br />
-                                <a href="{{$root.pageModel.homePage.instaLink}}" target="_blank">   <i class="fa fa-instagram fa-lg" aria-hidden="true"></i> </a> <br />
+                                <a href="{{$root.pageModel.homePage.twitterLink}}" target="_blank"> <i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i></a> <br/>
+                                <a href="{{$root.pageModel.homePage.fbLink}}" target="_blank">    <i class="fab fa-facebook-square fa-lg" aria-hidden="true"></i></a> <br />
+                                <a href="{{$root.pageModel.homePage.twitterLink}}" target="_blank">   <i class="fab fa-youtube-square fa-lg" aria-hidden="true"> </i> </a> <br />
+                                <a href="{{$root.pageModel.homePage.instaLink}}" target="_blank">   <i class="fab fa-instagram fa-lg" aria-hidden="true"></i> </a> <br />
                     
                        </div>
                     </div>
 
-                    <!--<center>
-                        <div class="row">
-                            <div class="col-xs-8 col-xs-offset-2">
-                                <br />
-                             <a href="{{$root.pageModel.homePage.twitterLink}}">   <div class="col-xs-3 col-sm-6"><p class="xlFont"><i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i></p></div></a> 
-                                <a href="{{$root.pageModel.homePage.fbLink}}">    <div class="col-xs-3 col-sm-6"><p class="xlFont"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></p></div></a> 
-                                <a href="{{$root.pageModel.homePage.twitterLink}}">    <div class="col-xs-3 col-sm-6"><p class="xlFont"><i class="fa fa-youtube-square fa-lg" aria-hidden="true"></i></p></div></a> 
-                                <a href="{{$root.pageModel.homePage.instaLink}}">    <div class="col-xs-3 col-sm-6"><p class="xlFont"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></p></div></a> 
-                            </div>
-                      
-                         </div>
-                    </center>-->
                 </div>
             </div>
         </div>
