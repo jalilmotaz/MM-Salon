@@ -46,9 +46,98 @@ namespace MM_Salon.App_Start
 
         }
 
+        private List<Appointment> ReadAppointments()
+        {
+
+            try
+            {
+                string jsonString = File.ReadAllText(System.Web.HttpContext.Current.Request.MapPath("~/PageModel.json"));
+                PageModel pageModel = JsonConvert.DeserializeObject<PageModel>(jsonString);
+                List<Appointment> listAppointments = pageModel.appointments;
+
+                return (listAppointments == null) ? new List<Appointment>() : listAppointments;
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return new List<Appointment>();
+            }
+
+        }
+        private string WriteAppointment(List<Appointment> list)
+        {
+            try
+            {
+                string jsonStringRead = File.ReadAllText(System.Web.HttpContext.Current.Request.MapPath("~/PageModel.json"));
+                PageModel pageModel = JsonConvert.DeserializeObject<PageModel>(jsonStringRead);
+
+                pageModel.appointments = list;
+
+                string jsonStringWrite = JsonConvert.SerializeObject(pageModel);
+
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/PageModel.json"), jsonStringWrite);
+
+                return "good";
+
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+
+            }
+
+        }
 
 
         [HttpPost]
+        [Route("api/webAPI/ScheduleAppointment")]
+        public async Task<string> ScheduleAppointment(string info)
+        {
+
+            try
+            {
+                using (var c = await this.Request.Content.ReadAsStreamAsync())
+                {
+                    c.Seek(0, SeekOrigin.Begin);
+                    using (var s = new StreamReader(c))
+                    {
+                        info = s.ReadToEnd();
+                    }
+                }
+
+                if (info != "")
+                {
+                    string[] splitInfo = info.Split(new string[] { "|sep|" }, StringSplitOptions.None);
+
+                    string createdDate = splitInfo[0];
+                    string scheduledDate = splitInfo[1];
+                    string note = splitInfo[2];
+                    string userID = splitInfo[3];
+
+                    List<Appointment> listAppts = ReadAppointments();
+                    Appointment newAppt = new Appointment();
+                    newAppt.userID = userID;
+                    newAppt.createdDate = createdDate;
+                    newAppt.scheduledate = scheduledDate;
+                    newAppt.note = note;
+                    listAppts.Add(newAppt);
+                    WriteAppointment(listAppts);
+
+                    return "good";
+                }
+                else
+                {
+                    return "bad";
+                }
+            }
+            catch(Exception ex)
+            {
+                return "bad";
+            }
+         }
+
+                    
+                    [HttpPost]
         [Route("api/webAPI/UpdateUser")]
         public async Task<string> UpdateUser(string info)
         {
@@ -178,7 +267,6 @@ namespace MM_Salon.App_Start
             }
 
         }
-
 
 
         [HttpPost]

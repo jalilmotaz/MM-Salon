@@ -26,9 +26,14 @@
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Scheduler</p>
             </div>
         </a>
-        <a ng-click="AccountTabClick()" href="#login" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
+        <a ng-click="AccountTabClick()" href="#login" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" ng-show="!$root.isLoggedIn">
             <div class="col-xs-2 text-center navLink mdFont">
                 <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Account</p>
+            </div>
+        </a>
+        <a ng-click="AccountTabClick()" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" ng-show="$root.isLoggedIn">
+            <div class="col-xs-2 text-center navLink mdFont">
+                <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}" >
             </div>
         </a>
     </div>
@@ -97,7 +102,7 @@
                 </div>
             </a>
 
-            <a ng-click="$root.LoadPage('<dealerportal></dealerportal>', '</dealerportal>')" href="#ScheduleAppointment"  data-toggle="collapse" data-target="#navbarTabs">
+            <a ng-click="$root.LoadPage('<scheduler></scheduler>', '</scheduler>')" href="#ScheduleAppointment"  data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
                     <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Schedule Appointment</span>
                 </div>

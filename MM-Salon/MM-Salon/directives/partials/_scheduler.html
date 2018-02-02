@@ -2,53 +2,54 @@
 <br />
 <br />
 <br />
-<style>
-    .pull-right {
-        pointer-events:none;
-    }
-       .custom-template-cell {
-        color: purple;
-    }
-</style>
+
 <script id="customMonthCell.html" type="text/ng-template">
     <div class="cal-month-day {{day.cssClass}}">
 
         <span class="pull-right"
               data-cal-date
-              ng-click="vm.calendarCtrl.dateClicked(day.date)"
               ng-bind="day.label">
         </span>
 
-        <small style="position: absolute; bottom: 10px; left: 5px">
-            There are {{ day.events.length }} events on this day
-        </small>
-
     </div>
+
 </script>
 
+<style>
+    .pull-right {
+        pointer-events: none;
+    }
 
+    .custom-template-cell {
+        background-color: dodgerblue;
+    }
+</style>
 <div style="padding-left:30px; padding-right:30px; overflow:hidden">
-    <button class="btn btn-primary"
-            mwl-date-modifier
-            date="viewDate"
-            decrement="calendarView"
-           >
-        Previous
-    </button>
+    <h2 class="text-center">{{ calendarTitle }}</h2>
+    <center>
+        <button class="btn btn-primary"
+                mwl-date-modifier
+                date="viewDate"
+                decrement="calendarView">
+            Previous
+        </button>
 
-    <button class="btn btn-default"
-            mwl-date-modifier
-            date="viewDate"
-            set-to-today>
-        Today
-    </button>
+        <button class="btn btn-default"
+                mwl-date-modifier
+                date="viewDate"
+                set-to-today>
+            Today
+        </button>
 
-    <button class="btn btn-primary"
-            mwl-date-modifier
-            date="viewDate"
-            increment="calendarView">
-        Next
-    </button>
+        <button class="btn btn-primary"
+                mwl-date-modifier
+                date="viewDate"
+                increment="calendarView">
+            Next
+        </button>
+    </center>
+    <br />
+    <br/>
     <mwl-calendar view="calendarView"
                   view-date="viewDate"
                   events="events"
@@ -56,78 +57,102 @@
                   cell-is-open="true"
                    on-timespan-click="timespanClicked(calendarDate)"
                   custom-template-urls="{calendarMonthCell: 'customMonthCell.html'}"
-                  cell-modifier="vm.cellModifier(calendarCell)">
+                  cell-modifier="cellModifier(calendarCell)">
                   >
     </mwl-calendar>
-    </div>
-    <script>
-        var today = new Date();
-        $('#example1').calendar({
-            minDate: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
-            maxDate: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 365)
-        });
-    </script>
-
-    <legend class="lgFont"><i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Create Appointment</legend>
-    <div class="ui grid">
-        <div class="sixteen wide mobile eight wide tablet four wide computer column">
-            <div class="ui container">
-                <h3>Date & Time</h3>
-                <div class="ui calendar" id="example1">
-                    <div class="ui large input left icon">
-                        <i class="calendar icon"></i>
-                        <input type="text" placeholder="Date/Time" ng-model="txtDateTime" style="width:275px;">
-                    </div>
-                </div>
-                <br />
-            </div>
-        </div>
-        <div class="sixteen wide mobile eight wide tablet four wide computer column">
-            <div class="ui container">
-
-                <h3>Employees/Slots</h3>
-                <div class="ui vertical menu">
-                    <a class="teal item" ng-class="{'active':tab == 1}" ng-click="tab = 1">
-                        John Doe (Slot 1)
-                    </a>
-                    <a class="teal item" ng-class="{'active':tab == 2}" ng-click="tab = 2">
-                        Mary Doe (Slot 2)
-                    </a>
-                    <a class="teal item" ng-class="{'active':tab == 3}" ng-click="tab = 3">
-                        Mary John (Slot 3)
-
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="sixteen wide mobile eight wide tablet four wide computer column">
-            <div class="ui container">
-                <h3>Review and confirm</h3>
-                <div class="ui two column grid">
-                    <div class="row">
-                        <div class="column">Date</div>
-                        <div class="column">Jan 24, 2018 </div>
-                    </div>
-                    <div class="row">
-                        <div class="column">Time</div>
-                        <div class="column">2:00 P.M</div>
-                    </div>
-                    <div class="row">
-                        <div class="column">Employee/Slot</div>
-                        <div class="column">John Doe/1</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="sixteen wide mobile eight wide tablet four wide computer column">
-            <div class="ui container">
-                <h3>Confirm</h3>
-                <button class="ui inverted blue labeled icon button">
-                    <i class="check circle icon"></i>
-                    Confirm
-                </button>
-            </div>
-        </div>
-    </div>
     <br />
     <br />
+    <br/>
+    </div>
+
+
+
+<div id="owModal" class="ui schedule large modal">
+    <div class="header">
+        <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>  Schedule Appointment <span class="mdFont">{{dateSelected}}</span>
+    </div>
+    <div class="content" ng-class="{'ExtraHeight': pastDate || closedDay }">
+        <div ng-show="$root.isLoggedIn && closedDay">
+            <center>
+                <h3>Sorry, No Appointments avaliable for this day</h3>
+            </center>
+        </div>
+        <div ng-show="$root.isLoggedIn && pastDate">
+            <center>
+                <h3>Date selected is in the past</h3>
+            </center>
+        </div>
+        <div ng-show="!$root.isLoggedIn">
+            <center>
+                <h3>You must be logged in to schedule appointment</h3>
+                <div class="ui blue button" ng-click="GoToLogin()">
+                    Login
+                </div>
+            </center>
+        </div>
+        <div ng-show="$root.isLoggedIn && !pastDate && !closedDay">
+
+            <div class="ui relaxed grid">
+                <div  class="sixteen wide mobile eight wide tablet ten wide computer column"> 
+
+                    <div style="height:300px;overflow-y:auto;">
+                        <table class="responstable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>Time</th>
+                                    <th>Seats</th>
+                                    <th>Select</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="times in timesAvaliable">
+                                    <td>{{times.time}}</td>
+                                    <td ng-show="times.seats > 0">{{times.seats}}</td>
+                                    <td ng-show="times.seats == 0"><span class="smFont">BOOKED</span></td>
+                                    <td>
+                                        <button class="ui inverted blue labeled icon button" ng-click="SelectTimeSlot(times)">
+                                            <i class="hand pointer icon"></i>
+                                            Select
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="two wide computer column">
+
+                </div>
+                <div class="sixteen wide mobile eight wide tablet four wide computer column">
+                    <h3>Review and confirm</h3>
+                    <div class="ui two column grid">
+                        <div class="row">
+                            <div class="column">Date</div>
+                            <div class="column">{{dateSelected}} </div>
+                        </div>
+                        <div class="row">
+                            <div class="column">Time</div>
+                            <div class="column">{{timeSelected}}</div>
+                        </div>
+                        <div class="row">
+                            <h4>Add a note (Optional)</h4>
+                            <textarea style="width:100%;height:50px;overflow:hidden;border-radius:6px;" ng-model="note"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="actions" ng-show="$root.isLoggedIn && !pastDate">
+        <div class="ui black deny button" >
+            Cancel
+        </div>
+        <div class="ui positive right labeled icon button" ng-click="ScheduleAppointment()"  ng-class="{'disabled':disableSchedule}">
+           Schedule
+            <i class="add to calendar  icon"></i>
+        </div>
+    </div>
+</div>
