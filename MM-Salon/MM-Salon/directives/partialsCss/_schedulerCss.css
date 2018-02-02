@@ -1,3 +1,8 @@
 ﻿.ExtraHeight {
   height: 255px;
 }
+@media (max-width: 992px) {
+  .reviewConfirm {
+    padding-left: 125px !important;
+  }
+}

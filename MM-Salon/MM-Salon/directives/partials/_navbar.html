@@ -18,44 +18,45 @@
         </a>
         <a  ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')"   href="#Gallery">
             <div class="col-xs-2 text-center navLink mdFont">
-                <p><i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</p>
+                <p><i class="fas fa-images"></i> Gallery</p>
             </div>
         </a>
         <a  ng-click="$root.LoadPage('<scheduler></scheduler>', '</scheduler>')"  href="#ScheduleAppointment" >
             <div class="col-xs-2 text-center navLink mdFont">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Scheduler</p>
+                <p><i class="fas fa-calendar-plus"></i> Scheduler</p>
             </div>
         </a>
         <a ng-click="AccountTabClick()" href="#login" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" ng-show="!$root.isLoggedIn">
             <div class="col-xs-2 text-center navLink mdFont">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Account</p>
+                <p><i class="fas fa-user-circle"></i> Account</p>
             </div>
         </a>
         <a ng-click="AccountTabClick()" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" ng-show="$root.isLoggedIn">
             <div class="col-xs-2 text-center navLink mdFont">
                 <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}" >
+                <span>{{$root.loggedInUser.name}}</span>
             </div>
         </a>
     </div>
     <div class="row" ng-show="accountHovered">
         <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  >
             <div class="navLink">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</p>
+                <p><i class="fas fa-sign-in-alt"></i> Login</p>
             </div> 
         </div>
         <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
             <div class="navLink">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</p>
+                <p><i class="fas fa-user-plus"></i> Signup</p>
             </div>
         </div>
-        <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<accountpage></accountpage>', '</accountpage>')" href="#login" class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
+        <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userappointments></userappointments>', '</userappointments>')" href="#userAppts" class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
             <div class="navLink">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> My Acccount</p>
+                <p><i class="fas fa-calendar-check"></i> My Appointments</p>
             </div>
         </div>
         <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;">
             <div class="navLink">
-                <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Sign Out</p>
+                <p><i class="fas fa-sign-out-alt"></i> Sign Out</p>
             </div>
         </div>
     </div>
@@ -98,42 +99,49 @@
             
             <a ng-click="$root.LoadPage('<landing></landing><about></about><contact></contact><gallery></gallery>', '</landing>')" href="#Gallery"  data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
-                    <span><i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</span>
+                    <span><i class="fas fa-images"></i> Gallery</span>
                 </div>
             </a>
 
             <a ng-click="$root.LoadPage('<scheduler></scheduler>', '</scheduler>')" href="#ScheduleAppointment"  data-toggle="collapse" data-target="#navbarTabs">
                 <div class="col-xs-12 navbarTab mediumFont">
-                    <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Schedule Appointment</span>
+                    <span><i class="fas fa-calendar-plus"></i> Schedule Appointment</span>
                 </div>
             </a>
+                <a ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userappointments></userappointments>', '</userappointments>')" href="#userAppts"   data-toggle="collapse" data-target="#navbarTabs">
+                    <div class="col-xs-12 navbarTab mediumFont">
+                        <span><i class="fas fa-calendar-check"></i> My Appointments</span>
+                    </div>
+                </a>
         </div>
         <div class="row">
             <div ng-show="!$root.isLoggedIn"  ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6">
                 <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
                     <div class="col-xs-12 navbarTab mediumFont">
-                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Login</span>
+                        <span><i class="fas fa-sign-in-alt"></i> Login</span>
                     </div>
                 </a>
             </div>
             <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6">
                 <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
                     <div class="col-xs-12 navbarTab mediumFont">
-                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Signup</span>
+                        <span><i class="fas fa-user-plus"></i> Signup</span>
                     </div>
                 </a>
             </div>
-            <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-6">
+            <div ng-show="$root.isLoggedIn" ng-click="AccountTabClick()" href="#login" class="col-xs-6">
                 <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
-                    <div class="col-xs-12 navbarTab mediumFont">
-                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> My Account</span>
+                    <div class="navbarTab mediumFont">
+                        <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}">
+                        <span>{{$root.loggedInUser.name}}</span>
                     </div>
                 </a>
             </div>
+         
             <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login" class="col-xs-6">
                 <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
                     <div class="col-xs-12 navbarTab mediumFont">
-                        <span><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Sign Out</span>
+                        <span><i class="fas fa-sign-out-alt"></i> Sign Out</span>
                     </div>
                 </a>
             </div>

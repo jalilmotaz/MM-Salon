@@ -1,0 +1,85 @@
+﻿<br />
+<br />
+<br />
+<br/>
+<br />
+<br />
+<br />
+<div id="userAppts" style="padding-left:30px; padding-right:30px; overflow:hidden">
+    <legend class="lgFont"><i class="fas fa-lg fa-calendar-check"></i> My Appointments</legend>
+    <table class="responstable smFont">
+        <thead>
+            <tr class="text-center">
+                <th style="width:100px">Scheduled date</th>
+                <th style="width:100px">Scheduled time</th>
+                <th>Note</th>
+                <th>Cancel</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="appt in userAppointments">
+                <td>{{appt.scheduledate.split(" ")[0]}}</td>
+                <td>{{appt.scheduledate.split(" ")[1] + appt.scheduledate.split(" ")[2] }}</td>
+                <td>{{appt.note}}</td>
+                <td>
+                    <button class="ui inverted red labeled icon button" ng-click="CancelApptModal(appt)">
+                        <i class="ban icon"></i>
+                        Cancel
+                    </button>
+                </td>
+                <td>
+                    <button class="ui inverted green labeled icon button" ng-click="EditApptModal(appt)">
+                        <i class="edit icon"></i>
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br /><br /><br />
+    <br /><br /><br />
+    <br /><br /><br />
+
+    <div id="owModal" class="ui cancelAppt modal">
+        <div class="header">
+            Cancel Appointment
+        </div>
+        <div class="content">
+
+            <br /><br />
+        </div>
+
+        <div class="actions">
+            <div class="ui black deny button">
+                Nevermind
+            </div>
+            <div class="ui red right labeled icon button" ng-click="CancelAppt()">
+                Cancel
+                <i class="ban icon"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="owModal" class="ui editAppt modal">
+        <div class="header">
+            Edit Appointment
+        </div>
+        <div class="content">
+
+            <br /><br />
+        </div>
+
+        <div class="actions">
+            <div class="ui black deny button">
+                Nevermind
+            </div>
+            <div class="ui positive right labeled icon button" ng-click="EditAppt()">
+                Edit
+                <i class="save icon"></i>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -150,6 +150,12 @@
     <Content Include="directives\partialsCss\_schedulerCss.min.css">
       <DependentUpon>_schedulerCss.css</DependentUpon>
     </Content>
+    <Content Include="directives\partialsCss\_userAppointmentsCss.css">
+      <DependentUpon>_userAppointmentsCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_userAppointmentsCss.min.css">
+      <DependentUpon>_userAppointmentsCss.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCss\_userLoginCss.css">
       <DependentUpon>_userLoginCss.less</DependentUpon>
     </Content>
@@ -165,6 +171,7 @@
     <Content Include="directives\partialsCtrl\_aboutCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminHomePageCtrl.js" />
     <Content Include="directives\partialsCtrl\_schedulerCtrl.js" />
+    <Content Include="directives\partialsCtrl\_userAppointmentsCtrl.js" />
     <Content Include="directives\partialsCtrl\_userLoginCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminPortalCtrl.js" />
     <Content Include="directives\partialsCtrl\_contactCtrl.js" />
@@ -178,6 +185,7 @@
     <Content Include="directives\partials\_adminPortal.html" />
     <Content Include="directives\partials\_contact.html" />
     <Content Include="directives\partials\_scheduler.html" />
+    <Content Include="directives\partials\_userAppointments.html" />
     <Content Include="directives\partials\_userLogin.html" />
     <Content Include="directives\partials\_accountPage.html" />
     <Content Include="directives\partials\_landing.html" />
@@ -251,6 +259,7 @@
     <Content Include="directives\partialsCss\_adminHomePageCss.less" />
     <Content Include="css\lessVars.less" />
     <Content Include="directives\partialsCss\_schedulerCss.less" />
+    <Content Include="directives\partialsCss\_userAppointmentsCss.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
     <None Include="Properties\PublishProfiles\azure.pubxml" />

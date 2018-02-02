@@ -8,6 +8,7 @@
 
             $(document).ready(function () {
                 $('.ui.dropdown').dropdown();
+                $(".ui.schedule.modal").modal({detachable: false  },{ onDeny: function () { $('.ui.schedule.modal').modal('hide all'); } }, { blurring: true });
 
                 var openTime = "9:00:00";
                 var closeTime = "19:00:00";
@@ -39,8 +40,9 @@
             $scope.calendarView = 'month';
             $scope.viewDate = new Date();
             $scope.timespanClicked = function (date) {
-                $(".ui.schedule.modal").modal({ onDeny: function () { $('.ui.schedule.modal').modal('hide all'); } }, { blurring: true }).modal('show');
-         
+                $scope.timeSelected = "";
+                $(".ui.schedule.modal").modal("show");
+            
                 $scope.dateSelected = formatDate(new Date(date));
 
                 var selectedDate = new Date($scope.dateSelected);
@@ -150,15 +152,21 @@
                     note = "";
                 }
                 var userID = $rootScope.GetCookie("userID");
+                var newAppt = {
+                    "createdDate": createdDate,
+                    "scheduledate": scheduledDate,
+                    "note":note,
+                    "userID":userID
+                }
 
+                $rootScope.pageModel.appointments.push(newAppt);
+                $('.ui.schedule.modal').modal('hide all');
 
-                var url = "api/WebAPI/ScheduleAppointment/post";
-                var data = createdDate + "|sep|" + scheduledDate + "|sep|" + note + "|sep|" + userID;
-                PageModelFactory.Post(url, data).then(function (res) {
+                PageModelFactory.PostPageModel().then(function (res) {
                     $rootScope.isLoading = false;
                     $rootScope.ShowToast("✔ Scheduled Appointment", "limegreen");
-                    $rootScope.dateSelected = "";
-                    $rootScope.timeSelected = "";
+                    $scope.dateSelected = "";
+                    $scope.timeSelected = "";
                     $scope.note = "";
                    
                 });

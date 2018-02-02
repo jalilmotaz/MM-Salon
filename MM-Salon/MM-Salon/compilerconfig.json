@@ -62,5 +62,9 @@
   {
     "outputFile": "directives/partialsCss/_accountPage.css",
     "inputFile": "directives/partialsCss/_accountPage.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_userAppointmentsCss.css",
+    "inputFile": "directives/partialsCss/_userAppointmentsCss.less"
   }
 ]
