@@ -116,8 +116,12 @@
                         ajaxRequest.done(function (xhr, textStatus) {
                             if (xhr == "good") {
                                 $rootScope.ShowToast("✔ Upload Success", "limegreen");
-                                var eleID = "userPic"
-                                 $("#" + eleID).attr('src', $("#" + eleID).attr('src') + '?' + new Date().getTime());
+                                var eleID = "userPic";
+                                var eleID2 = "userPicMobNav";
+                                var eleID3 = "userPicNav";
+                                $("#" + eleID).attr('src', $("#" + eleID).attr('src') + '?' + new Date().getTime());
+                                $("#" + eleID2).attr('src', $("#" + eleID).attr('src') + '?' + new Date().getTime());
+                                $("#" + eleID3).attr('src', $("#" + eleID).attr('src') + '?' + new Date().getTime());
                                  $rootScope.isLoading = false;
                              }
                             else {

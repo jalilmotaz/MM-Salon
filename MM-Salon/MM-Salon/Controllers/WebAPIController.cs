@@ -211,8 +211,9 @@ namespace MM_Salon.App_Start
                     newUser.email = splitInfo[2];
                     newUser.number = splitInfo[3];
                     newUser.password = splitInfo[4];
-                    
-
+                    string oldPathAndName = System.Web.HttpContext.Current.Request.MapPath("~/images/default.png");
+                    string newPathAndName = System.Web.HttpContext.Current.Request.MapPath("~/images/"+newUser.userID+".jpg");
+                    System.IO.File.Copy(oldPathAndName, newPathAndName);
                     listUser.Add(newUser);
 
                     WriteUsers(listUser);

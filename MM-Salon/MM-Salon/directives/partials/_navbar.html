@@ -33,7 +33,7 @@
         </a>
         <a ng-click="AccountTabClick()" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" ng-show="$root.isLoggedIn">
             <div class="col-xs-2 text-center navLink mdFont">
-                <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}" >
+                <img id="userPicNav" class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}" >
                 <span>{{$root.loggedInUser.name}}</span>
             </div>
         </a>
@@ -46,7 +46,7 @@
         </div>
         <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-2 col-xs-offset-10 text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true"  style="border-bottom-left-radius:5px;border-bottom-right-radius:5px;"> 
             <div class="navLink">
-                <p><i class="fas fa-user-plus"></i> Signup</p>
+                <p><i class="fas fa-user-plus"></i> Register</p>
             </div>
         </div>
         <div ng-show="$root.isLoggedIn" ng-click="$root.LoadPage('<userappointments></userappointments>', '</userappointments>')" href="#userAppts" class="col-xs-2 col-xs-offset-10  text-center navBg mdFont" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true">
@@ -125,14 +125,14 @@
             <div  ng-show="!$root.isLoggedIn"   ng-click="$root.LoadPage('<userlogin></userlogin>', '</userlogin>')" href="#login"  class="col-xs-6">
                 <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
                     <div class="col-xs-12 navbarTab mediumFont">
-                        <span><i class="fas fa-user-plus"></i> Signup</span>
+                        <span><i class="fas fa-user-plus"></i> Register</span>
                     </div>
                 </a>
             </div>
             <div ng-show="$root.isLoggedIn" ng-click="AccountTabClick()" href="#login" class="col-xs-6">
                 <a ng-click="$root.tabSelected = 3" href="#ScheduleAppointment" data-toggle="collapse" data-target="#navbarTabs">
-                    <div class="navbarTab mediumFont">
-                        <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}">
+                    <div class="navbarTab mediumFont" style="width: 100%;">
+                        <img id="userPicMobNav" class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}">
                         <span>{{$root.loggedInUser.name}}</span>
                     </div>
                 </a>
