@@ -7,7 +7,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.seatsAvaliable = 5;
     $rootScope.Holidays = ["02/04/2018", "03/15/2018"];
 
-     //$rootScope.server = "http://localhost:56014/";   //dev
+  //$rootScope.server = "http://localhost:56014/";   //dev
   $rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
@@ -195,7 +195,13 @@ myApp.factory('PageModelFactory', function ($http, $rootScope) {
     this.Post = function (url, data) {
         return $http.post($rootScope.server + url, data)
         .then(function (response) {
-            return response.data;
+            console.log(response);
+            if (response.status == 200) {
+                return response.data;
+            }
+            else {
+                return null;
+            }
         }).catch(function (res) {
             return res.data;
         });

@@ -10,12 +10,12 @@
 
 
             $scope.LoginUser = function () {
-                $rootScope.isLoading = true;
 
                 if (!$scope.logEmail || $scope.logEmail == "" || !$scope.logPassword || $scope.logPassword == "") {
                     $rootScope.ShowToast("Please fill all the fields", "darkred");
                     return;
                 }
+                $rootScope.isLoading = true;
                 var url = "api/WebAPI/LoginUser/post";
                 var data = $scope.logEmail + "|sep|"+ $scope.logPassword;
                 PageModelFactory.Post(url, data).then(function (res) {
