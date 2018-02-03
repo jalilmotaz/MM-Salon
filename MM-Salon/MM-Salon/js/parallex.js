@@ -40,7 +40,8 @@ function procaccillax(containerID, bgImgUrl, rate) {
         var bg = ('#' + containerID + 'bg');
         $(bg).css({ 'background': "url('" + bgImgUrl + "') no-repeat bottom" });
         $(bg).css({ 'position': 'fixed' });
-        $(bg).css({ 'max-wdith': '1500px' });
+        $(bg).css({ 'background-size': 'cover' });
+         $(bg).css({ 'max-wdith': '1500px' });
         $(bg).css({ 'z-index': '-1' });
         $(bg).css({ 'top': '0px' }); // 0px for now because we are only using headers
         $(bg).css({ 'left': '0px' }); // 0px for now because we are only using headers
