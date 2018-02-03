@@ -4,7 +4,6 @@
         scope: {
         },
         controller: ["$scope", "PageModelFactory", function ($scope, PageModelFactory) {
-        
             var user;
             $(document).ready(function () {
 
@@ -18,7 +17,7 @@
                 $scope.phoneNumber = user.number;
               
             
-
+ 
             });
 
           
