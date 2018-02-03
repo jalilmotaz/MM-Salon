@@ -19,6 +19,7 @@
                 var url = "api/WebAPI/LoginUser/post";
                 var data = $scope.logEmail + "|sep|"+ $scope.logPassword;
                 PageModelFactory.Post(url, data).then(function (res) {
+                    console.log(res);
                     $rootScope.isLoading = false;
                     if (res != null) {
                         $rootScope.ShowToast("Login successfully", "limegreen");

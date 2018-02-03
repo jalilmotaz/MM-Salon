@@ -227,6 +227,7 @@
     <Content Include="js\parallex.js" />
     <Content Include="js\router.js" />
     <Content Include="js\sanatize.js" />
+    <Content Include="log.txt" />
     <Content Include="main.html" />
     <Content Include="mainCtrl.js" />
     <Content Include="Web.config">
@@ -234,7 +235,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Appointment.cs" />
+    <Compile Include="App_Data\Appointment.cs" />
     <Compile Include="Controllers\Employee.cs" />
     <Compile Include="Controllers\HomePage.cs" />
     <Compile Include="Controllers\PageModel.cs" />
@@ -277,7 +278,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="App_Start\" />
     <Folder Include="images\members\" />
     <Folder Include="images\workGallery\" />

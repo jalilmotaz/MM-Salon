@@ -232,7 +232,12 @@ namespace MM_Salon.App_Start
         [Route("api/webAPI/LoginUser")]
         public async Task<User> LoginUser(string info)
         {
-            using (var c = await this.Request.Content.ReadAsStreamAsync())
+            try
+            {
+
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "0\n");
+
+                using (var c = await this.Request.Content.ReadAsStreamAsync())
             {
                 c.Seek(0, SeekOrigin.Begin);
                 using (var s = new StreamReader(c))
@@ -247,22 +252,42 @@ namespace MM_Salon.App_Start
 
                 string email = splitInfo[0];
                 string pass = splitInfo[1];
-                
+
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"),"1\n");
                 List<User> listUser = ReadUsers();
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "2\n");
+
                 User found = listUser.Where(s => s.email == email && s.password == pass).SingleOrDefault();
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "3\n");
+
+
                 if (found != null)
                 {
+                    File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "4\n");
+
                     return found;
                 }
                 else
                 {
-                    
+                    File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "5\n");
+
+
                     return null;
                 }
 
             }
             else
             {
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "6\n");
+
+                return null;
+            }
+            }
+            catch (Exception ex)
+            {
+                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), ex.ToString());
+
+                throw;
                 return null;
             }
         }
