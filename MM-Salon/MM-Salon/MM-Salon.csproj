@@ -192,9 +192,14 @@
     <Content Include="directives\partials\_navbar.html" />
     <Content Include="directives\partials\_workgallery.html" />
     <Content Include="Global.asax" />
+    <Content Include="images\1517191501468.jpg" />
+    <Content Include="images\1517348365139.jpg" />
+    <Content Include="images\1517618052702.jpg" />
+    <Content Include="images\banner.jpg" />
     <Content Include="images\brushes.jpg" />
     <Content Include="images\cosmetics.jpg" />
     <Content Include="images\daniel.jpg" />
+    <Content Include="images\default.png" />
     <Content Include="images\elliot.jpg" />
     <Content Include="images\empty.png" />
     <Content Include="images\feather.jpg" />
@@ -213,7 +218,7 @@
     <Content Include="images\skin.png" />
     <Content Include="images\store - Copy.jpg" />
     <Content Include="images\store.jpg" />
-    <Content Include="images\teambg.jpg" />
+    <Content Include="images\wp.png" />
     <Content Include="js\angular.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\fontAwesome.js" />
