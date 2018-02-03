@@ -21,6 +21,12 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
         var path = $location.path().toUpperCase();
         switch (path) {
 
+            case "/ACCOUNTPAGE":
+                $rootScope.LoadPage('<scheduler></scheduler>', '</scheduler>');
+                break;
+            case "/MYAPPOINTMENTS":
+                $rootScope.LoadPage('<userappointments></userappointments>', '</userappointments>');
+                break;
             case "/SCHEDULEAPPOINTMENT":
                 $rootScope.LoadPage('<scheduler></scheduler>', '</scheduler>');
                 break;
@@ -61,7 +67,9 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.LoadPage = function (dir, key) {
 
         if ($('#pageView').html() != undefined) {
+           
             if (!$('#pageView').html().includes(key)) {
+                
                 $('#pageView').empty().append($compile(dir)($rootScope));
             }
         }

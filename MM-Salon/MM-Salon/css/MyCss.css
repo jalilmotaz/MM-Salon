@@ -55,19 +55,19 @@ body {
   font-size: 18pt;
 }
 .xsFont {
-  font-size: 7pt;
+  font-size: 7pX !important;
 }
 .smFont {
-  font-size: 12pt;
+  font-size: 12pt !important;
 }
 .mdFont {
-  font-size: 17pt;
+  font-size: 17pt !important;
 }
 .lgFont {
-  font-size: 22pt;
+  font-size: 22pt !important;
 }
 .xlFont {
-  font-size: 27pt;
+  font-size: 27pt !important;
 }
 .showInMobile {
   display: none !important;
@@ -77,19 +77,19 @@ body {
 }
 @media (max-width: 992px) {
   .xsFont {
-    font-size: 5pt;
+    font-size: 5pt !important;
   }
   .smFont {
-    font-size: 8pt;
+    font-size: 8pt !important;
   }
   .mdFont {
-    font-size: 11pt;
+    font-size: 11pt !important;
   }
   .lgFont {
-    font-size: 14pt;
+    font-size: 14pt !important;
   }
   .xlFont {
-    font-size: 17pt;
+    font-size: 17pt !important;
   }
   #appBody {
     width: 100% !important;

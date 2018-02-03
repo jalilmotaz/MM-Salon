@@ -3,30 +3,42 @@
         templateUrl: 'directives/partials/_userAppointments.html',
         scope: {
         },
-        controller: ["$scope", function ($scope, $window) {
+        controller: ["$scope", "PageModelFactory", function ($scope, $window, PageModelFactory) {
             $scope.userAppointments = [];
 
             user = JSON.parse($rootScope.GetCookie("user"));
-
-            for (var i = 0; i < $rootScope.pageModel.appointments.length; i++) {
-                var tempAppt = $rootScope.pageModel.appointments[i];
-                if (tempAppt.userID == user.userID) {
-                    $scope.userAppointments.push(tempAppt);
+            function GetUserAppts(){
+                $scope.userAppointments = [];
+                for (var i = 0; i < $rootScope.pageModel.appointments.length; i++) {
+                    var tempAppt = $rootScope.pageModel.appointments[i];
+                    if (tempAppt.userID == user.userID) {
+                        $scope.userAppointments.push(tempAppt);
+                    }
                 }
             }
- 
-
+            GetUserAppts();
             $scope.CancelApptModal = function (appt) {
                 $scope.ApptSelected = appt;
-                $('.ui.cancelAppt.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show');
+                $('.ui.cancelAppt.modal').modal({ detachable: false }, { onDeny: function () { $('.ui.cancelAppt.modal').modal('hide all'); } }, { blurring: true }).modal('show');
+                $scope.appttime = appt.scheduledate;
             }
 
-            $scope.EditApptModal = function (appt) {
-                $scope.ApptSelected = appt;
-
-                $('.ui.editAppt.modal').modal({ onDeny: function () { $('.ui.editUser.modal').modal('hide all'); } }, { blurring: true }).modal('show');
-
+            $scope.CancelAppt = function () {
+                for (var i = 0; i < $rootScope.pageModel.appointments.length; i++) {
+                    var tempAppt = $rootScope.pageModel.appointments[i];
+                    if (tempAppt == $scope.ApptSelected) {
+                        $rootScope.pageModel.appointments.splice(i, 1);
+                        $rootScope.SetPageModel();
+                        GetUserAppts();
+                        $('.ui.cancelAppt.modal').modal('hide all');
+                    }
+                }
             }
+            $scope.GoToScheduler = function () {
+
+                $rootScope.LoadPage('<scheduler></scheduler>', '</scheduler>');
+            }
+
 
         }]
 

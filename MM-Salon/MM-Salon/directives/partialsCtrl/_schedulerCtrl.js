@@ -8,7 +8,7 @@
 
             $(document).ready(function () {
                 $('.ui.dropdown').dropdown();
-                $(".ui.schedule.modal").modal({detachable: false  },{ onDeny: function () { $('.ui.schedule.modal').modal('hide all'); } }, { blurring: true });
+                $(".ui.schedule.modal").modal({detachable: false  },{ onDeny: function () { $('.ui.schedule.modal').modal('hide'); } }, { blurring: true });
 
                 var openTime = "9:00:00";
                 var closeTime = "19:00:00";

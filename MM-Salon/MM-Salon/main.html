@@ -70,9 +70,9 @@
                 $('.share ').removeClass("animated bounceInRight");
                 $('.share ').hide("200");
             }
+
             $(window).scroll(function (event) {
                 var scroll = $(window).scrollTop();
-              
                 var el = document.getElementById("About");
                 if (el != null) {
                     var viewportOffset = el.getBoundingClientRect();
@@ -85,6 +85,10 @@
                         $('.share ').removeClass("animated bounceInRight");
                         $('.share ').hide("200");
                     }
+                }
+                else {
+                    $('.share ').show("200");
+                    $('.share ').addClass("animated bounceInRight");
                 }
             
             });

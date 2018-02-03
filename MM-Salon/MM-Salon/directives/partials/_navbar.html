@@ -34,7 +34,7 @@
         <a ng-click="AccountTabClick()" ng-mouseleave="accountHovered= false" ng-mouseover="accountHovered = true" ng-show="$root.isLoggedIn">
             <div class="col-xs-2 text-center navLink mdFont">
                 <img id="userPicNav" class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}" >
-                <span>{{$root.loggedInUser.name}}</span>
+                <span class="smFont">{{$root.loggedInUser.name}}</span>
             </div>
         </a>
     </div>
