@@ -141,9 +141,6 @@ a.ui.card:hover {
   color: white;
   cursor: pointer;
 }
-#footer p:hover {
-  color: #FF9307;
-}
 .footerBody {
   width: 100%;
   height: 140px;

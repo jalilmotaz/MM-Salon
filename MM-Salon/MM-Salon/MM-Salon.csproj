@@ -236,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Appointment.cs" />
+    <Compile Include="Controllers\Days.cs" />
     <Compile Include="Controllers\Employee.cs" />
     <Compile Include="Controllers\HomePage.cs" />
     <Compile Include="Controllers\PageModel.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MM_Salon.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,6 @@ namespace MM_Salon.App_Start
         public string fbLink { get; set; }
         public string twitterLink { get; set; }
         public string instaLink { get; set; }
-        public string[] hours { get; set; }
+        public List<Days> hours { get; set; }
     }
 }

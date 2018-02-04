@@ -6,6 +6,8 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.myID = "";
     $rootScope.seatsAvaliable = 5;
     $rootScope.Holidays = ["02/04/2018", "03/15/2018"];
+    $rootScope.StoreHours = [];
+    $rootScope.daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   $rootScope.server = "http://localhost:56014/";   //dev
   //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
