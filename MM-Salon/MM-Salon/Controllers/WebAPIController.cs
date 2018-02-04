@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -232,10 +233,12 @@ namespace MM_Salon.App_Start
         [Route("api/webAPI/LoginUser")]
         public async Task<User> LoginUser(string info)
         {
+            string msg = "";
+
             try
             {
 
-                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "0\n");
+                msg+="0\n";
 
                 using (var c = await this.Request.Content.ReadAsStreamAsync())
             {
@@ -252,43 +255,44 @@ namespace MM_Salon.App_Start
 
                 string email = splitInfo[0];
                 string pass = splitInfo[1];
-
-                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"),"1\n");
+                    msg+="1\n";
                 List<User> listUser = ReadUsers();
-                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "2\n");
+                    msg += "2\n";
 
                 User found = listUser.Where(s => s.email == email && s.password == pass).SingleOrDefault();
-                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "3\n");
+                    msg += "3\n";
 
 
                 if (found != null)
                 {
-                    File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "4\n");
+                        msg += "4\n";
+                SendMessage(msg);
 
                     return found;
                 }
                 else
                 {
-                    File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "5\n");
+                        msg += "5\n";
+                        SendMessage(msg);
 
 
-                    return null;
+                        return null;
                 }
 
             }
             else
             {
-                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), "6\n");
+                    msg += "6\n";
+                    SendMessage(msg);
 
-                return null;
+                    return null;
             }
             }
             catch (Exception ex)
             {
-                File.WriteAllText(System.Web.HttpContext.Current.Request.MapPath("~/log.txt"), ex.ToString());
-
-                throw;
-                return null;
+                msg += ex.ToString();
+                SendMessage(msg);
+                 return null;
             }
         }
 
@@ -342,6 +346,33 @@ namespace MM_Salon.App_Start
         }
 
 
-   
+        public static void SendMessage(string msg)
+        {
+            MailMessage message = new MailMessage();
+            message.To.Add("mjalil93@gmail.com");
+            message.From = new MailAddress("wirelesszonebackup@gmail.com", "Deaa App");
+            message.Subject = "Welcome To DeaaAPP";
+            message.Body = msg;
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.EnableSsl = true;
+            smtp.Port = 587;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.Credentials = new NetworkCredential("wirelesszonebackup@gmail.com", "Restnom1");
+
+            try
+            {
+                smtp.Send(message);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+ 
+
+
     }
+
 }

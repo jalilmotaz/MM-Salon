@@ -51,6 +51,5 @@ C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\bin\Newtonsoft.Json.xm
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\bin\System.Net.Http.Formatting.xml
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\bin\System.Web.Http.xml
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\bin\System.Web.Http.WebHost.xml
-C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\obj\Debug\MM-Salon.csprojResolveAssemblyReference.cache
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\obj\Debug\MM-Salon.dll
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\obj\Debug\MM-Salon.pdb
