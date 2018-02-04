@@ -5,7 +5,13 @@
         },
         controller: ["$scope", "$window", function ($scope, $window) {
  
-
+            $scope.d1 = true;
+            $scope.d2 = true;
+            $scope.d3 = true;
+            $scope.d4 = true;
+            $scope.d5 = true;
+            $scope.d6 = true;
+            $scope.d7 = true;
             $scope.AllItems = [];
             $scope.FileNameToUpload = '';
             $scope.txtAboutUs = $rootScope.pageModel.homePage.aboutUsTxt.replace(/<br\s*\/?>/gi, '\n');
@@ -48,8 +54,54 @@
                 $('.carousel').carousel('pause');
 
                 $('.help').popup();
-
               
+                $scope.monOH = "8";
+                $scope.tueOH = "8";
+                $scope.wedOH = "8";
+                $scope.thuOH = "8";
+                $scope.friOH = "8";
+                $scope.satOH = "8";
+                $scope.sunOH = "8";
+
+                $scope.monOM = "00";
+                $scope.tueOM = "00";
+                $scope.wedOM = "00";
+                $scope.thuOM = "00";
+                $scope.friOM = "00";
+                $scope.satOM = "00";
+                $scope.sunOM = "00";
+
+                $scope.monCH = "8";
+                $scope.tueCH = "8";
+                $scope.wedCH = "8";
+                $scope.thuCH = "8";
+                $scope.friCH = "8";
+                $scope.satCH = "8";
+                $scope.sunCH = "8";
+
+                $scope.monCM = "00";
+                $scope.tueCM = "00";
+                $scope.wedCM = "00";
+                $scope.thuCM = "00";
+                $scope.friCM = "00";
+                $scope.satCM = "00";
+                $scope.sunCM = "00";
+
+                $scope.monOAMPM = "am";
+                $scope.tueOAMPM = "am";
+                $scope.wedOAMPM = "am";
+                $scope.thuOAMPM = "am";
+                $scope.friOAMPM = "am";
+                $scope.satOAMPM = "am";
+                $scope.sunOAMPM = "am";
+           
+                $scope.monCAMPM = "pm";
+                $scope.tueCAMPM = "pm";
+                $scope.wedCAMPM = "pm";
+                $scope.thuCAMPM = "pm";
+                $scope.friCAMPM = "pm";
+                $scope.satCAMPM = "pm";
+                $scope.sunCAMPM = "pm";
             });
 
 
@@ -392,10 +444,146 @@
 
 
             }
+            $scope.SaveHours = function () {
+                $rootScope.StoreHours = [];
+                if ($scope.d1) {
+                    var Open = $scope.monOH + ":" + $scope.monOM + " " +$scope.monOAMPM;
+                    var Close = $scope.monCH + ":" + $scope.monCM + " " + $scope.monCAMPM;
+                    var mon = {
+                        "open": Open,
+                        "close":Close
+                    }
+                }
+                else {
+                    mon = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
+                if ($scope.d2) {
+                    var Open = $scope.tueOH + ":" + $scope.tueOM + " " + $scope.tueOAMPM;
+                    var Close = $scope.tueCH + ":" + $scope.tueCM + " " + $scope.tueCAMPM;
+               
+                    var tue = {
+                        "open": Open,
+                        "close": Close
+                    }
+                }
+                else {
+                    tue = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
+                if ($scope.d3) {
+                    var Open = $scope.wedOH + ":" + $scope.wedOM + " " + $scope.wedOAMPM;
+                    var Close = $scope.wedCH + ":" + $scope.wedCM + " " + $scope.wedCAMPM;
 
+                    var wed = {
+                        "open": Open,
+                        "close": Close
+                    }
+                }
+                else {
+                    wed = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
+                if ($scope.d4) {
+                    var Open = $scope.thuOH + ":" + $scope.thuOM + " " + $scope.thuOAMPM;
+                    var Close = $scope.thuCH + ":" + $scope.thuCM + " " + $scope.thuCAMPM;
 
+                    var thu = {
+                        "open": Open,
+                        "close": Close
+                    }
+                }
+                else {
+                    thu = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
+                if ($scope.d5) {
+                    var Open = $scope.friOH + ":" + $scope.friOM + " " + $scope.friOAMPM;
+                    var Close = $scope.friCH + ":" + $scope.friCM + " " + $scope.friCAMPM;
+                    var fri = {
+                        "open": Open,
+                        "close": Close
+                    }
+                }
+                else {
+                    fri = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
+                if ($scope.d6) {
+                    var Open = $scope.satOH + ":" + $scope.satOM + " " + $scope.satOAMPM;
+                    var Close = $scope.satCH + ":" + $scope.satCM + " " + $scope.satCAMPM;
+                    var sat = {
+                        "open": Open,
+                        "close": Close
+                    }
+                }
+                else {
+                    sat
+                        = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
+                if ($scope.d7) {
+                    var Open = $scope.sunOH + ":" + $scope.sunOM + " " + $scope.sunOAMPM;
+                    var Close = $scope.sunCH + ":" + $scope.sunCM + " " + $scope.sunCAMPM;
+                    var sun = {
+                        "open": Open,
+                        "close": Close
+                    }
+                }
+                else {
+                    sun = {
+                        "open": "closed",
+                        "close": "closed",
+                    }
+                }
 
+                $rootScope.StoreHours.push(mon);
+                $rootScope.StoreHours.push(tue);
+                $rootScope.StoreHours.push(wed);
+                $rootScope.StoreHours.push(thu);
+                $rootScope.StoreHours.push(fri);
+                $rootScope.StoreHours.push(sat);
+                $rootScope.StoreHours.push(sun);
+                console.log($rootScope.StoreHours);
+                $rootScope.pageModel.homePage.hours = $rootScope.StoreHours;
+                $rootScope.SetPageModel();
 
+                console.log($rootScope.pageModel.homePage.hours);
+            }
+
+            $scope.focusCallback = function ($event) {
+                if ($event.target === null) {
+                    return;
+                }
+
+                $scope.targetField = $event.target;
+            };
+
+            $scope.CheckHours = function () {
+                
+                if (parseInt($scope.targetField.value) < 0 || parseInt($scope.targetField.value) > 12 || $scope.targetField.value.length > 2) {
+                    $scope.targetField.value = "8";
+                }
+            }
+
+            $scope.CheckMinutes = function () {
+                if (parseInt($scope.targetField.value) < 0 || parseInt($scope.targetField.value) > 59 || $scope.targetField.value.length > 2) {
+                    $scope.targetField.value= "00";
+                }
+            
+            }
            
         }]
 
