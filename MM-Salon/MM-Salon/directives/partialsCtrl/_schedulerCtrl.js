@@ -10,8 +10,67 @@
                 $('.ui.dropdown').dropdown();
                 $(".ui.schedule.modal").modal({detachable: false  },{ onDeny: function () { $('.ui.schedule.modal').modal('hide'); } }, { blurring: true });
 
-                var openTime = "9:00:00";
-                var closeTime = "19:00:00";
+            });
+
+            //These variables MUST be set as a minimum for the calendar to work
+            $scope.calendarView = 'month';
+            $scope.viewDate = new Date();
+
+            function ConvertTimeformat(format, myTime) {
+                var time = myTime;
+                var hours = Number(time.match(/^(\d+)/)[1]);
+                var minutes = Number(time.match(/:(\d+)/)[1]);
+                var AMPM = time.match(/\s(.*)$/)[1];
+                if (AMPM == "pm" && hours < 12) hours = hours + 12;
+                if (AMPM == "am" && hours == 12) hours = hours - 12;
+                var sHours = hours.toString();
+                var sMinutes = minutes.toString();
+                if (hours < 10) sHours = "0" + sHours;
+                if (minutes < 10) sMinutes = "0" + sMinutes;
+                return sHours + ":" + sMinutes;
+            }
+
+
+            $scope.timespanClicked = function (date) {
+
+                $scope.timeSelected = "";
+                $scope.closedDay = false;
+                $scope.ddlTime = [];
+                $(".ui.schedule.modal").modal("show");
+            
+
+                $scope.dateSelected = formatDate(new Date(date));
+
+                var selectedDate = new Date($scope.dateSelected);
+                var now = new Date();
+
+                now.setHours(0, 0, 0, 0);
+
+                if (selectedDate < now) {
+                    $scope.pastDate = true;
+                }
+                else {
+                    $scope.pastDate = false;
+
+                }
+
+
+                var getDayNum = new Date($scope.dateSelected).getDay() - 1;
+                var getDay = {};
+                if (getDayNum < 0) {
+                    var getDay = $rootScope.pageModel.homePage.hours[6];
+
+                } else {
+                    var getDay = $rootScope.pageModel.homePage.hours[getDayNum];
+                }
+
+                if (getDay.open == "closed") {
+                    $scope.closedDay = true;
+                    return;
+                }
+
+                var openTime = ConvertTimeformat("24", getDay.open);
+                var closeTime = ConvertTimeformat("24", getDay.close);
 
                 var timeStart = new Date("01/01/2007 " + openTime).getHours();
                 var timeEnd = new Date("01/01/2007 " + closeTime).getHours();
@@ -30,37 +89,14 @@
                             $scope.ddlTime.push(i + ":00 AM");
                             $scope.ddlTime.push(i + ":30 AM");
                         }
-                      
+
                     }
                 }
+
               
-            });
+                for (var i = 0; i < $rootScope.holidays.length; i++) {
 
-            //These variables MUST be set as a minimum for the calendar to work
-            $scope.calendarView = 'month';
-            $scope.viewDate = new Date();
-            $scope.timespanClicked = function (date) {
-                $scope.timeSelected = "";
-                $(".ui.schedule.modal").modal("show");
-            
-                $scope.dateSelected = formatDate(new Date(date));
-
-                var selectedDate = new Date($scope.dateSelected);
-                var now = new Date();
-
-                now.setHours(0, 0, 0, 0);
-
-                if (selectedDate < now) {
-                    $scope.pastDate = true;
-                }
-                else {
-                    $scope.pastDate = false;
-
-                }
-              
-                for (var i = 0; i < $rootScope.Holidays.length; i++) {
-
-                    var closedDay = $rootScope.Holidays[i];
+                    var closedDay = $rootScope.holidays[i];
                     if (closedDay == $scope.dateSelected) {
                         $scope.closedDay = true;
                         break;
@@ -96,7 +132,7 @@
                      }
                      var obj = {
                          "time": time,
-                         "seats": $rootScope.seatsAvaliable - counter
+                         "seats": $rootScope.pageModel.seats - counter
                      }
 
                      $scope.timesAvaliable.push(obj);
@@ -138,9 +174,6 @@
       
             $scope.ddlTime = [];
         
-            $scope.seats = "5";
-
-        
             $scope.ScheduleAppointment = function () {
                 var createdDate = $rootScope.GetFormattedDate();
 
@@ -153,6 +186,7 @@
                 }
                 var userID = $rootScope.GetCookie("userID");
                 var newAppt = {
+                    "apptID": new Date().getTime(),
                     "createdDate": createdDate,
                     "scheduledate": scheduledDate,
                     "note":note,
@@ -175,7 +209,7 @@
 
             $scope.GoToLogin = function () {
                 $rootScope.LoadPage('<userlogin></userlogin>', '</userlogin>');
-                $(".ui.schedule.modal").modal('hide');
+                $(".ui.schedule.modal").modal('hide all');
             }
 
 

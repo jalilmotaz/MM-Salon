@@ -1,0 +1,267 @@
+﻿<div id="AppointmentManager">
+    <div style="padding-left:25px;">
+        <span class="smFont"># of seats per appointment</span>
+        <div class="ui input" style="width:75px;">
+            <input type="text" ng-model="numSeats" placeholder="#" ng-change="SeatsIsNum()" />
+        </div>
+        <button class="ui inverted blue labeled icon button" ng-click="SaveNumberSeats()">
+            <i class="save pointer icon"></i>
+            Save
+        </button><i class="help circle icon"  data-variation="inverted huge" data-position="right center" data-content="Number of seats that will be avaliable at each time for customers to schedule"></i>
+    </div>
+ <center><h3>Appointment Manager</h3></center>   
+    <br />
+    <script id="customMonthCell.html" type="text/ng-template">
+        <div class="cal-month-day {{day.cssClass}}">
+
+            <span class="pull-right"
+                  data-cal-date
+                  ng-bind="day.label">
+            </span>
+
+        </div>
+
+    </script>
+
+    <style>
+        .pull-right {
+            pointer-events: none;
+        }
+
+        .custom-template-cell {
+            background-color: dodgerblue;
+        }
+    </style>
+    <div style="padding-left:30px; padding-right:30px; overflow:hidden">
+        <h2 class="text-center">{{ calendarTitle }}</h2>
+        <center>
+            <button class="btn btn-primary"
+                    mwl-date-modifier
+                    date="viewDate"
+                    decrement="calendarView">
+                Previous
+            </button>
+
+            <button class="btn btn-default"
+                    mwl-date-modifier
+                    date="viewDate"
+                    set-to-today>
+                Today
+            </button>
+
+            <button class="btn btn-primary"
+                    mwl-date-modifier
+                    date="viewDate"
+                    increment="calendarView">
+                Next
+            </button>
+           
+        </center>
+        <br />
+        <br />
+        <mwl-calendar view="calendarView"
+                      view-date="viewDate"
+                      events="events"
+                      view-title="calendarTitle"
+                      cell-is-open="true"
+                      on-timespan-click="timespanClicked(calendarDate)"
+                      custom-template-urls="{calendarMonthCell: 'customMonthCell.html'}"
+                      cell-modifier="cellModifier(calendarCell)">
+            >
+        </mwl-calendar>
+        <br />
+        <br />
+        <br />
+    </div>
+
+
+
+    <div id="owModal" class="ui schedule large modal">
+        <div class="header">
+            <i class="fas fa-calendar-plus" aria-hidden="true"></i>  Schedule Appointment <span class="mdFont">{{dateToView}}</span>
+        </div>
+        <div class="scrolling content">
+            <div>
+                <div class="ui centered relaxed grid">
+
+                    <div class="sixteen wide mobile eight wide tablet ten wide computer column">
+                        <center><h3>Select time </h3></center>
+                        <div style="height:300px;overflow-y:auto;">
+                            <table class="responstable smFont">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>Time</th>
+                                        <th>Seats</th>
+                                        <th>Select</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="times in timesAvaliable">
+                                        <td>{{times.time}}</td>
+                                        <td ng-show="times.seats > 0">{{times.seats}}</td>
+                                        <td ng-show="times.seats <= 0"><span class="smFont">BOOKED</span></td>
+                                        <td>
+                                            <button class="ui inverted blue labeled icon button" ng-click="SelectTimeSlot(times)" ng-disabled="times.seats <= 0">
+                                                <i class="hand pointer icon"></i>
+                                                Select
+                                            </button>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="two wide computer column">
+
+                    </div>
+                    <div class="sixteen wide mobile eight wide tablet four wide computer column reviewConfirm">
+                        <h3>Review and confirm</h3>
+                        <div class="ui two column grid" style="font-size: 14pt;">
+
+                            <div class="row">
+                                <div class="column">Date</div>
+                                <div class="column">{{dateToView}} </div>
+                            </div>
+                            <div class="row">
+                                <div class="column">Time</div>
+                                <div class="column">{{timeSelected}}</div>
+                            </div>
+                            <div class="row">
+                                <h4>Add a note (Optional)</h4>
+                                <textarea style="width:85%;height:100px;overflow:hidden;border-radius:6px;" ng-model="note"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="actions" ng-show="$root.isLoggedIn && !pastDate">
+            <div class="ui black deny button">
+                Nevermind
+            </div>
+            <div class="ui positive right labeled icon button" ng-click="ScheduleAppointment()" ng-class="{'disabled':disableSchedule}">
+                Schedule
+                <i class="add to calendar  icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui grid stackable centered column">
+        <div class="row">
+            <div class="twelve wide column">
+                <legend class="lgFont"><i class="calendar icon"></i>Appointments for {{dayOfWeek + ' ' + dateToView}}</legend>
+            </div>
+            <div class="two wide column">
+                <label class="ui inverted red labeled icon massive button" ng-click="MarkAsClosedDay()" style="height: 45px;" ng-class="{'active':closedDay,'disabled':pastDate}">
+                    <i class="square icon" ng-class="{'check':closedDay}"></i>
+                    Closed
+                </label>
+            </div>
+            <div class="two wide column">
+                <button class="ui inverted blue labeled icon massive button" ng-click="AddAppointment()" style="height: 45px;" ng-class="{'disabled':closedDay || pastDate}">
+                    <i class="plus square icon"></i>
+                    Add
+                </button>
+            </div>
+        </div>
+    </div>
+    <table class="responstable smFont">
+        <thead>
+            <tr class="text-center">
+                <th style="width:50px">Scheduled time</th>
+                <th style="width:100px">Note</th>
+                <th style="width:100px">Customer name</th>
+                <th style="width:50px">Customer phone #</th>
+                <th style="width:100px">Contact</th>
+                <th style="width:100px">Cancel</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="appt in todayAppointments">
+
+                <td>
+                    
+                    {{appt.time.split(' ')[1] + ' ' + appt.time.split(' ')[2] }}
+                </td>
+                <td>{{appt.note}}</td>
+                <td>{{appt.custName}}</td>
+                <td>{{appt.custNum}}</td>
+                <td>
+                    <button class="ui inverted green labeled icon button" ng-click="ContactCust(appt.custEmail)" ng-disabled="appt.custEmail == 'Added by provider'">
+                        <i class="mail icon"></i>
+                        Contact
+                    </button>
+                </td>
+                <td>
+                    <button class="ui inverted red labeled icon button" ng-click="CancelApptModal(appt)" ng-class="{'disabled': pastDate}">
+                        <i class="ban icon"></i>
+                        Cancel
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <center><h4 ng-show="todayAppointments.length == 0 && !closedDay">Sorry, no appointments scheduled for  {{dayOfWeek + ' ' +dateToView}}</h4></center>
+    <center><h4 ng-show="closedDay">{{dayOfWeek + ' ' + dateToView}} is marked as a closed day</h4></center>
+
+
+    <div id="owModal" class="ui cancelAppt modal">
+        <div class="header">
+            Cancel Appointment
+        </div>
+        <div class="content">
+            <span class="mdFont">Are you sure you want to cancel your appointment on {{appttime}}?</span>
+            <br /><br />
+        </div>
+
+        <div class="actions">
+            <div class="ui black deny button">
+                Nevermind
+            </div>
+            <div class="ui red right labeled icon button" ng-click="CancelAppt()">
+                Cancel
+                <i class="ban icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div id="owModal" class="ui contactCust modal">
+        <div class="header">
+            Contact Customer
+        </div>
+        <div class="content">
+            
+                <span class="mdFont">Subject:</span>
+            <center>
+                <textarea ng-model="msgSub" style="width:80%;height:30px;overflow:hidden;border-radius:6px; font-size:12pt;"></textarea>
+            </center>
+
+                <br />
+                <br />
+                <span class="mdFont">Message:</span>
+            <center>
+                <textarea ng-model="msgBody" style="width:80%;height:100px;overflow:hidden;border-radius:6px;font-size:12pt;"></textarea>
+            </center>
+
+        </div>
+
+        <div class="actions">
+            <div class="ui black deny button">
+                Nevermind
+            </div>
+            <div class="ui green right labeled icon button" ng-click="SendMessage()">
+                Send Message
+                <i class="mail icon"></i>
+            </div>
+        </div>
+    </div>
+</div>

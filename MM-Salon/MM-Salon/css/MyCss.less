@@ -13,9 +13,6 @@ body{
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75) !important;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75) !important;
 }
-.noshadow{
-    box-shadow:none !important;
-}
 
 .mainColor{
      color:@myBlue;
@@ -53,8 +50,26 @@ body{
          -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+z-index:10;
+
  }
- 
+  #fabReviews{
+    border-radius: 50%;
+    padding-top: 7px;
+    height: 65px !important;
+    width: 65px !important;
+    position: fixed;
+    bottom: 125px;
+    right: 10px;
+    background: dodgerblue;
+    cursor:pointer;
+    transition:all 0.1ms ease-in; 
+         -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+z-index:10;
+ }
+
  #flowingPopup{
     position: fixed;
     top:auto !important;
@@ -70,7 +85,81 @@ box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
      font-size:18pt;
  }
 
+ 
+.responstable tr:hover{
+    background-color:@myBlue;
+}
+.responstable td:last-child,.responstable th:last-child{
+    border-right: thin solid #888 !important;
+ }
 
+.responstable {
+  margin: 1em 0;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+    color:white !important;
+  border-radius: 10px;
+  font-size:15pt;
+   text-align: center;
+
+  }
+ .responstable tr{
+     transition: all ease-in 0.1s;
+ }
+.responstable tr:nth-child(odd) {  
+ }
+.responstable th {
+  display: none;
+  border-right: 1px solid #333;
+  background-color: @myBlue;
+  color: white;
+  padding: 1em;
+}
+.responstable th:first-child {
+  display: table-cell;
+}
+.responstable th:nth-child(2) {
+  display: table-cell;
+}
+.responstable th:nth-child(2) span {
+  display: none;
+}
+.responstable th:nth-child(2):after {
+  content: attr(data-th);
+}
+
+.responstable td {
+  display: block;
+  word-wrap: break-word;
+  max-width: 7em;
+    color: black;
+    line-height:35pt;
+
+}
+.responstable td:first-child {
+  display: table-cell;
+  text-align: center;
+  border-right: 1px solid #888;
+}
+
+  .responstable th:nth-child(2) span {
+    display: block;
+  }
+  .responstable th:nth-child(2):after {
+    display: none;
+  }
+    .responstable td {
+    border: 1px solid #888;
+  }
+    .responstable th, .responstable td {
+    display: table-cell;
+   }
+
+.responstable th, .responstable td {
+   margin: .5em 1em;
+}
+ 
 .xsFont{font-size: 7pX !important;}
 .smFont{font-size: 12pt !important;}
 .mdFont{font-size: 17pt !important;}
