@@ -53,3 +53,4 @@ C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\bin\System.Web.Http.xm
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\bin\System.Web.Http.WebHost.xml
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\obj\Debug\MM-Salon.dll
 C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\obj\Debug\MM-Salon.pdb
+C:\Users\M. Jalil\Source\Repos\MM-Salon\MM-Salon\MM-Salon\obj\Debug\MM-Salon.csprojResolveAssemblyReference.cache
