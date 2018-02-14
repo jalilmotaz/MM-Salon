@@ -9,7 +9,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   $rootScope.server = "http://localhost:56014/";   //dev
-  //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
+    //$rootScope.server = "http://mjalilproj.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
     $rootScope.loggedInUser = {};

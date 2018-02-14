@@ -3,10 +3,11 @@
 <input type="file" id="memberUpload" class="ng-hide" onchange="angular.element(this).scope().setMemberFile(this)" accept="image/*">
 <center><h1 class="ui header">Home Page</h1></center>
 <div class="ui styled fluid accordion">
-    <div class="title navabar" ng-click="tabClick = 1">
-        <h1 class="lgFont"><i class="fa fa-picture-o" aria-hidden="true"></i>  Image Slides <i class="help circle icon" ng-show="tabClick == 1" data-variation="inverted huge" data-position="right center" data-content="Replace the four images to be displayed on the home page slider (Note: you need to refresh to see changes after success message)"></i></h1>
+    <div class="title navabar">
+        <h1 class="lgFont"><i class="fa fa-picture-o" aria-hidden="true"></i>  Image Slides </h1>
     </div>
     <div class="content">
+        <h3>  <i class="help circle icon " data-variation="inverted huge" data-position="right center" data-content="Replace the four images to be displayed on the home page slider (Note: you need to refresh to see changes after success message)"></i></h3>
         <br /><br />
         <div class="ui grid">
             <div class="four wide column">
@@ -43,7 +44,7 @@
         </div>
 
     </div>
-    <div class="title navabar" ng-click="tabClick = 2">
+    <div class="title navabar">
         <h1 class="lgFont"><i class="fa fa-lg fa-info-circle" aria-hidden="true"></i> About Us</h1>
 
     </div>
@@ -52,7 +53,7 @@
 
             <div class="ui grid">
                 <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                    <h3><u>About Us Text</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Write a quick story about your store and what you offer."></i></h3>
+                    <h3><u>About Us Text</u> <i class="help circle icon" data-variation="inverted huge" data-position="right center" data-content="Write a quick story about your store and what you offer."></i></h3>
                     <textarea style="width:100%; height:200px; overflow:hidden; border-radius:6px;" placeholder="About us text..." ng-model="txtAboutUs"></textarea>
                     <center>
                         <button class="ui inverted blue labeled icon button" ng-click="SaveAboutUsText()">
@@ -65,7 +66,7 @@
                 </div>
                 <div class="sixteen wide mobile eight wide tablet eight wide computer column">
 
-                    <center><h3><u>About us Image (Store Image)</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Upload an image of your store. (this can be also used to display a special going on or anything you see fit)"></i></h3></center>
+                    <center><h3><u>About us Image (Store Image)</u> <i class="help circle icon"  data-variation="inverted huge" data-position="right center" data-content="Upload an image of your store. (this can be also used to display a special going on or anything you see fit)"></i></h3></center>
                     <br />
 
                     <div class="ui special cards centered">
@@ -97,7 +98,7 @@
 
 
                     <div class="ui container">
-                        <center><h3><u>Specialties</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="Select specialties from the list below based on your busieness"></i></h3></center>
+                        <center><h3><u>Specialties</u> <i class="help circle icon" data-variation="inverted huge" data-position="right center" data-content="Select specialties from the list below based on your busieness"></i></h3></center>
                         <div class="ui middle aligned divided list">
                             <div class="item">
                                 <div class="right floated content">
@@ -152,7 +153,7 @@
                 </div>
 
                 <div class="sixteen wide mobile eight wide tablet eight wide computer column">
-                    <center><h3><u>My Specialties</u> <i class="help circle icon" ng-show="tabClick == 2" data-variation="inverted huge" data-position="right center" data-content="List of specialties you selected that will be dispalyed for your users (If none selected this section will not show up for users)"></i></h3></center>
+                    <center><h3><u>My Specialties</u> <i class="help circle icon"  data-variation="inverted huge" data-position="right center" data-content="List of specialties you selected that will be dispalyed for your users (If none selected this section will not show up for users)"></i></h3></center>
 
                     <div class="ui middle aligned divided list">
                         <div class="item" ng-repeat="sepcial in $root.pageModel.homePage.specialties">
@@ -173,14 +174,14 @@
 
         </div>
     </div>
-    <div class="title navabar" ng-click="tabClick = 3">
-        <h1 class="lgFont"><i class="fa fa-lg fa-users" aria-hidden="true"></i> Our Team <i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Manage your team members information"></i></h1>
+    <div class="title navabar">
+        <h1 class="lgFont"><i class="fa fa-lg fa-users" aria-hidden="true"></i> Our Team</h1>
     </div>
     <div class="content">
         <div class="ui stackable grid">
             <div class="sixteen wide mobile eight wide tablet ten wide computer column" style="border-right:solid thin #ccc">
                 <center>
-                    <h3><u>Add Member</u> <i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Fill out the form to add a new member (Name, picture, and about member sections are required)"></i></h3>
+                    <h3><u>Add Member</u> <i class="help circle icon" data-variation="inverted huge" data-position="right center" data-content="Fill out the form to add a new member (Name, picture, and about member sections are required)"></i></h3>
                     <div class="ui stackable grid">
                         <div class="four wide column"><h4>Member name:</h4></div>
                         <div class="four wide column">
@@ -267,7 +268,7 @@
             <div class="sixteen wide mobile eight wide tablet six wide computer column">
                 <div class="ui container">
                     <center>
-                        <h3><u>Team Members</u><i class="help circle icon" ng-show="tabClick == 3" data-variation="inverted huge" data-position="right center" data-content="Your current team members"></i></h3>
+                        <h3><u>Team Members</u><i class="help circle icon" data-variation="inverted huge" data-position="right center" data-content="Your current team members"></i></h3>
                     </center>
                     <div class="ui middle aligned divided list">
                         <div class="item" ng-repeat="member in $root.pageModel.homePage.team track by $index">
@@ -394,11 +395,11 @@
 
         </div>
     </div>
-    <div class="title navabar" ng-click="tabClick = 4">
-        <h1 class="lgFont"><i class="fa fa-lg fa-picture-o" aria-hidden="true"></i> Work Gallery <i class="help circle icon" ng-show="tabClick == 4" data-variation="inverted huge" data-position="right center" data-content="Upload images of your work (NOTE: You may have to refresh to see changes after success message)"></i></h1>
-
+    <div class="title navabar" >
+        <h1 class="lgFont"><i class="fa fa-lg fa-picture-o" aria-hidden="true"></i> Work Gallery</h1>
     </div>
     <div class="content">
+        <h3><i class="help circle icon" data-variation="inverted huge" data-position="right center" data-content="Upload images of your work (NOTE: You may have to refresh to see changes after success message)"></i></h3>
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
             <!-- Indicators -->
             <!-- Indicators -->
@@ -474,10 +475,11 @@
             </a>
         </div>
     </div>
-    <div class="title navabar" ng-click="tabClick = 5">
-        <h1 class="lgFont"><i class="fa fa-lg fa-building" aria-hidden="true"></i> Store Information <i class="help circle icon" ng-show="tabClick == 5" data-variation="inverted huge" data-position="right center" data-content="Manage the store's contact information"></i></h1>
+    <div class="title navabar">
+        <h1 class="lgFont"><i class="fa fa-lg fa-building" aria-hidden="true"></i> Store Information</h1>
     </div>
     <div class="content">
+        <h3><i class="help circle icon" data-variation="inverted huge" data-position="right center" data-content="Manage the store's contact information and store hours"></i></h3>
         <div class="ui  grid stackable">
             <div class="three wide column centered">
                 <h4>Phone Number:</h4>
@@ -777,4 +779,6 @@
         </div>
     </div>
 </div>
+
+
 
