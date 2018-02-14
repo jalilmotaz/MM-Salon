@@ -3,7 +3,7 @@
   <PropertyGroup>
     <UseIISExpress>true</UseIISExpress>
     <ProjectView>ShowAllFiles</ProjectView>
-    <NameOfLastUsedPublishProfile>azure</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>mmwtdemo1</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

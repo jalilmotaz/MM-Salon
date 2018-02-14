@@ -35,27 +35,32 @@
     <div style="padding-left:30px; padding-right:30px; overflow:hidden">
         <h2 class="text-center">{{ calendarTitle }}</h2>
         <center>
-            <button class="btn btn-primary"
-                    mwl-date-modifier
-                    date="viewDate"
-                    decrement="calendarView">
-                Previous
-            </button>
-
-            <button class="btn btn-default"
-                    mwl-date-modifier
-                    date="viewDate"
-                    set-to-today>
-                Today
-            </button>
-
-            <button class="btn btn-primary"
-                    mwl-date-modifier
-                    date="viewDate"
-                    increment="calendarView">
-                Next
-            </button>
-           
+            <div class="row">
+                <div class="col-xs-4 col-sm-2 col-sm-offset-3">
+                    <button class="btn w100 btn-primary"
+                            mwl-date-modifier
+                            date="viewDate"
+                            decrement="calendarView">
+                        ⇦ Previous Month
+                    </button>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <button class="btn w100 btn-default"
+                            mwl-date-modifier
+                            date="viewDate"
+                            set-to-today>
+                        Current Month
+                    </button>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                    <button class="btn w100 btn-primary"
+                            mwl-date-modifier
+                            date="viewDate"
+                            increment="calendarView">
+                        Next Month ⇨
+                    </button>
+                </div>
+            </div>
         </center>
         <br />
         <br />

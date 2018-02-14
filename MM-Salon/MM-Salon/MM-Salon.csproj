@@ -279,8 +279,8 @@
     <Content Include="directives\partialsCss\_apptManagerCss.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
-    <None Include="Properties\PublishProfiles\azure.pubxml" />
     <Content Include="Users.json" />
+    <None Include="Properties\PublishProfiles\mmwtdemo1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
