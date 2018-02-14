@@ -105,9 +105,9 @@
                                     <tr ng-repeat="times in timesAvaliable">
                                         <td>{{times.time}}</td>
                                         <td ng-show="times.seats > 0">{{times.seats}}</td>
-                                        <td ng-show="times.seats == 0"><span class="smFont">BOOKED</span></td>
+                                        <td ng-show="times.seats <= 0"><span class="smFont">BOOKED</span></td>
                                         <td>
-                                            <button class="ui inverted blue labeled icon button" ng-click="SelectTimeSlot(times)">
+                                            <button class="ui inverted blue labeled icon button" ng-click="SelectTimeSlot(times)" ng-disabled="times.seats <= 0">
                                                 <i class="hand pointer icon"></i>
                                                 Select
                                             </button>

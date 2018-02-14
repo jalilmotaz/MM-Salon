@@ -11,5 +11,6 @@ namespace MM_Salon.App_Start
         public string scheduledate { get; set; }
         public string note{ get; set; }
         public string userID { get; set; }
+        public string apptID { get; set; }
     }
 }

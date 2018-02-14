@@ -66,5 +66,9 @@
   {
     "outputFile": "directives/partialsCss/_userAppointmentsCss.css",
     "inputFile": "directives/partialsCss/_userAppointmentsCss.less"
+  },
+  {
+    "outputFile": "directives/partialsCss/_apptManagerCss.css",
+    "inputFile": "directives/partialsCss/_apptManagerCss.less"
   }
 ]

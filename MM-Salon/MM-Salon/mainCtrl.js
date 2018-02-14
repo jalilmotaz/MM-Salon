@@ -4,8 +4,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.isLoading = true;
     $rootScope.isLoggedIn = false;
     $rootScope.myID = "";
-    $rootScope.seatsAvaliable = 5;
-    $rootScope.Holidays = ["02/04/2018", "03/15/2018"];
+    $rootScope.holidays = [];
     $rootScope.StoreHours = [];
     $rootScope.daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -18,11 +17,19 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     PageModelFactory.GetPageModel().then(function (value) {
         $rootScope.pageModel = value;
         $rootScope.pageModel.homePage.aboutUsTxt = $rootScope.pageModel.homePage.aboutUsTxt.replace(/\n/g, '<br/>');
+        $rootScope.holidays = $rootScope.pageModel.holidays;
         console.log(value);
- 
+
+
         var path = $location.path().toUpperCase();
         switch (path) {
-
+            
+            case "/HomePageManager":
+                $rootScope.LoadPage('<adminhomepage></adminhomepage>', '</adminhomepage>');
+                break;
+            case "/AppointmentManager":
+                $rootScope.LoadPage('<apptmanager></apptmanager>', '</apptmanager>');
+                break;
             case "/ACCOUNTPAGE":
                 $rootScope.LoadPage('<scheduler></scheduler>', '</scheduler>');
                 break;
@@ -52,9 +59,9 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.SetPageModel = function () {
         return PageModelFactory.PostPageModel().then(function (value) {
             if (value == "good") {
-                $rootScope.ShowToast("Saved Successfully", 'limegreen');
+                $rootScope.ShowToast("✔ Saved Successfully", 'limegreen');
             } else {
-                $rootScope.ShowToast("Error Saving", 'darkred');
+                $rootScope.ShowToast("❌ Error Saving", 'darkred');
             }
 
             return value;
@@ -76,7 +83,10 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
             }
         }
         else {
-            $('#adminBody').empty().append($compile('<adminhomepage></adminhomepage>')($rootScope));
+            if (!$('#adminBody').html().includes(key)) {
+
+                $('#adminBody').empty().append($compile(dir)($rootScope));
+            }
         }
         $timeout(function() {
             $rootScope.isLoading = false;
@@ -165,6 +175,40 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
             [AddZero(hours),
             AddZero(now.getMinutes())].join(":"),
             now.getHours() >= 12 ? "PM" : "AM"].join(" ");
+    }
+
+
+    $rootScope.GoToLogin = function () {
+        $rootScope.LoadPage('<userlogin></userlogin>', '</userlogin>');
+        $(".ui.submitRev.modal").modal('hide all');
+    }
+
+    $rootScope.SubmitReview = function (txtRev) {
+        if (txtRev != undefined && txtRev != "") {
+            var rating = $('.ui.submitRating').rating('get rating');
+            var name = $rootScope.loggedInUser.name;
+            var date = $rootScope.GetFormattedDate();
+            var ratingID = new Date().getTime();
+            var userID = $rootScope.loggedInUser.userID;
+            var newRev = {
+                "reviewID": ratingID,
+                "name": name,
+                "date": date,
+                "review": txtRev,
+                "rating": rating,
+                "userID": userID,
+
+            };
+            $('.submitRev.modal').modal('hide all');
+            $rootScope.pageModel.reviews.push(newRev);
+            $rootScope.isLoading = true;
+            $rootScope.SetPageModel().then(function () {
+                $rootScope.isLoading = false;
+            })
+        }
+        else {
+            $rootScope.ShowToast("Please fill out form", "darkred");
+        }
     }
 });
 

@@ -120,6 +120,12 @@
     <Content Include="directives\partialsCss\_adminPortalCss .min.css">
       <DependentUpon>_adminPortalCss .css</DependentUpon>
     </Content>
+    <Content Include="directives\partialsCss\_apptManagerCss.css">
+      <DependentUpon>_apptManagerCss.less</DependentUpon>
+    </Content>
+    <Content Include="directives\partialsCss\_apptManagerCss.min.css">
+      <DependentUpon>_apptManagerCss.css</DependentUpon>
+    </Content>
     <Content Include="directives\partialsCss\_contactCss.css">
       <DependentUpon>_contactCss.less</DependentUpon>
     </Content>
@@ -170,6 +176,7 @@
     </Content>
     <Content Include="directives\partialsCtrl\_aboutCtrl.js" />
     <Content Include="directives\partialsCtrl\_adminHomePageCtrl.js" />
+    <Content Include="directives\partialsCtrl\_apptManagerCtrl.js" />
     <Content Include="directives\partialsCtrl\_schedulerCtrl.js" />
     <Content Include="directives\partialsCtrl\_userAppointmentsCtrl.js" />
     <Content Include="directives\partialsCtrl\_userLoginCtrl.js" />
@@ -183,6 +190,7 @@
     <Content Include="directives\partials\_adminHomePage.html" />
     <Content Include="directives\partials\_adminLogin.html" />
     <Content Include="directives\partials\_adminPortal.html" />
+    <Content Include="directives\partials\_apptManager.html" />
     <Content Include="directives\partials\_contact.html" />
     <Content Include="directives\partials\_scheduler.html" />
     <Content Include="directives\partials\_userAppointments.html" />
@@ -240,6 +248,7 @@
     <Compile Include="Controllers\Employee.cs" />
     <Compile Include="Controllers\HomePage.cs" />
     <Compile Include="Controllers\PageModel.cs" />
+    <Compile Include="Controllers\Review.cs" />
     <Compile Include="Controllers\User.cs" />
     <Compile Include="Controllers\WebAPIController.cs" />
     <Compile Include="Global.asax.cs">
@@ -267,6 +276,7 @@
     <Content Include="css\lessVars.less" />
     <Content Include="directives\partialsCss\_schedulerCss.less" />
     <Content Include="directives\partialsCss\_userAppointmentsCss.less" />
+    <Content Include="directives\partialsCss\_apptManagerCss.less" />
     <None Include="directives\partialsCss\_workgalleryCSS.less" />
     <Content Include="PageModel.json" />
     <None Include="Properties\PublishProfiles\azure.pubxml" />

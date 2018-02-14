@@ -29,7 +29,10 @@
 
 
     <script src="directives/partialsCtrl/_adminHomePageCtrl.js"></script>
+    <script src="directives/partialsCtrl/_apptManagerCtrl.js"></script>
+
     <link href="directives/partialsCss/_adminHomePageCss.min.css" rel="stylesheet" />
+    <link href="directives/partialsCss/_apptManagerCss.min.css" rel="stylesheet" />
 </head>
 <body ng-app="myApp">
     <div class="loaderBg" ng-show="$root.isLoading">
@@ -38,7 +41,14 @@
     <div id="borderBox">
         <center>
             <h1><u>Admin Panel</u></h1>
+            <div class="row">
+                <div class="ui two item menu">
+                    <a class="item mdFont" ng-click="$root.LoadPage('<adminhomepage></adminhomepage>', '</adminhomepage>')">Home Page Manager</a>
+                    <a class="item mdFont" ng-click="$root.LoadPage('<apptmanager></apptmanager>', '</apptmanager>')">Appointment Manager</a>
+                </div>
+            </div>
         </center>
+
         <br />
         <div id="adminBody">
         </div>
