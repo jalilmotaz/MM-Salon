@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>MM Salon</title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="/css/bootstrap.css" rel="stylesheet" />
@@ -31,10 +31,10 @@
     <script src="directives/partialsCtrl/_landingCtrl.js"></script>
     <script src="directives/partialsCtrl/_aboutCtrl.js"></script>
     <script src="directives/partialsCtrl/_contactCtrl.js"></script>
-    <script src="directives/partialsCtrl/_dealerLoginCtrl.js"></script>        
+    <script src="directives/partialsCtrl/_dealerLoginCtrl.js"></script>
     <script src="directives/partialsCtrl/_userLoginCtrl.js"></script>
     <script src="directives/partialsCtrl/_accountPageCtrl.js"></script>
-    <script src="directives/partialsCtrl/_adminPortalCtrl.js"></script>    
+    <script src="directives/partialsCtrl/_adminPortalCtrl.js"></script>
     <script src="directives/partialsCtrl/_workGalleryCtrl.js"></script>
     <script src="directives/partialsCtrl/_schedulerCtrl.js"></script>
     <script src="directives/partialsCtrl/_userAppointmentsCtrl.js"></script>
@@ -68,7 +68,7 @@
 
             var scroll = $(window).scrollTop();
             if (scroll >= top) {
-                
+
                 $('.share ').show("200");
                 $('.share ').addClass("animated bounceInRight");
 
@@ -108,22 +108,22 @@
                         $('#fabReviews ').hide("200");
                     }
 
-                   
+
                 }
                 else {
                     $('.share ').show("200");
                     $('.share ').addClass("animated bounceInRight");
                     $('#fabReviews').show("200");
                     $('#fabReviews').addClass("animated bounceInRight");
-                
+
                 }
-            
+
             });
 
         });
     </script>
 </head>
-<body  ng-app="myApp">
+<body ng-app="myApp">
     <div id="appBody" ng-cloak>
         <div id="topHeader"></div>
         <navbar></navbar>
@@ -137,34 +137,34 @@
         <div class="loaderBg" ng-show="$root.isLoading">
             <img src="images/load.gif" />
         </div>
-    
+
     </div>
     <br /><br />
-      
+
     <div id="footer" ng-cloak>
         <div class="footerBody">
             <div class="row">
                 <div class="col-xs-12 col-sm-3 footerImg"></div>
                 <div class="col-xs-12 col-sm-9">
-                   <div class="row">
-                            <div class="col-xs-12 col-sm-4">
-                                <legend class="smFont"><i class="fa fa-lg fa-paint-brush" aria-hidden="true"></i> <b>MM Salon 2018 ©</b></legend>
-                                <p class="smFont col-xs-6 col-sm-12"><i class="fa fa-phone-square" aria-hidden="true"></i> {{$root.pageModel.homePage.number}}</p>
-                                <p class="smFont col-xs-6 col-sm-12"><i class="fa fa-envelope" aria-hidden="true"></i> {{$root.pageModel.homePage.email}}</p>
-                                <p class="smFont col-xs-12"><i class="fas fa-building" aria-hidden="true"></i> {{$root.pageModel.homePage.address}}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4">
+                            <legend class="smFont"><i class="fa fa-lg fa-paint-brush" aria-hidden="true"></i> <b>MM Salon 2018 ©</b></legend>
+                            <p class="smFont col-xs-6 col-sm-12"><i class="fa fa-phone-square" aria-hidden="true"></i> {{$root.pageModel.homePage.number}}</p>
+                            <p class="smFont col-xs-6 col-sm-12"><i class="fa fa-envelope" aria-hidden="true"></i> {{$root.pageModel.homePage.email}}</p>
+                            <p class="smFont col-xs-12"><i class="fas fa-building" aria-hidden="true"></i> {{$root.pageModel.homePage.address}}</p>
 
-                            </div>
-                            <div class="col-xs-12 col-sm-8">
-                                <p class="smFont col-xs-12 col-sm-6 "> <i class="fas fa-clock"></i> <b><u>Store Hours</u></b></p>
-                                <p class="smFont col-xs-6" ng-repeat="hours in $root.pageModel.homePage.hours">
-                                    {{$root.daysOfWeek[$index]}} 
-                                    {{hours.open}} - {{hours.close}}
-                                </p>
-                            </div>
                         </div>
+                        <div class="col-xs-12 col-sm-8">
+                            <p class="smFont col-xs-12 col-sm-6 "> <i class="fas fa-clock"></i> <b><u>Store Hours</u></b></p>
+                            <p class="smFont col-xs-6" ng-repeat="hours in $root.pageModel.homePage.hours">
+                                {{$root.daysOfWeek[$index]}}
+                                {{hours.open}} - {{hours.close}}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <i id="fabReviews" class="heart huge  circle icon"  onclick="$('.ui.review.longer.modal').modal('show');"></i>
+            <i id="fabReviews" class="heart huge  circle icon" onclick="$('.ui.review.longer.modal').modal('show');"></i>
 
             <i id="fab" class="share alternate huge  circle icon"></i>
             <div id="flowingPopup" class="ui flowing popup">
@@ -175,18 +175,18 @@
                 <a href="{{$root.pageModel.homePage.instaLink}}" target="_blank">   <i class="fab fa-instagram fa-lg" aria-hidden="true"></i> </a> <br />
 
             </div>
-            </div>
-</div>
-  
+        </div>
+    </div>
 
-    <div  class="ui review coupled longer modal">
+
+    <div class="ui review coupled longer modal">
         <div class="header">
             Site Reviews <i class="heart icon"></i>
         </div>
         <div class="scrolling  content">
             <div class="ui feed">
                 <div class="event" ng-repeat="rev in $root.pageModel.reviews" style="border-bottom:1px solid rgba(34,36,38,.15);">
-                    <div >
+                    <div>
                         <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}">
                     </div>
                     <div class="content">
@@ -197,14 +197,14 @@
                             </div>
                         </div>
                         <div class="extra text">
-                          {{rev.review}}
+                            {{rev.review}}
                         </div>
                         <div class="meta">
                             <div class="ui heart display rating" data-rating="{{rev.rating}}" data-max-rating="5"></div>
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </div>
 
@@ -212,9 +212,9 @@
             <div class="ui black deny button">
                 Close
             </div>
-            
-            
-            
+
+
+
             <div class="ui green right labeled icon button" onclick="$('.submitRev.modal').modal('show');">
                 Submit a review
                 <i class="write icon"></i>
@@ -236,19 +236,19 @@
                         Login
                     </div>
                 </center>
-                </div>
-                <div ng-show="$root.isLoggedIn">
-                    <span class="smFont" style="margin-left: 85px;">Review:</span><br />
-                 
-                    <center>
-                        <textarea style="width:80%;overflow:hidden;border-radius:6px;height:100px;font-size:12pt;" ng-model="txtReview"></textarea>
-                    </center>
-                    <div style="margin-left: 85px;">
-                        <span class="smFont">Rating: </span> <div class="ui heart submitRating rating" data-rating="5" data-max-rating="5"></div>
-                        <br />
-                    </div>
+            </div>
+            <div ng-show="$root.isLoggedIn">
+                <span class="smFont" style="margin-left: 85px;">Review:</span><br />
+
+                <center>
+                    <textarea style="width:80%;overflow:hidden;border-radius:6px;height:100px;font-size:12pt;" ng-model="txtReview"></textarea>
+                </center>
+                <div style="margin-left: 85px;">
+                    <span class="smFont">Rating: </span> <div class="ui heart submitRating rating" data-rating="5" data-max-rating="5"></div>
+                    <br />
                 </div>
             </div>
+        </div>
 
         <div class="actions" ng-show="$root.isLoggedIn">
             <div class="ui black deny button">
@@ -262,7 +262,7 @@
     </div>
 
 
- </body>
+</body>
 </html>
 <script src="https://unpkg.com/moment@2.17.1"></script>
 <script src="https://unpkg.com/interactjs@1"></script>
@@ -275,7 +275,7 @@
 <link href="https://unpkg.com/angular-bootstrap-colorpicker@3/css/colorpicker.min.css" rel="stylesheet">
 <link href="https://unpkg.com/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
 
- <!-- Angular Material requires Angular.js Libraries -->
+<!-- Angular Material requires Angular.js Libraries -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>

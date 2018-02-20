@@ -1,6 +1,6 @@
 ﻿var myApp = angular.module('myApp', ['ngMaterial', 'ngCookies', 'ngSanitize', 'ngTouch', 'mwl.calendar', 'ui.bootstrap', 'ngAnimate']);
 
-myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, PageModelFactory) {
+myApp.run(function ($rootScope, $http, $cookies, $compile, $location, $timeout, PageModelFactory) {
     $rootScope.isLoading = true;
     $rootScope.isLoggedIn = false;
     $rootScope.myID = "";
@@ -8,8 +8,8 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.StoreHours = [];
     $rootScope.daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-   //$rootScope.server = "http://localhost:56014/";   //dev
- $rootScope.server = "http://mmwirelesstechdemo1.azurewebsites.net/";   //test
+    //$rootScope.server = "http://localhost:56014/";   //dev
+    $rootScope.server = "http://mmwirelesstechdemo1.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
     $rootScope.loggedInUser = {};
@@ -23,7 +23,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
 
         var path = $location.path().toUpperCase();
         switch (path) {
-            
+
             case "/HomePageManager":
                 $rootScope.LoadPage('<adminhomepage></adminhomepage>', '</adminhomepage>');
                 break;
@@ -76,9 +76,9 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
     $rootScope.LoadPage = function (dir, key) {
 
         if ($('#pageView').html() != undefined) {
-           
+
             if (!$('#pageView').html().includes(key)) {
-                
+
                 $('#pageView').empty().append($compile(dir)($rootScope));
             }
         }
@@ -88,10 +88,10 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
                 $('#adminBody').empty().append($compile(dir)($rootScope));
             }
         }
-        $timeout(function() {
+        $timeout(function () {
             $rootScope.isLoading = false;
         }, 2000);
-     }
+    }
 
 
     $rootScope.ShowToast = function (msg, color) {
@@ -101,7 +101,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
         x.style.backgroundColor = color;
         x.className = "show";
         x.onclick = function () {
-             document.getElementById("snackbar").style.visibility = "hidden";
+            document.getElementById("snackbar").style.visibility = "hidden";
         };
         setTimeout(function () {
             x.className = x.className.replace("show", "");
@@ -109,24 +109,24 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
         }, 3000);
     }
 
-    $rootScope.PutCookie = function(key, value) {
+    $rootScope.PutCookie = function (key, value) {
         $cookies.put(key, value, {
             expires: new Date("01/01/2040")
         });
     }
     $rootScope.GetCookie = function (key) {
-         return $cookies.get(key);
+        return $cookies.get(key);
     }
- 
+
 
     if ($rootScope.GetCookie("userID") && $rootScope.GetCookie("userID") != "") {
         $rootScope.isLoggedIn = true;
         $rootScope.myID = $rootScope.GetCookie("userID");
     }
-    if ($rootScope.GetCookie("user") && $rootScope.GetCookie("user") !="") {
-            $rootScope.loggedInUser = JSON.parse($rootScope.GetCookie("user"));
+    if ($rootScope.GetCookie("user") && $rootScope.GetCookie("user") != "") {
+        $rootScope.loggedInUser = JSON.parse($rootScope.GetCookie("user"));
     }
-    
+
     $rootScope.GetWordNumber = function (num) {
         switch (num) {
             case 1:
@@ -156,7 +156,7 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location,$timeout, P
             case 9:
                 return "nine";
                 break;
-              
+
         }
     }
     function AddZero(num) {
@@ -219,13 +219,13 @@ myApp.factory('PageModelFactory', function ($http, $rootScope) {
     this.GetPageModel = function () {
         return $http.get($rootScope.server + 'PageModel.json')
              .then(function (response) {
-                  return response.data;
+                 return response.data;
              });
     };
     this.GetUsers = function () {
         return $http.get($rootScope.server + 'Users.json')
-            .then(function(response){
-            return response.data;
+            .then(function (response) {
+                return response.data;
             });
     };
 
