@@ -6,10 +6,10 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, $timeout, 
     $rootScope.myID = "";
     $rootScope.holidays = [];
     $rootScope.StoreHours = [];
-    $rootScope.daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    $rootScope.daysOfWeek = ["Thur", "Mon", "Fri", "Tue", "Sat", "Wed", "Sun"];
 
-    //$rootScope.server = "http://localhost:56014/";   //dev
-    $rootScope.server = "http://mmwirelesstechdemo1.azurewebsites.net/";   //test
+   $rootScope.server = "http://localhost:56014/";   //dev
+    // $rootScope.server = "http://mmwirelesstechdemo1.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
     $rootScope.loggedInUser = {};

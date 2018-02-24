@@ -260,7 +260,81 @@
             </div>
         </div>
     </div>
+    <center>
+        <div id="demoBanner">
 
+            <div><i class="far fa-times-circle lgFont pointer" title="hide banner" onclick="$('#demoBanner').hide(300)"></i></div>
+            <a href="https://www.mmWirelessTech.com" target="_blank" class="mdFont">This is a demo by M&M Wireless Tech. Visit our site for more demos and contact information <img src="/images/fave.png" /></a>
+
+        </div>
+    </center>
+    <style>
+        #demoBanner {
+            z-index:9999;
+        width:100vw;
+        height:40px;
+        background-color:#009D56;
+        position:fixed;
+        bottom:0;
+       color:white;
+        }
+
+        #demoBanner div {
+            width:100%;
+            max-width:1500px;
+        }
+            #demoBanner div svg {
+            float:right;
+            margin-right:20px;
+        }
+        #demoBanner a {
+            color:white;
+        line-height:40px;
+        }
+        
+        #demoBanner img {
+            width:35px;    
+         -webkit-animation-name: spinner;
+         -webkit-animation-timing-function: linear;
+         -webkit-animation-iteration-count: infinite;
+         -webkit-animation-duration: 2s;
+         animation-name: spinner;
+         animation-timing-function: linear;
+         animation-iteration-count: infinite;
+         animation-duration: 2s;
+         -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+         -ms-transform-style: preserve-3d;
+         transform-style: preserve-3d;
+     }
+
+ @-webkit-keyframes spinner {
+     from
+     {
+         -webkit-transform: rotateY(0deg);
+     }
+     to 
+     {
+         -webkit-transform: rotateY(-360deg);
+     }
+}  
+
+@keyframes spinner {
+    from
+    {
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+    to  
+    {
+         -moz-transform: rotateY(-360deg);
+         -ms-transform: rotateY(-360deg);
+         transform: rotateY(-360deg);
+     }
+}
+    </style>
 
 </body>
 </html>
