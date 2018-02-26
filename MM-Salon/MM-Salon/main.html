@@ -55,8 +55,8 @@
             $('.ui.coupled.modal').modal({ detachable: false }, { onDeny: function () { $('.ui.review.modal').modal('hide'); } }, { blurring: true }, { allowMultiple: true });
 
 
-            $('.ui.display').rating('disable');
-            $('.ui.submitRating').rating('enable');
+            $('.ui.heart.display.rating').rating('disable');
+            $('.submitRating').rating('enable');
 
             $('#fab.icon').popup(
             {
@@ -187,11 +187,13 @@
             <div class="ui feed">
                 <div class="event" ng-repeat="rev in $root.pageModel.reviews" style="border-bottom:1px solid rgba(34,36,38,.15);">
                     <div>
-                        <img class="ui avatar image" ng-src="{{'/images/'+$root.myID + '.jpg'}}">
+                        <div class="ui heart display rating" data-rating="5" data-max-rating="5"></div>
+                        <img class="ui avatar image" ng-src="{{'/images/'+rev.userID+ '.jpg'}}">
                     </div>
                     <div class="content">
                         <div class="summary">
                             {{rev.name}}
+                            
                             <div class="date">
                                 {{rev.date}}
                             </div>
@@ -199,10 +201,8 @@
                         <div class="extra text">
                             {{rev.review}}
                         </div>
-                        <div class="meta">
-                            <div class="ui heart display rating" data-rating="{{rev.rating}}" data-max-rating="5"></div>
-                        </div>
                     </div>
+                   
                 </div>
 
             </div>

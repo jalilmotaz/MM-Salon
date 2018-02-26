@@ -8,8 +8,8 @@ myApp.run(function ($rootScope, $http, $cookies, $compile, $location, $timeout, 
     $rootScope.StoreHours = [];
     $rootScope.daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
-    //$rootScope.server = "http://localhost:56014/";   //dev
-    $rootScope.server = "http://mmwirelesstechdemo1.azurewebsites.net/";   //test
+   $rootScope.server = "http://localhost:56014/";   //dev
+  //  $rootScope.server = "http://mmwirelesstechdemo1.azurewebsites.net/";   //test
 
     $rootScope.pageModel = {};
     $rootScope.loggedInUser = {};
