@@ -46,7 +46,12 @@ function procaccillax(containerID, bgImgUrl, rate) {
         $(bg).css({ 'top': '0px' }); // 0px for now because we are only using headers
         $(bg).css({ 'left': '0px' }); // 0px for now because we are only using headers
         $(bg).css({ 'height': ($(container).height() * rate) + 'px' });
-        $(bg).css({ 'width': '100%' });
+        $(bg).css({ 'width': '100vw' });
+        $(bg).css({'max-width': '1500px'});    
+        $(bg).css({ 'right': '0px' });
+        $(bg).css({ 'margin': 'auto' });
+         
+        
         var constant = ($(bg).height()) / 100;
         rate = constant * rate;
         // initial parallax
